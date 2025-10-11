@@ -1,5 +1,5 @@
-import mlf
-import numpy asimport RandomPredictor as TestPredictor
+import mlflow
+import RandomPredictor as TestPredictor
 from mlflow.models import infer_signature
 
 EXPERIMENT_ID = "Experimento-Conexión-MLFlow-Grupo57"
