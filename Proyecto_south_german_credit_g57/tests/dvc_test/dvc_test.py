@@ -1,6 +1,26 @@
 import csv
 
-ONLY_COUNT = False
+"""
+    Este ejemplo modifica la base de datos original <German South Credit>, 
+    para comprobar en un segundo momento la trazabilidad en el servicio DVC.
+    
+    Static Values
+    ----------
+    ONLY_COUNT: Boolean
+        Si está activo únicamente cuenta los registros en base de datos.
+        De lo contrario inserta un registro nuevo al final del archivo.
+        
+    ORIGINAL_COUNT: Entero
+        Línea base original de registros contados.
+        
+    DB_FILE_PATH: Cadena
+        Localización exacta del conjunto de datos.
+        
+    SYNTHETIC_RECORD:
+        Un registro estático que se insertará en el 
+        caso de ser requerido.
+"""
+ONLY_COUNT = True
 ORIGINAL_COUNT = 1000
 DB_FILE_PATH = "..\\..\\data\\raw\\german_credit_original.csv"
 SYNTHETIC_RECORD = [2, 12, 2, 3, 6468, 5, 1, 2, 3, 1, 1, 4, 52, 3, 2, 1, 4, 2, 2, 2, 0]
@@ -13,8 +33,8 @@ SYNTHETIC_RECORD = [2, 12, 2, 3, 6468, 5, 1, 2, 3, 1, 1, 4, 52, 3, 2, 1, 4, 2, 2
     Parameters
     ----------
     db_file_path: string
-        La localización exacta del archivo <German South Credit>
-        al cual se le agregará un registro al final.
+        La localización exacta del archivo <German South Credit>.
+        
     has_header: boolean
         Si el archivo tiene o no encabezados.
         Por defecto sí tiene.
@@ -44,8 +64,10 @@ def count_records_on_db(db_file_path, has_header=True):
     db_file_path: string
         La localización exacta del archivo <German South Credit>
         al cual se le agregará un registro al final.
+        
     record_data:
         El registro a ser añadido al final del archivo.
+        
     Returns
     -------
     void
@@ -73,6 +95,6 @@ if __name__ == "__main__":
         insert_record_on_db(DB_FILE_PATH, SYNTHETIC_RECORD)
 
     if ORIGINAL_COUNT == no_records:
-        print("El archivo está según el número de registros originales.")
+        print("El archivo se encuentra según el número de registros originales.")
     else:
         print("El archivo ha cambiado el número de registros originales.")
