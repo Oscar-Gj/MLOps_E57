@@ -1,0 +1,84 @@
+# ====================================================
+# ENTORNO DE ENTRENAMIENTO - PROYECTO CREDIT RISK ML
+# Autor: Equipo 57 MLOps
+# ====================================================
+
+# =============================
+# Núcleo y manejo de datos
+# =============================
+pandas==2.2.2
+numpy==1.26.4
+scipy==1.13.1
+pyyaml==6.0.2
+python-dotenv==1.0.1
+
+# =============================
+# Visualización y EDA
+# =============================
+matplotlib==3.9.2
+seaborn==0.13.2
+plotly==5.24.1
+
+# =============================
+# Machine Learning - Modelado
+# =============================
+scikit-learn==1.5.2
+xgboost==2.1.1
+catboost==1.2.5
+lightgbm==4.5.0
+
+# =============================
+# Balanceo de clases y codificación
+# =============================
+imbalanced-learn==0.12.3
+category-encoders==2.6.3
+
+# =============================
+# Versionado, monitoreo y trazabilidad (MLOps)
+# =============================
+dvc==3.50.0
+mlflow==2.15.1
+evidently==0.4.38
+deepchecks==0.18.1
+fairlearn==0.10.0
+
+# =============================
+# Explicabilidad y fairness
+# =============================
+shap==0.46.0
+lime==0.2.0.1
+
+# =============================
+# Preprocesamiento y pipelines
+# =============================
+joblib==1.4.2
+tqdm==4.66.5
+
+# =============================
+# Orquestación, testing y control de calidad
+# =============================
+cookiecutter==2.6.0
+pytest==8.3.2
+pre-commit==3.8.0
+flake8==7.1.1
+
+# =============================
+# Despliegue (opcional)
+# =============================
+fastapi==0.114.0
+uvicorn==0.30.3
+
+# =============================
+# Notebooks e interacción
+# =============================
+jupyterlab==4.2.4
+notebook==7.2.2
+ipykernel==6.29.5
+
+# =============================
+# Google Colab (entorno nube)
+# =============================
+# Estas librerías ya vienen instaladas en Colab, pero se dejan como referencia:
+# google-colab
+# google-auth
+# google-api-python-client
