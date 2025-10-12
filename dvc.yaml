@@ -1,0 +1,8 @@
+stages:
+  preprocess:
+    cmd: python data/preprocessing_data.py
+    deps:
+    - data/preprocessing_data.py
+    - data/raw/german_credit_modified.csv
+    outs:
+    - data/processed/data_preprocessedad.csv
