@@ -1,9 +1,10 @@
 import mlflow
 import RandomPredictor as TestPredictor
 from mlflow.models import infer_signature
+from google.cloud import storage
 
 EXPERIMENT_ID = "Experimento-Conexión-MLFlow-Grupo57"
-MLFLOW_SERVER_URI = "https://mlflow-super-137680020436.us-central1.run.app"
+MLFLOW_SERVER_URI_WITH_POSTGRE_SQL = "https://mlflow-g57-superior-137680020436.us-central1.run.app"
 
 """
     Prueba la conexión con el servidor MLFlow Remoto.
@@ -48,6 +49,9 @@ def test_mlflow_remote(mlflow_uri, experiment_id):
             {"Training Info": "Prueba Exitosa"}
         )
 
+    mlflow.end_run()
+
 
 if __name__ == "__main__":
-    test_mlflow_remote(MLFLOW_SERVER_URI, EXPERIMENT_ID)
+    storage_client = storage.Client(project="laboratorio1-447417")
+    test_mlflow_remote(MLFLOW_SERVER_URI_WITH_POSTGRE_SQL, EXPERIMENT_ID)
