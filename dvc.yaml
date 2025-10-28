@@ -2,8 +2,8 @@ stages:
   validar_raw:
     cmd: python data/validar_raw.py
     deps:
-      - data/validar_raw.py
-      - data/raw/german_credit_modified.csv
-      - data/diccionario_columnas.csv
+    - data/diccionario_columnas.csv
+    - data/raw/german_credit_modified.csv
+    - data/validar_raw.py
     outs:
-      - data/interim/german_credit_validado.csv
+    - data/interim/german_credit_validado.csv

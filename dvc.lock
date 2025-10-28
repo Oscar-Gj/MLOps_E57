@@ -13,8 +13,8 @@ stages:
       size: 96764
     - path: data/validar_raw.py
       hash: md5
-      md5: 4bd1f1373190a9e85087785244c382f2
-      size: 4452
+      md5: 5c8e61034995f985f9b17b351412e2f3
+      size: 4490
     outs:
     - path: data/interim/german_credit_validado.csv
       hash: md5
