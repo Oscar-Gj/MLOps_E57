@@ -1,0 +1,5 @@
+outs:
+- md5: 9dc821ce66729cf3327d16ac65910a24
+  size: 441
+  hash: md5
+  path: diccionario_columnas.csv
