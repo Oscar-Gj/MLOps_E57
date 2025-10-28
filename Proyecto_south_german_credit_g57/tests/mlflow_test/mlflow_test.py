@@ -4,7 +4,7 @@ from mlflow.models import infer_signature
 from google.cloud import storage
 
 EXPERIMENT_ID = "Experimento-Conexión-MLFlow-Grupo57"
-MLFLOW_SERVER_URI_WITH_POSTGRE_SQL = "https://mlflow-super-postgresql-137680020436.us-central1.run.app"
+MLFLOW_SERVER_URI_WITH_POSTGRE_SQL = "https://mlflow-super-g57-137680020436.us-central1.run.app"
 
 """
     Prueba la conexión con el servidor MLFlow Remoto.
