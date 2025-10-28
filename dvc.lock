@@ -1,0 +1,22 @@
+schema: '2.0'
+stages:
+  validar_raw:
+    cmd: python data/validar_raw.py
+    deps:
+    - path: data/diccionario_columnas.csv
+      hash: md5
+      md5: 9dc821ce66729cf3327d16ac65910a24
+      size: 441
+    - path: data/raw/german_credit_modified.csv
+      hash: md5
+      md5: be16965e43fda504d3406a0e51559da6
+      size: 96764
+    - path: data/validar_raw.py
+      hash: md5
+      md5: 4bd1f1373190a9e85087785244c382f2
+      size: 4452
+    outs:
+    - path: data/interim/german_credit_validado.csv
+      hash: md5
+      md5: 47bfda3d62252b12193b3d810d1b6c86
+      size: 97763
