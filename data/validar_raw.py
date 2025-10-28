@@ -94,10 +94,12 @@ class RawDataValidator:
         self.guardar_validado()
 
 if __name__ == "__main__":
-    base_dir = os.path.dirname(os.path.abspath(__file__))
-    ruta_raw = os.path.join(base_dir, "../data/raw/german_credit_modified.csv")
-    ruta_diccionario = os.path.join(base_dir, "../data/diccionario_columnas.csv")
-    ruta_validado = os.path.join(base_dir, "../data/interim/german_credit_validado.csv")
+    project_root = os.getcwd()  # raíz del proyecto donde está dvc.yaml
+    ruta_raw = os.path.join(project_root, "data", "raw", "german_credit_modified.csv")
+    ruta_diccionario = os.path.join(project_root, "data", "diccionario_columnas.csv")
+    ruta_validado = os.path.join(project_root, "data", "interim", "german_credit_validado.csv")
+
     validador = RawDataValidator(ruta_raw, ruta_diccionario, ruta_validado)
     validador.ejecutar()
+
 
