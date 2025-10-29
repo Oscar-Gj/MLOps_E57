@@ -65,13 +65,10 @@ try:
 except Exception:
     HAVE_XGB = False
 
-# --- Configuración global ---
-RANDOM_STATE = 42
-np.random.seed(RANDOM_STATE)
 
 # --- Warnings y estilo ---
 warnings.filterwarnings("ignore", category=UserWarning)
 warnings.filterwarnings("ignore", message="This Pipeline instance is not fitted yet")
 sns.set_style("whitegrid")
 
-print("✅ Librerías cargadas y entorno base inicializado correctamente.")
+print("Librerías cargadas y entorno base inicializado correctamente.")
