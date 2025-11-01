@@ -6,7 +6,7 @@
 # =============================
 # Núcleo y manejo de datos
 # =============================
-pandas==2.2.2
+pandas==2.3.0
 numpy==1.26.4
 scipy==1.13.1
 pyyaml==6.0.2
@@ -22,7 +22,7 @@ plotly==5.24.1
 # =============================
 # Machine Learning - Modelado
 # =============================
-scikit-learn==1.5.2
+scikit-learn==1.7.1
 xgboost==2.1.1
 catboost==1.2.5
 lightgbm==4.5.0
@@ -74,11 +74,3 @@ uvicorn==0.30.3
 jupyterlab==4.2.4
 notebook==7.2.2
 ipykernel==6.29.5
-
-# =============================
-# Google Colab (entorno nube)
-# =============================
-# Estas librerías ya vienen instaladas en Colab, pero se dejan como referencia:
-# google-colab
-# google-auth
-# google-api-python-client
