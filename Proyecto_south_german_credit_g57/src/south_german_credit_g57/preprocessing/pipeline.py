@@ -77,5 +77,5 @@ def build_pipeline(numeric_features, categorical_features, model_params):
         ('classifier', model)
     ])
 
-    logger.info("✅ Pipeline construido correctamente.")
+    logger.info("Pipeline construido correctamente.")
     return pipeline
