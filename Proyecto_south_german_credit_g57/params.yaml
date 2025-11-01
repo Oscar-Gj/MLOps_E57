@@ -9,8 +9,8 @@ base:
 # 1. RUTAS DE DATOS
 # -------------------------------------------------
 data:
-  raw: "data/raw/german_credit_modified.csv"
-  processed: "data/processed/credit_risk_processed.csv"
+  raw: "data/processed/02_df_data_preparation_01.parquet"
+  processed: "data/processed/02_df_data_preparation_01.parquet"
 
 # -------------------------------------------------
 # 2. PARÁMETROS DE LIMPIEZA DE DATOS
@@ -39,9 +39,9 @@ data_cleaning:
     - 'telephone'
     - 'foreign_worker'
     - 'credit_risk'
-    - 'mixed'
+   
   drop_cols:
-    - 'mixed'
+   
   # Corrección de outliers y errores en variables numéricas
   outlier_caps:
     duration: 72
