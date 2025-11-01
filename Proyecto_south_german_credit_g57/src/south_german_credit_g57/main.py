@@ -1,109 +1,105 @@
-
-# main.py
-# -------------------------------------
-# Orquestador principal del proyecto de Machine Learning.
-
-# Este script ejecuta de manera automatizada el pipeline completo de modelado
-# para el dataset South German Credit. Integra las etapas de preparación de datos,
-# preprocesamiento, muestreo, modelado, evaluación y registro en MLflow.
-
-# Autor: Equipo G57
-# Versión: 1.0
-###
-
-
 # ==========================================================
-#  Importaciones de librerías y módulos del proyecto
+# MAIN PIPELINE EXECUTION - FASE 3 (Entrenamiento con Pipeline)
 # ==========================================================
-import warnings
-warnings.filterwarnings("ignore")
 
-from seed import set_seed, get_random_state
-from prepare_data import load_dataset, prepare_dataset
-from preprocessors import build_preprocessor
-from pipeline_utils import train_and_log_model
+# --- Configuración del entorno y rutas ---
+import sys, os
+src_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "../"))
+if src_path not in sys.path:
+    sys.path.insert(0, src_path)
+print(f"Carpeta SRC agregada al PYTHONPATH: {src_path}")
 
-from imblearn.over_sampling import SMOTE
-from sklearn.linear_model import LogisticRegression
+# --- Imports del proyecto ---
+from south_german_credit_g57.libraries import *
+from south_german_credit_g57.preprocessing.clean_data import load_data, clean_data
+from south_german_credit_g57.preprocessing.pipeline import build_pipeline
 
-# ==========================================================
-# Configuración general
-# ==========================================================
-# Establecer semilla global para reproducibilidad
-set_seed()
-RANDOM_STATE = get_random_state()
 
-# Definir ruta del dataset Parquet
-DATA_PATH = "data/03_df_eda_01.parquet"
+# =============================================================
+# Configuración de conexión a servidor MLflow remoto
+# =============================================================
+MLFLOW_TRACKING_URI = "https://mlflow-super-g57-137680020436.us-central1.run.app"
+EXPERIMENT_NAME = "Experimento-Conexión-MLFlow-Grupo57"
 
-# Nombre del experimento en MLflow
-EXPERIMENT_NAME = "CreditRisk_MLOps_G57"
+mlflow.set_tracking_uri(MLFLOW_TRACKING_URI)
+mlflow.set_experiment(EXPERIMENT_NAME)
+client = MlflowClient(tracking_uri=MLFLOW_TRACKING_URI)
 
-# ==========================================================
-#  Carga y preparación del dataset
-# ==========================================================
-print("\n Cargando y preparando los datos...")
-df = load_dataset(DATA_PATH)
+# --- Configurar logger ---
+logger = get_logger("MainPipeline")
 
-# Definir columnas (las mismas que usaste en tus módulos)
-num_cols = ["duration", "amount", "installment_rate", "present_residence", "age"]
-cat_cols = ["credit_history", "purpose", "savings", "employment_duration", "other_debtors"]
-ord_cols = ["personal_status_sex", "property", "housing", "job", "foreign_worker"]
 
-X_train, X_test, y_train, y_test, X_all, y_all = prepare_dataset(
-    df=df,
-    target_col="credit_risk",
-    num_cols=num_cols,
-    cat_cols=cat_cols,
-    ord_cols=ord_cols,
-    test_size=0.3,
-    random_state=RANDOM_STATE
-)
+def main():
+    # 1️⃣ Cargar parámetros
+    with open("params.yaml", "r", encoding="utf-8") as f:
+        params = yaml.safe_load(f)
 
-print(" Datos cargados y divididos correctamente.")
+    # 2️⃣ Cargar y limpiar datos
+    df = load_data(params["data"]["raw"])
+    df = clean_data(df, params)
 
-# ==========================================================
-#  Construcción del preprocesador
-# ==========================================================
-print("\n Construyendo preprocesador de variables...")
-preprocessor = build_preprocessor(
-    num_cols=num_cols,
-    cat_cols=cat_cols,
-    ord_cols=ord_cols
-)
-print(" Preprocesador listo.")
+    # 3️⃣ Separar features y target
+    target_col = params["base"]["target_col"]
+    X = df.drop(columns=[target_col])
+    y = df[target_col]
 
-# ==========================================================
-#  Definición del modelo y método de muestreo
-# ==========================================================
-print("\n Definiendo modelo y técnica de balanceo...")
-model = LogisticRegression(
-    solver="saga",
-    max_iter=3000,
-    penalty="l2",
-    C=0.1,
-    class_weight="balanced",
-    random_state=RANDOM_STATE
-)
-sampler = SMOTE(random_state=RANDOM_STATE)
-print(" Configuración de modelo y muestreo completada.")
+    # 4️⃣ Dividir dataset
+    X_train, X_test, y_train, y_test = train_test_split(
+        X,
+        y,
+        test_size=params["preprocessing"]["test_size"],
+        random_state=params["preprocessing"]["random_state"],
+        stratify=y,
+    )
 
-# ==========================================================
-#  Entrenamiento, validación y registro automático en MLflow
-# ==========================================================
-print("\n Iniciando entrenamiento y registro en MLflow...")
+    # 5️⃣ Definir columnas y modelo desde YAML
+    numeric_features = params["features"]["numeric"] + params["features"]["ordinal"]
+    categorical_features = params["features"].get("categorical", [])
+    model_params = params["experiments"]["rf"]["model_params"]  # Random Forest
 
-train_and_log_model(
-    model=model,
-    model_name="LogisticRegression_SMOTE",
-    X=X_all,
-    y=y_all,
-    preprocessor=preprocessor,
-    sampler=sampler,
-    experiment_name=EXPERIMENT_NAME,
-    random_state=RANDOM_STATE
-)
+    # 6️⃣ Construir Pipeline
+    pipeline = build_pipeline(
+        numeric_features=numeric_features,
+        categorical_features=categorical_features,
+        model_params=model_params,
+    )
 
-print("\nEjecución completada con éxito.")
-print(" Los resultados se registraron en MLflow correctamente.")
-print(" Pipeline reproducible ejecutado sin errores.")
+    # =============================================================
+    #  ENTRENAMIENTO, EVALUACIÓN Y REGISTRO EN MLFLOW
+    # =============================================================
+    with mlflow.start_run(run_name="CreditRisk_RF_Pipeline"):
+        logger.info("Entrenando pipeline...")
+        pipeline.fit(X_train, y_train)
+
+        logger.info("Evaluando pipeline...")
+        y_pred = pipeline.predict(X_test)
+
+        # --- Métricas ---
+        acc = accuracy_score(y_test, y_pred)
+        prec = precision_score(y_test, y_pred)
+        rec = recall_score(y_test, y_pred)
+        f1 = f1_score(y_test, y_pred)
+
+        print("\n📊 RESULTADOS:")
+        print(classification_report(y_test, y_pred))
+
+        # --- Log de métricas en el servidor MLflow ---
+        mlflow.log_metric("accuracy", acc)
+        mlflow.log_metric("precision", prec)
+        mlflow.log_metric("recall", rec)
+        mlflow.log_metric("f1_score", f1)
+
+        # --- Log de parámetros ---
+        mlflow.log_params(model_params)
+
+        # --- Guardar modelo solo en local ---
+        local_model_path = "models/pipeline_credit.pkl"
+        Path("models").mkdir(exist_ok=True)
+        joblib.dump(pipeline, local_model_path)
+        logger.info(f"✅ Modelo guardado localmente en '{local_model_path}'.")
+
+        logger.info("✅ Métricas registradas en MLflow remoto (sin subir modelo).")
+
+
+if __name__ == "__main__":
+    main()
