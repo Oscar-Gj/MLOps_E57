@@ -16,9 +16,15 @@ def load_config(config_path: str) -> Dict:
         return yaml.safe_load(f)
 
 def load_data(path: str) -> pd.DataFrame:
-    """Carga los datos crudos desde un CSV."""
-    logger.info(f"Cargando datos crudos desde: {path}")
-    return pd.read_csv(path)
+    """Carga los datos desde CSV o Parquet automáticamente."""
+    logger.info(f"Cargando datos desde: {path}")
+    if path.endswith(".csv"):
+        return pd.read_csv(path)
+    elif path.endswith(".parquet"):
+        return pd.read_parquet(path)
+    else:
+        raise ValueError("Formato no soportado. Usa .csv o .parquet")
+
 
 def clean_data(df: pd.DataFrame, config: Dict) -> pd.DataFrame:
     """
@@ -33,10 +39,14 @@ def clean_data(df: pd.DataFrame, config: Dict) -> pd.DataFrame:
     rename_cols = config['data_cleaning']['rename_cols']
     df_clean.columns = rename_cols
 
-    # 2. Eliminar columnas innecesarias (según celda [45])
-    drop_cols = config['data_cleaning']['drop_cols']
-    df_clean = df_clean.drop(columns=drop_cols)
-    logger.info(f"Columnas eliminadas: {drop_cols}")
+    # 2. Eliminar columnas innecesarias solo si existen
+    drop_cols = config['data_cleaning'].get('drop_cols', [])
+    if drop_cols:
+        df_clean = df_clean.drop(columns=drop_cols)
+        logger.info(f"Columnas eliminadas: {drop_cols}")
+    else:
+        logger.info("No hay columnas para eliminar.")
+
 
     # 3. Definir listas de features y target
     target = config['base']['target_col']
@@ -54,6 +64,8 @@ def clean_data(df: pd.DataFrame, config: Dict) -> pd.DataFrame:
     for col in obj_cols:
         if col in df_clean.columns:
             df_clean[col] = df_clean[col].astype(str).str.strip()
+            df_clean[num_cols] = df_clean[num_cols].astype(float)
+
 
     # 6. Convertir columnas numéricas, forzando errores a NaN (según celda [47])
     for col in num_cols:
