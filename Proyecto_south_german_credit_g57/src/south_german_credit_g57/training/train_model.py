@@ -11,19 +11,17 @@ import warnings
 
 from typing import List, Dict, Any, Tuple
 
-# --- Importaciones de SciKit-Learn y Librerías de ML ---
-
 # Preprocesamiento
 from sklearn.base import BaseEstimator, TransformerMixin
-from sklearn.model_selection import train_test_split, RepeatedStratifiedKFold, cross_validate
+from sklearn.model_selection import RepeatedStratifiedKFold, cross_validate
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.impute import SimpleImputer
-from category_encoders import BinaryEncoder # Asegúrate de tener 'category-encoders' instalado
+from category_encoders import BinaryEncoder
 from sklearn.preprocessing import PowerTransformer
 
-# Modelos (basados en el notebook)
+# Modelos
 from sklearn.linear_model import LogisticRegression
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.tree import DecisionTreeClassifier
@@ -45,34 +43,12 @@ from imblearn.metrics import geometric_mean_score
 
 from mlflow.models.signature import infer_signature
 
-# Ignorar el warning de category_encoders
-warnings.filterwarnings("ignore", message="No categorical columns found.*")
-# Ignorar el warning de pipeline no ajustado de scikit-learn/imblearn
-warnings.filterwarnings("ignore", message="This Pipeline instance is not fitted yet.*")
-
+# Ignorar warnings
+warnings.filterwarnings("ignore")
+warnings.simplefilter("ignore")
 # --- Configuración del Logger ---
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
-
-# -----------------------------------------------------------------
-# CLASE WRAPPER (Copiada del Notebook, Celda [71])
-# -----------------------------------------------------------------
-
-class BinaryEncoderWrapper(BaseEstimator, TransformerMixin):
-    """
-    Wrapper para BinaryEncoder. Ya que se usa dentro de un ColumnTransformer,
-    codifica todas las columnas que recibe (cols=None).
-    """
-    def __init__(self):
-        # cols=None le dice al encoder que transforme todas las columnas de entrada
-        self.binary_encoder = BinaryEncoder(cols=None, handle_unknown='value', handle_missing='value')
-
-    def fit(self, X, y=None):
-        self.binary_encoder.fit(X, y)
-        return self
-
-    def transform(self, X):
-        return self.binary_encoder.transform(X)
 
 # -----------------------------------------------------------------
 # FUNCIONES DE PREPROCESAMIENTO (Basadas en Notebook, Celda [72])
@@ -97,13 +73,13 @@ def create_preprocessing_pipeline(config: Dict) -> ColumnTransformer:
     # Pipeline Categórico (Nominal)
     nominales_pipe = Pipeline(steps=[
         ('imputer', SimpleImputer(strategy='most_frequent')),
-        ('binary_encoder', BinaryEncoderWrapper())
+        ('binary_encoder', BinaryEncoder(handle_unknown='value', handle_missing='value'))
     ])
 
     # Pipeline Categórico (Ordinal)
     ordinales_pipe = Pipeline(steps=[
         ('imputer', SimpleImputer(strategy='most_frequent')),
-        ('binary_encoder', BinaryEncoderWrapper())
+        ('binary_encoder', BinaryEncoder(handle_unknown='value', handle_missing='value'))
     ])
 
     # Ensamblaje del ColumnTransformer
@@ -127,15 +103,16 @@ def load_config(config_path: str) -> Dict:
     with open(config_path, 'r') as f:
         return yaml.safe_load(f)
 
-def load_processed_data(path: str) -> Tuple[pd.DataFrame, pd.Series]:
-    """Carga los datos procesados y los divide en X, y."""
-    logger.info(f"Cargando datos procesados desde: {path}")
+def load_training_data(path: str, target_col: str) -> Tuple[pd.DataFrame, pd.Series]:
+    """
+    Carga los datos de entrenamiento (train.csv) y los divide en X, y.
+    """
+    logger.info(f"Cargando datos de entrenamiento desde: {path}")
     df = pd.read_csv(path)
-    target_col = 'credit_risk' # Asumimos que el target está en el YAML, pero es más seguro hardcodearlo
     
     X = df.drop(columns=[target_col])
     y = df[target_col]
-    logger.info(f"Datos cargados. Shape de X: {X.shape}, Shape de y: {y.shape}")
+    logger.info(f"Datos de entrenamiento cargados. Shape de X: {X.shape}, Shape de y: {y.shape}")
     return X, y
 
 def get_sampler(name: str, params: Dict) -> Any:
@@ -193,21 +170,15 @@ def main(config_path: str):
     Carga datos, crea pipelines, itera sobre experimentos
     y registra todo en MLflow.
     """
-    # 1. Cargar Configuración y Datos
+    # 1. Cargar Configuración y Datos de Entrenamiento
     config = load_config(config_path)
-    X, y = load_processed_data(config['data']['processed'])
-
-    # 2. Dividir en Train/Test
-    split_params = config['preprocessing']
-    X_train, X_test, y_train, y_test = train_test_split(
-        X, y,
-        test_size=split_params['test_size'],
-        random_state=split_params['random_state'],
-        stratify=y
+    X_train, y_train = load_training_data(
+        config['data']['train'],
+        config['base']['target_col']
     )
-    logger.info(f"Datos divididos: X_train shape {X_train.shape}, X_test shape {X_test.shape}")
+    logger.info(f"Datos de entrenamiento listos: X_train shape {X_train.shape}")
 
-    # 3. Crear Artefactos Reutilizables
+    # 2. Crear Artefactos Reutilizables
     preprocessor = create_preprocessing_pipeline(config)
     
     eval_config = config['evaluation']
@@ -219,13 +190,12 @@ def main(config_path: str):
     
     scoring = get_scoring_dict(eval_config['metrics'])
 
-    # 4. Configurar Experimento MLflow
-    # mlflow.set_experiment("CreditRisk_Experiments")
+    # 3. Configurar Experimento MLflow
     mlflow.set_tracking_uri(config['mlflow']['tracking_uri'])
     mlflow.set_experiment(config['mlflow']['experiment_name'])
     logger.info("Iniciando bucle de experimentos...")
 
-    # 5. Bucle de Experimentos (el núcleo del script)
+    # 4. Bucle de Experimentos (el núcleo del script)
     for experiment_key, exp_config in config['experiments'].items():
         
         model_name = exp_config['name']
@@ -285,7 +255,7 @@ def main(config_path: str):
                     sk_model=full_pipeline,
                     artifact_path="model_pipeline", 
                     signature=signature,
-                    input_example=X_train.iloc[:5], # Buena práctica
+                    input_example=X_train.iloc[:5],
                     registered_model_name=f"{model_name}_model"
                 )
                 
