@@ -30,20 +30,20 @@ logger = get_logger("MainPipeline")
 
 
 def main():
-    # 1️⃣ Cargar parámetros
+    # Cargar parámetros
     with open("params.yaml", "r", encoding="utf-8") as f:
         params = yaml.safe_load(f)
 
-    # 2️⃣ Cargar y limpiar datos
+    # Cargar y limpiar datos
     df = load_data(params["data"]["raw"])
     df = clean_data(df, params)
 
-    # 3️⃣ Separar features y target
+    # Separar features y target
     target_col = params["base"]["target_col"]
     X = df.drop(columns=[target_col])
     y = df[target_col]
 
-    # 4️⃣ Dividir dataset
+    # Dividir dataset
     X_train, X_test, y_train, y_test = train_test_split(
         X,
         y,
@@ -52,12 +52,12 @@ def main():
         stratify=y,
     )
 
-    # 5️⃣ Definir columnas y modelo desde YAML
+    # Definir columnas y modelo desde YAML
     numeric_features = params["features"]["numeric"] + params["features"]["ordinal"]
     categorical_features = params["features"].get("categorical", [])
     model_params = params["experiments"]["rf"]["model_params"]  # Random Forest
 
-    # 6️⃣ Construir Pipeline
+    # Construir Pipeline
     pipeline = build_pipeline(
         numeric_features=numeric_features,
         categorical_features=categorical_features,
@@ -80,7 +80,7 @@ def main():
         rec = recall_score(y_test, y_pred)
         f1 = f1_score(y_test, y_pred)
 
-        print("\n📊 RESULTADOS:")
+        print("\nRESULTADOS:")
         print(classification_report(y_test, y_pred))
 
         # --- Log de métricas en el servidor MLflow ---
@@ -96,9 +96,9 @@ def main():
         local_model_path = "models/pipeline_credit.pkl"
         Path("models").mkdir(exist_ok=True)
         joblib.dump(pipeline, local_model_path)
-        logger.info(f"✅ Modelo guardado localmente en '{local_model_path}'.")
+        logger.info(f"Modelo guardado localmente en '{local_model_path}'.")
 
-        logger.info("✅ Métricas registradas en MLflow remoto (sin subir modelo).")
+        logger.info("Métricas registradas en MLflow remoto (sin subir modelo).")
 
 
 if __name__ == "__main__":
