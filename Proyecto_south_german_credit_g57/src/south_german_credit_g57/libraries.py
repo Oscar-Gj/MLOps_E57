@@ -1,3 +1,4 @@
+
 # ====================================================
 # LIBRO DE LIBRERÍAS - PROYECTO CREDIT RISK ML
 # Autor: Equipo 57 MLOps
@@ -36,7 +37,7 @@ from sklearn.metrics import (
     accuracy_score, precision_score, recall_score, f1_score,
     roc_auc_score, confusion_matrix, classification_report
 )
-
+from sklearn.preprocessing import FunctionTransformer
 # =============================
 # Modelado y algoritmos
 # =============================
@@ -55,16 +56,20 @@ from imblearn.over_sampling import SMOTE
 from imblearn.pipeline import Pipeline as ImbPipeline
 
 # =============================
-# Versionado, monitoreo y trazabilidad
+# Versionado y trazabilidad (opcional para Fase 4+)
 # =============================
 import mlflow
+from mlflow import MlflowClient
 import dvc.api
-from evidently import ColumnMapping, Report
-from deepchecks.tabular import Dataset, Suite
-from fairlearn.metrics import MetricFrame, selection_rate
+# ⚠️ Estos se usan en Fase 5, se dejan comentados para evitar errores
+# from evidently.report import Report
+# from evidently.metric_preset import DataDriftPreset
+# from evidently import ColumnMapping
+# from deepchecks.tabular import Dataset, Suite
+# from fairlearn.metrics import MetricFrame, selection_rate
 
 # =============================
-# Explicabilidad
+# Explicabilidad (opcional)
 # =============================
 import shap
 import lime
