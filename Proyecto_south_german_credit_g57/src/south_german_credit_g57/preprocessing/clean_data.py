@@ -4,6 +4,7 @@ import yaml
 import argparse
 import logging
 from typing import List, Dict, Any
+from sklearn.model_selection import train_test_split
 
 # Configurar un logger simple
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -64,9 +65,8 @@ def clean_data(df: pd.DataFrame, config: Dict) -> pd.DataFrame:
     for col in obj_cols:
         if col in df_clean.columns:
             df_clean[col] = df_clean[col].astype(str).str.strip()
-            df_clean[num_cols] = df_clean[num_cols].astype(float)
-
-
+            # df_clean[num_cols] = df_clean[num_cols].astype(float) # -> Esta línea estaba mal ubicada en tu original, la comento/muevo
+    
     # 6. Convertir columnas numéricas, forzando errores a NaN (según celda [47])
     for col in num_cols:
         df_clean[col] = pd.to_numeric(df_clean[col], errors='coerce')
@@ -111,10 +111,44 @@ def clean_data(df: pd.DataFrame, config: Dict) -> pd.DataFrame:
     logger.info(f"Limpieza finalizada. Shape final: {df_clean.shape}")
     return df_clean
 
-def save_data(df: pd.DataFrame, path: str):
-    """Guarda el DataFrame limpio en la carpeta de procesados."""
-    logger.info(f"Guardando datos procesados en: {path}")
-    df.to_csv(path, index=False)
+def save_data(df: pd.DataFrame, config: Dict):
+    """
+    Guarda el DataFrame limpio completo y también lo divide
+    en train/test para los siguientes pasos del pipeline.
+    """
+    processed_path = config['data']['processed']
+    train_path = config['data']['train']
+    test_path = config['data']['test']
+    target = config['base']['target_col']
+    split_params = config['preprocessing']
+    
+    # 1. Guardar el dataset procesado completo
+    logger.info(f"Guardando datos procesados completos en: {processed_path}")
+    df.to_csv(processed_path, index=False)
+    
+    # 2. Dividir los datos
+    logger.info(f"Dividiendo datos en Train y Test...")
+    X = df.drop(columns=[target])
+    y = df[target]
+    
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y,
+        test_size=split_params['test_size'],
+        random_state=split_params['random_state'],
+        stratify=y
+    )
+    
+    # 3. Re-combinar X e y para guardarlos como CSV
+    df_train = pd.concat([X_train, y_train], axis=1)
+    df_test = pd.concat([X_test, y_test], axis=1)
+    
+    # 4. Guardar archivos de train y test
+    logger.info(f"Guardando datos de entrenamiento en: {train_path}")
+    df_train.to_csv(train_path, index=False)
+    
+    logger.info(f"Guardando datos de prueba en: {test_path}")
+    df_test.to_csv(test_path, index=False)
+
 
 def main(config_path: str):
     """Orquestador principal para cargar, limpiar y guardar los datos."""
@@ -123,7 +157,8 @@ def main(config_path: str):
         
         df_raw = load_data(config['data']['raw'])
         df_clean = clean_data(df_raw, config)
-        save_data(df_clean, config['data']['processed'])
+        
+        save_data(df_clean, config)
         
         logger.info("Proceso de limpieza completado exitosamente.")
         
