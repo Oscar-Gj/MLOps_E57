@@ -9,8 +9,10 @@ base:
 # 1. RUTAS DE DATOS
 # -------------------------------------------------
 data:
-  raw: "data/processed/02_df_data_preparation_01.parquet"
-  processed: "data/processed/02_df_data_preparation_01.parquet"
+  raw: "data/raw/german_credit_modified.csv"
+  processed: "data/processed/02_df_data_preparation_01.csv"
+  train: 'data/processed/02_df_data_train_01.csv'
+  test: 'data/processed/02_df_data_test_01.csv'
 
 # -------------------------------------------------
 # 2. PARÁMETROS DE LIMPIEZA DE DATOS
@@ -39,9 +41,10 @@ data_cleaning:
     - 'telephone'
     - 'foreign_worker'
     - 'credit_risk'
-   
+    - 'mixed'
   drop_cols:
-   
+    - 'mixed'
+
   # Corrección de outliers y errores en variables numéricas
   outlier_caps:
     duration: 72
@@ -83,7 +86,7 @@ features:
 # 4. PARÁMETROS DE DIVISIÓN DE DATOS (SPLIT)
 # -------------------------------------------------
 preprocessing:
-  test_size: 0.30
+  test_size: 0.3
   random_state: 1 # Heredado de `base.random_state`
 
 # -------------------------------------------------
