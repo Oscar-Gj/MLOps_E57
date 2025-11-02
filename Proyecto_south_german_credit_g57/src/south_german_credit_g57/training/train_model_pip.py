@@ -3,15 +3,62 @@
 # ==========================================================
 
 # --- Imports base desde tu archivo de librerías ---
-from south_german_credit_g57.libraries import *     
+from south_german_credit_g57.libraries import *
+from sklearn.preprocessing import MinMaxScaler, PowerTransformer, StandardScaler, OneHotEncoder, OrdinalEncoder
+from sklearn.impute import SimpleImputer
+from sklearn.compose import ColumnTransformer
+from sklearn.pipeline import Pipeline
+from category_encoders import BinaryEncoder
+from sklearn.model_selection import RepeatedStratifiedKFold, GridSearchCV, cross_validate
+from sklearn.metrics import make_scorer, precision_score, recall_score, f1_score
+from imblearn.over_sampling import SMOTE
+from imblearn.under_sampling import NearMiss
+from imblearn.combine import SMOTEENN,SMOTETomek
+
+from imblearn.pipeline import Pipeline as ImbPipeline
+
+# Modelos de clasificación
+from sklearn.linear_model import LogisticRegression
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.neural_network import MLPClassifier
+from sklearn.svm import SVC
+from xgboost import XGBClassifier
 
 # --- Utilidades internas del proyecto ---
 from south_german_credit_g57.utils.logger import get_logger
-from south_german_credit_g57.evaluation.metrics import calculate_classification_metrics
+from south_german_credit_g57.evaluation.metrics_module import calculate_classification_metrics
+from sklearn.base import BaseEstimator, TransformerMixin
+from typing import Dict, Tuple
+from pathlib import Path
+import chardet
+import warnings
+import os
+import yaml
+import numpy as np
+import mlflow
+from mlflow.models.signature import infer_signature
+from imblearn.metrics import geometric_mean_score
 
 # --- Configuración inicial ---
 logger = get_logger("TrainModel")
 warnings.filterwarnings("ignore")
+
+# ==========================================================
+# RUTAS DINÁMICAS
+# ==========================================================
+CURRENT_DIR = Path(__file__).resolve().parent
+PROJECT_ROOT = CURRENT_DIR.parents[2]  # sube hasta la raíz del proyecto
+DATA_DIR = PROJECT_ROOT / "data"
+
+def resolve_path(relative_path: str) -> Path:
+    """Convierte rutas relativas a absolutas desde la raíz del proyecto."""
+    path = Path(relative_path)
+    if not path.is_absolute():
+        path = PROJECT_ROOT / path
+    return path
+
 
 # ==========================================================
 # CLASE AUXILIAR
@@ -31,18 +78,40 @@ class BinaryEncoderWrapper(BaseEstimator, TransformerMixin):
         X_ = X.copy().astype(str)
         return self.encoder.transform(X_)
 
+
 # ==========================================================
 # FUNCIONES BASE
 # ==========================================================
 def load_config(path: str) -> Dict:
+    """Carga el archivo de configuración YAML asegurando UTF-8."""
     logger.info(f"Cargando configuración desde {path}")
-    with open(path, "r") as f:
+    p = Path(path)
+    raw = p.read_bytes()
+    enc_info = chardet.detect(raw)
+    detected_enc = enc_info.get("encoding", "utf-8")
+
+    if detected_enc.lower() != "utf-8":
+        logger.warning(f"Archivo {path} detectado en {detected_enc}. Corrigiendo a UTF-8...")
+        text = raw.decode(detected_enc, errors="ignore")
+        p.write_text(text, encoding="utf-8")
+        logger.info(f"{path} reescrito correctamente en UTF-8.")
+
+    with open(path, "r", encoding="utf-8") as f:
         return yaml.safe_load(f)
 
+
 def load_data(path: str, target_col: str) -> Tuple[pd.DataFrame, pd.Series]:
-    logger.info(f"Leyendo dataset desde {path}")
-    df = pd.read_csv(path)
+    """Carga los datos desde CSV o Parquet usando rutas dinámicas."""
+    full_path = resolve_path(path)
+    logger.info(f"Leyendo dataset desde {full_path}")
+    if not full_path.exists():
+        raise FileNotFoundError(f"No se encontró el archivo: {full_path}")
+    if full_path.suffix == ".parquet":
+        df = pd.read_parquet(full_path)
+    else:
+        df = pd.read_csv(full_path)
     return df.drop(columns=[target_col]), df[target_col]
+
 
 def create_preprocessor(config: Dict) -> ColumnTransformer:
     cfg = config["preprocessing"]
@@ -68,6 +137,7 @@ def create_preprocessor(config: Dict) -> ColumnTransformer:
         ("ord", ord_pipe, cfg["ordinal"]["features"])
     ], remainder="drop")
 
+
 def get_model_class(name: str):
     models = {
         "LogisticRegression": LogisticRegression,
@@ -80,9 +150,16 @@ def get_model_class(name: str):
     }
     return models[name]
 
+
 def get_sampler_class(name: str):
-    samplers = {"SMOTE": SMOTE, "SMOTEENN": SMOTEENN, "NearMiss": NearMiss, "SMOTETomek": SMOTETomek}
+    samplers = {
+        "SMOTE": SMOTE,
+        "SMOTEENN": SMOTEENN,
+        "NearMiss": NearMiss,
+        "SMOTETomek": SMOTETomek
+    }
     return samplers.get(name, None)
+
 
 def get_scoring():
     gmean_scorer = make_scorer(geometric_mean_score, greater_is_better=True, average='binary')
@@ -95,6 +172,7 @@ def get_scoring():
         "gmean": gmean_scorer
     }
 
+
 # ==========================================================
 # FUNCIÓN PRINCIPAL DE ENTRENAMIENTO
 # ==========================================================
@@ -103,7 +181,6 @@ def main(config_path: str):
     X, y = load_data(config["data"]["train"], config["base"]["target_col"])
     preprocessor = create_preprocessor(config)
 
-    # Configurar CV
     gs_cfg = config["grid_search"]
     cv = RepeatedStratifiedKFold(
         n_splits=gs_cfg["cv"],
@@ -111,58 +188,59 @@ def main(config_path: str):
         random_state=config["base"]["random_state"]
     )
 
-    # Conexión MLflow
     mlflow.set_tracking_uri(config["mlflow"]["tracking_uri"])
     mlflow.set_experiment(config["mlflow"]["experiment_name"])
     logger.info("Conectado a MLflow.")
 
-    for key, model_cfg in config["training"].items():
-        model_name = model_cfg["name"]
-        logger.info(f"Entrenando modelo: {model_name}")
+    try:
+        for key, model_cfg in config["training"].items():
+            model_name = model_cfg["name"]
+            logger.info(f"Entrenando modelo: {model_name}")
 
-        with mlflow.start_run(run_name=model_name):
-            model = get_model_class(model_name)()
-            sampler_cls = get_sampler_class(model_cfg["resampler"])
+            with mlflow.start_run(run_name=model_name, nested=True):
+                model = get_model_class(model_name)()
+                sampler_cls = get_sampler_class(model_cfg["resampler"])
 
-            steps = [("preprocessor", preprocessor)]
-            if sampler_cls:
-                steps.append(("sampler", sampler_cls()))
-            steps.append(("model", model))
-            pipeline = ImbPipeline(steps=steps)
+                steps = [("preprocessor", preprocessor)]
+                if sampler_cls:
+                    steps.append(("sampler", sampler_cls()))
+                steps.append(("model", model))
+                pipeline = ImbPipeline(steps=steps)
 
-            grid = GridSearchCV(
-                estimator=pipeline,
-                param_grid=model_cfg["param_grid"],
-                scoring=gs_cfg["scoring"],
-                cv=cv,
-                n_jobs=gs_cfg["n_jobs"],
-                verbose=gs_cfg["verbose"]
-            )
-            grid.fit(X, y)
+                grid = GridSearchCV(
+                    estimator=pipeline,
+                    param_grid=model_cfg["param_grid"],
+                    scoring=gs_cfg["scoring"],
+                    cv=cv,
+                    n_jobs=gs_cfg["n_jobs"],
+                    verbose=gs_cfg["verbose"]
+                )
+                grid.fit(X, y)
 
-            best_model = grid.best_estimator_
-            best_score = grid.best_score_
-            mlflow.log_params(grid.best_params_)
-            mlflow.log_metric("best_cv_score", best_score)
-            logger.info(f"Mejor score: {best_score:.4f}")
+                best_model = grid.best_estimator_
+                best_score = grid.best_score_
+                mlflow.log_params(grid.best_params_)
+                mlflow.log_metric("best_cv_score", best_score)
+                logger.info(f"Mejor score: {best_score:.4f}")
 
-            # Re-evaluar
-            scores = cross_validate(best_model, X, y, cv=cv, scoring=get_scoring())
-            metrics_avg = {f"cv_{k.replace('test_','avg_')}": np.mean(v) for k, v in scores.items() if 'test_' in k}
-            mlflow.log_metrics(metrics_avg)
+                scores = cross_validate(best_model, X, y, cv=cv, scoring=get_scoring())
+                metrics_avg = {f"cv_{k.replace('test_','avg_')}": np.mean(v) for k, v in scores.items() if 'test_' in k}
+                mlflow.log_metrics(metrics_avg)
 
-            # Métricas finales
-            y_pred = best_model.predict(X)
-            y_prob = best_model.predict_proba(X)[:, 1] if hasattr(best_model, "predict_proba") else None
-            custom_metrics = calculate_classification_metrics(y, y_pred, y_prob)
-            mlflow.log_metrics({f"train_{k}": v for k, v in custom_metrics.items() if k != "confusion_matrix"})
+                y_pred = best_model.predict(X)
+                y_prob = best_model.predict_proba(X)[:, 1] if hasattr(best_model, "predict_proba") else None
+                custom_metrics = calculate_classification_metrics(y, y_pred, y_prob)
+                mlflow.log_metrics({f"train_{k}": v for k, v in custom_metrics.items() if k != "confusion_matrix"})
 
-            # Registrar modelo
-            signature = infer_signature(X, best_model.predict(X))
-            mlflow.sklearn.log_model(best_model, "model", signature=signature)
-            logger.info(f"Modelo {model_name} registrado en MLflow.")
+                signature = infer_signature(X, best_model.predict(X))
+                mlflow.sklearn.log_model(best_model, "model", signature=signature)
+                logger.info(f"Modelo {model_name} registrado en MLflow.")
+    finally:
+        mlflow.end_run()
+        logger.info("Ejecución de entrenamiento finalizada y run cerrado correctamente.")
 
     logger.info("Entrenamiento completado para todos los modelos.")
+
 
 # ==========================================================
 # EJECUCIÓN DIRECTA
