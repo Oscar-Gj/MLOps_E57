@@ -2749,3 +2749,5 @@ PermissionError: [WinError 5] Acceso denegado: 'C:\\Users\\Oscar\\OneDrive\\Docu
 2025-11-02 16:50:32 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
 2025-11-02 16:50:36 — [INFO] — TrainModel — Modelo RandomForest registrado correctamente en MLflow.
 2025-11-02 16:50:36 — [INFO] — TrainModel — Entrenando modelo: XGBoost
+2025-11-02 16:50:39 — [INFO] — TrainModel — Mejor score: 0.7359
+2025-11-02 16:50:43 — [INFO] — TrainModel — Leyendo dataset desde: C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\..\data\processed\02_df_data_test_01.csv
