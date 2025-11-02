@@ -16,6 +16,9 @@ import sys
 from pathlib import Path
 import yaml
 from dotenv import load_dotenv
+import logging
+import os
+from datetime import datetime
 
 # =============================
 # Visualización y análisis exploratorio (EDA)
