@@ -1,5 +1,5 @@
 # ==========================================================
-# MAIN PIPELINE EXECUTION - FASE 3 (Entrenamiento con Pipeline)
+# MAIN PIPELINE EXECUTION - FASE 3 (Entrenamiento + Optimización)
 # ==========================================================
 
 # --- Configuración del entorno y rutas ---
@@ -10,10 +10,9 @@ if src_path not in sys.path:
 print(f"Carpeta SRC agregada al PYTHONPATH: {src_path}")
 
 # --- Imports del proyecto ---
-from south_german_credit_g57.libraries import *
-from south_german_credit_g57.preprocessing.clean_data import load_data, clean_data
-from south_german_credit_g57.preprocessing.pipeline import build_pipeline
-
+from south_german_credit_g57.libraries import *      
+from south_german_credit_g57.seed import set_seed, get_random_state
+from south_german_credit_g57.train_model import main as train_main
 
 # =============================================================
 # Configuración de conexión a servidor MLflow remoto
@@ -28,78 +27,51 @@ client = MlflowClient(tracking_uri=MLFLOW_TRACKING_URI)
 # --- Configurar logger ---
 logger = get_logger("MainPipeline")
 
-
+# =============================================================
+# FUNCIÓN PRINCIPAL
+# =============================================================
 def main():
-    # Cargar parámetros
-    with open("params.yaml", "r", encoding="utf-8") as f:
+    logger.info("Iniciando ejecución principal del proyecto South German Credit — Fase 3")
+
+    # Fijar semilla global para reproducibilidad
+    set_seed()
+    RANDOM_STATE = get_random_state()
+    logger.info(f"Semilla global fijada en {RANDOM_STATE}")
+
+    # Validar existencia del archivo params.yaml
+    CONFIG_PATH = "params.yaml"
+    if not os.path.exists(CONFIG_PATH):
+        logger.error(f"No se encontró el archivo de configuración en: {CONFIG_PATH}")
+        return
+    logger.info(f"Archivo de configuración detectado: {CONFIG_PATH}")
+
+    # Cargar parámetros del YAML
+    with open(CONFIG_PATH, "r", encoding="utf-8") as f:
         params = yaml.safe_load(f)
 
-    # Cargar y limpiar datos
-    df = load_data(params["data"]["raw"])
-    df = clean_data(df, params)
+    #  Conexión MLflow (si existe en el YAML)
+    if "mlflow" in params:
+        mlflow.set_tracking_uri(params["mlflow"].get("tracking_uri", MLFLOW_TRACKING_URI))
+        mlflow.set_experiment(params["mlflow"].get("experiment_name", EXPERIMENT_NAME))
+        logger.info("🔗 Conectado a servidor MLflow remoto.")
+    else:
+        logger.warning("No se encontró configuración MLflow en params.yaml. Usando valores por defecto.")
 
-    # Separar features y target
-    target_col = params["base"]["target_col"]
-    X = df.drop(columns=[target_col])
-    y = df[target_col]
+    # Ejecución del pipeline de entrenamiento completo
+    try:
+        logger.info("Ejecutando pipeline de entrenamiento (GridSearch + MLflow)...")
+        train_main(config_path=CONFIG_PATH)
+        logger.info("Entrenamiento completado exitosamente.")
+    except Exception as e:
+        logger.exception("Error durante la ejecución del pipeline principal.")
+        return
 
-    # Dividir dataset
-    X_train, X_test, y_train, y_test = train_test_split(
-        X,
-        y,
-        test_size=params["preprocessing"]["test_size"],
-        random_state=params["preprocessing"]["random_state"],
-        stratify=y,
-    )
+    # Cierre del flujo
+    logger.info("Proceso finalizado correctamente.")
+    logger.info("Revisa los resultados en MLflow UI o ejecuta: mlflow ui")
 
-    # Definir columnas y modelo desde YAML
-    numeric_features = params["features"]["numeric"] + params["features"]["ordinal"]
-    categorical_features = params["features"].get("categorical", [])
-    model_params = params["experiments"]["rf"]["model_params"]  # Random Forest
-
-    # Construir Pipeline
-    pipeline = build_pipeline(
-        numeric_features=numeric_features,
-        categorical_features=categorical_features,
-        model_params=model_params,
-    )
-
-    # =============================================================
-    #  ENTRENAMIENTO, EVALUACIÓN Y REGISTRO EN MLFLOW
-    # =============================================================
-    with mlflow.start_run(run_name="CreditRisk_RF_Pipeline"):
-        logger.info("Entrenando pipeline...")
-        pipeline.fit(X_train, y_train)
-
-        logger.info("Evaluando pipeline...")
-        y_pred = pipeline.predict(X_test)
-
-        # --- Métricas ---
-        acc = accuracy_score(y_test, y_pred)
-        prec = precision_score(y_test, y_pred)
-        rec = recall_score(y_test, y_pred)
-        f1 = f1_score(y_test, y_pred)
-
-        print("\nRESULTADOS:")
-        print(classification_report(y_test, y_pred))
-
-        # --- Log de métricas en el servidor MLflow ---
-        mlflow.log_metric("accuracy", acc)
-        mlflow.log_metric("precision", prec)
-        mlflow.log_metric("recall", rec)
-        mlflow.log_metric("f1_score", f1)
-
-        # --- Log de parámetros ---
-        mlflow.log_params(model_params)
-
-        # --- Guardar modelo solo en local ---
-        local_model_path = "models/pipeline_credit.pkl"
-        Path("models").mkdir(exist_ok=True)
-        joblib.dump(pipeline, local_model_path)
-        logger.info(f"Modelo guardado localmente en '{local_model_path}'.")
-
-        logger.info("Métricas registradas en MLflow remoto (sin subir modelo).")
-
-
+# =============================================================
+# EJECUCIÓN
+# =============================================================
 if __name__ == "__main__":
     main()
