@@ -20,11 +20,19 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 logger = logging.getLogger(__name__)
 
 
-def load_config(config_path: str) -> dict:
-    """Carga la configuración desde un archivo YAML."""
-    logger.info(f"Cargando configuración desde: {config_path}")
-    with open(config_path, 'r') as f:
+import chardet, yaml, pathlib
+
+def load_config(config_path: str):
+    path = pathlib.Path(config_path)
+    raw = path.read_bytes()
+    enc_info = chardet.detect(raw)
+    detected = enc_info.get("encoding", "utf-8")
+    if detected.lower() != "utf-8":
+        text = raw.decode(detected, errors="ignore")
+        path.write_text(text, encoding="utf-8")
+    with open(path, "r", encoding="utf-8") as f:
         return yaml.safe_load(f)
+
 
 def load_test_data(path: str, target_col: str):
     """Carga los datos de prueba y los divide en X, y."""

@@ -982,3 +982,953 @@
 2025-11-02 14:03:14 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
 2025-11-02 14:03:14 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
 2025-11-02 14:03:15 — [INFO] — TrainModel — Ejecución de entrenamiento finalizada y run cerrado correctamente.
+2025-11-02 14:19:11 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:11 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:11 — [INFO] — MainPipeline —  Logger 'MainPipeline' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:11 — [INFO] — MainPipeline — Inicio de ejecución del pipeline de South German Credit
+2025-11-02 14:19:11 — [INFO] — MainPipeline — Dependencias ya verificadas previamente. Saltando verificación.
+2025-11-02 14:19:11 — [INFO] — MainPipeline — ../params.yaml ya está en UTF-8.
+2025-11-02 14:19:12 — [INFO] — MainPipeline — Fase 1: Limpieza de datos
+2025-11-02 14:19:12 — [INFO] — MainPipeline — Fase 2: Entrenamiento y registro de modelos
+2025-11-02 14:19:12 — [INFO] — TrainModel — Leyendo dataset desde: C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\data\processed\02_df_data_train_01.csv
+2025-11-02 14:19:12 — [INFO] — TrainModel — Creando pipeline de preprocesamiento...
+2025-11-02 14:19:12 — [INFO] — TrainModel — Conectado a MLflow.
+2025-11-02 14:19:12 — [INFO] — TrainModel — Entrenando modelo: LogisticRegression
+2025-11-02 14:19:19 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:19 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:19 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:19 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:19 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:19 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:19 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:19 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:19 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:19 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:19 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:19 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:19 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:19 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:19 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:19 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:19 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:19 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:19 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:19 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:19 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:19 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:19 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:20 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:20 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:20 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:20 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:20 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:20 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:20 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:20 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:20 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:20 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:20 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:20 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:20 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:20 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:20 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:20 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:20 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:20 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:20 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:20 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:20 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:20 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:20 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:20 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:20 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:20 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:20 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:20 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:20 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:20 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:20 — [INFO] — TrainModel — Mejor score: 0.7445
+2025-11-02 14:19:25 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:26 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:27 — [ERROR] — TrainModel — Error al registrar el modelo en MLflow: Project was not passed and could not be determined from the environment.
+2025-11-02 14:19:30 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:30 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:30 — [INFO] — TrainModel — Modelo guardado localmente en C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\models_fallback\LogisticRegression_fallback
+2025-11-02 14:19:30 — [INFO] — TrainModel — Entrenando modelo: LogisticRegression
+2025-11-02 14:19:31 — [INFO] — TrainModel — Mejor score: 0.7589
+2025-11-02 14:19:35 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:35 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:36 — [ERROR] — TrainModel — Error al registrar el modelo en MLflow: Project was not passed and could not be determined from the environment.
+2025-11-02 14:19:36 — [ERROR] — TrainModel — Error en el entrenamiento del modelo LogisticRegression: Path 'C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\models_fallback\LogisticRegression_fallback' already exists and is not empty
+Traceback (most recent call last):
+  File "C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\src\south_german_credit_g57\training\train_model_pip.py", line 222, in main
+    mlflow.sklearn.log_model(
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\sklearn\__init__.py", line 412, in log_model
+    return Model.log(
+           ^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\models\model.py", line 714, in log
+    mlflow.tracking.fluent.log_artifacts(local_path, mlflow_model.artifact_path, run_id)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\fluent.py", line 1147, in log_artifacts
+    MlflowClient().log_artifacts(run_id, local_dir, artifact_path)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\client.py", line 1962, in log_artifacts
+    self._tracking_client.log_artifacts(run_id, local_dir, artifact_path)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\_tracking_service\client.py", line 843, in log_artifacts
+    self._get_artifact_repo(run_id).log_artifacts(local_dir, artifact_path)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\_tracking_service\client.py", line 788, in _get_artifact_repo
+    artifact_repo = get_artifact_repository(artifact_uri)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\artifact_repository_registry.py", line 133, in get_artifact_repository
+    return _artifact_repository_registry.get_artifact_repository(artifact_uri)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\artifact_repository_registry.py", line 78, in get_artifact_repository
+    return repository(artifact_uri)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\gcs_artifact_repo.py", line 63, in __init__
+    self.client = gcs_storage.Client()
+                  ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\storage\client.py", line 247, in __init__
+    super(Client, self).__init__(
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\client\__init__.py", line 339, in __init__
+    _ClientProjectMixin.__init__(self, project=project, credentials=credentials)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\client\__init__.py", line 290, in __init__
+    raise EnvironmentError(
+OSError: Project was not passed and could not be determined from the environment.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\src\south_german_credit_g57\training\train_model_pip.py", line 235, in main
+    mlflow.sklearn.save_model(best_model, str(local_path))
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\sklearn\__init__.py", line 244, in save_model
+    _validate_and_prepare_target_save_path(path)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\utils\model_utils.py", line 267, in _validate_and_prepare_target_save_path
+    raise MlflowException(
+mlflow.exceptions.MlflowException: Path 'C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\models_fallback\LogisticRegression_fallback' already exists and is not empty
+2025-11-02 14:19:36 — [INFO] — TrainModel — Entrenando modelo: LogisticRegression
+2025-11-02 14:19:37 — [INFO] — TrainModel — Mejor score: 0.7608
+2025-11-02 14:19:41 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:41 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:42 — [ERROR] — TrainModel — Error al registrar el modelo en MLflow: Project was not passed and could not be determined from the environment.
+2025-11-02 14:19:42 — [ERROR] — TrainModel — Error en el entrenamiento del modelo LogisticRegression: Path 'C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\models_fallback\LogisticRegression_fallback' already exists and is not empty
+Traceback (most recent call last):
+  File "C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\src\south_german_credit_g57\training\train_model_pip.py", line 222, in main
+    mlflow.sklearn.log_model(
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\sklearn\__init__.py", line 412, in log_model
+    return Model.log(
+           ^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\models\model.py", line 714, in log
+    mlflow.tracking.fluent.log_artifacts(local_path, mlflow_model.artifact_path, run_id)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\fluent.py", line 1147, in log_artifacts
+    MlflowClient().log_artifacts(run_id, local_dir, artifact_path)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\client.py", line 1962, in log_artifacts
+    self._tracking_client.log_artifacts(run_id, local_dir, artifact_path)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\_tracking_service\client.py", line 843, in log_artifacts
+    self._get_artifact_repo(run_id).log_artifacts(local_dir, artifact_path)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\_tracking_service\client.py", line 788, in _get_artifact_repo
+    artifact_repo = get_artifact_repository(artifact_uri)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\artifact_repository_registry.py", line 133, in get_artifact_repository
+    return _artifact_repository_registry.get_artifact_repository(artifact_uri)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\artifact_repository_registry.py", line 78, in get_artifact_repository
+    return repository(artifact_uri)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\gcs_artifact_repo.py", line 63, in __init__
+    self.client = gcs_storage.Client()
+                  ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\storage\client.py", line 247, in __init__
+    super(Client, self).__init__(
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\client\__init__.py", line 339, in __init__
+    _ClientProjectMixin.__init__(self, project=project, credentials=credentials)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\client\__init__.py", line 290, in __init__
+    raise EnvironmentError(
+OSError: Project was not passed and could not be determined from the environment.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\src\south_german_credit_g57\training\train_model_pip.py", line 235, in main
+    mlflow.sklearn.save_model(best_model, str(local_path))
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\sklearn\__init__.py", line 244, in save_model
+    _validate_and_prepare_target_save_path(path)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\utils\model_utils.py", line 267, in _validate_and_prepare_target_save_path
+    raise MlflowException(
+mlflow.exceptions.MlflowException: Path 'C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\models_fallback\LogisticRegression_fallback' already exists and is not empty
+2025-11-02 14:19:42 — [INFO] — TrainModel — Entrenando modelo: RandomForest
+2025-11-02 14:19:43 — [INFO] — TrainModel — Mejor score: 0.7705
+2025-11-02 14:19:49 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:49 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:50 — [ERROR] — TrainModel — Error al registrar el modelo en MLflow: Project was not passed and could not be determined from the environment.
+2025-11-02 14:19:53 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:53 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:19:53 — [INFO] — TrainModel — Modelo guardado localmente en C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\models_fallback\RandomForest_fallback
+2025-11-02 14:19:53 — [INFO] — TrainModel — Entrenando modelo: RandomForest
+2025-11-02 14:19:56 — [INFO] — TrainModel — Mejor score: 0.7895
+2025-11-02 14:20:07 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:20:07 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:20:07 — [ERROR] — TrainModel — Error al registrar el modelo en MLflow: Project was not passed and could not be determined from the environment.
+2025-11-02 14:20:07 — [ERROR] — TrainModel — Error en el entrenamiento del modelo RandomForest: Path 'C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\models_fallback\RandomForest_fallback' already exists and is not empty
+Traceback (most recent call last):
+  File "C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\src\south_german_credit_g57\training\train_model_pip.py", line 222, in main
+    mlflow.sklearn.log_model(
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\sklearn\__init__.py", line 412, in log_model
+    return Model.log(
+           ^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\models\model.py", line 714, in log
+    mlflow.tracking.fluent.log_artifacts(local_path, mlflow_model.artifact_path, run_id)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\fluent.py", line 1147, in log_artifacts
+    MlflowClient().log_artifacts(run_id, local_dir, artifact_path)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\client.py", line 1962, in log_artifacts
+    self._tracking_client.log_artifacts(run_id, local_dir, artifact_path)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\_tracking_service\client.py", line 843, in log_artifacts
+    self._get_artifact_repo(run_id).log_artifacts(local_dir, artifact_path)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\_tracking_service\client.py", line 788, in _get_artifact_repo
+    artifact_repo = get_artifact_repository(artifact_uri)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\artifact_repository_registry.py", line 133, in get_artifact_repository
+    return _artifact_repository_registry.get_artifact_repository(artifact_uri)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\artifact_repository_registry.py", line 78, in get_artifact_repository
+    return repository(artifact_uri)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\gcs_artifact_repo.py", line 63, in __init__
+    self.client = gcs_storage.Client()
+                  ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\storage\client.py", line 247, in __init__
+    super(Client, self).__init__(
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\client\__init__.py", line 339, in __init__
+    _ClientProjectMixin.__init__(self, project=project, credentials=credentials)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\client\__init__.py", line 290, in __init__
+    raise EnvironmentError(
+OSError: Project was not passed and could not be determined from the environment.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\src\south_german_credit_g57\training\train_model_pip.py", line 235, in main
+    mlflow.sklearn.save_model(best_model, str(local_path))
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\sklearn\__init__.py", line 244, in save_model
+    _validate_and_prepare_target_save_path(path)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\utils\model_utils.py", line 267, in _validate_and_prepare_target_save_path
+    raise MlflowException(
+mlflow.exceptions.MlflowException: Path 'C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\models_fallback\RandomForest_fallback' already exists and is not empty
+2025-11-02 14:20:07 — [INFO] — TrainModel — Entrenando modelo: RandomForest
+2025-11-02 14:20:11 — [INFO] — TrainModel — Mejor score: 0.7899
+2025-11-02 14:20:25 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:20:25 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:20:26 — [ERROR] — TrainModel — Error al registrar el modelo en MLflow: Project was not passed and could not be determined from the environment.
+2025-11-02 14:20:26 — [ERROR] — TrainModel — Error en el entrenamiento del modelo RandomForest: Path 'C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\models_fallback\RandomForest_fallback' already exists and is not empty
+Traceback (most recent call last):
+  File "C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\src\south_german_credit_g57\training\train_model_pip.py", line 222, in main
+    mlflow.sklearn.log_model(
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\sklearn\__init__.py", line 412, in log_model
+    return Model.log(
+           ^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\models\model.py", line 714, in log
+    mlflow.tracking.fluent.log_artifacts(local_path, mlflow_model.artifact_path, run_id)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\fluent.py", line 1147, in log_artifacts
+    MlflowClient().log_artifacts(run_id, local_dir, artifact_path)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\client.py", line 1962, in log_artifacts
+    self._tracking_client.log_artifacts(run_id, local_dir, artifact_path)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\_tracking_service\client.py", line 843, in log_artifacts
+    self._get_artifact_repo(run_id).log_artifacts(local_dir, artifact_path)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\_tracking_service\client.py", line 788, in _get_artifact_repo
+    artifact_repo = get_artifact_repository(artifact_uri)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\artifact_repository_registry.py", line 133, in get_artifact_repository
+    return _artifact_repository_registry.get_artifact_repository(artifact_uri)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\artifact_repository_registry.py", line 78, in get_artifact_repository
+    return repository(artifact_uri)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\gcs_artifact_repo.py", line 63, in __init__
+    self.client = gcs_storage.Client()
+                  ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\storage\client.py", line 247, in __init__
+    super(Client, self).__init__(
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\client\__init__.py", line 339, in __init__
+    _ClientProjectMixin.__init__(self, project=project, credentials=credentials)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\client\__init__.py", line 290, in __init__
+    raise EnvironmentError(
+OSError: Project was not passed and could not be determined from the environment.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\src\south_german_credit_g57\training\train_model_pip.py", line 235, in main
+    mlflow.sklearn.save_model(best_model, str(local_path))
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\sklearn\__init__.py", line 244, in save_model
+    _validate_and_prepare_target_save_path(path)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\utils\model_utils.py", line 267, in _validate_and_prepare_target_save_path
+    raise MlflowException(
+mlflow.exceptions.MlflowException: Path 'C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\models_fallback\RandomForest_fallback' already exists and is not empty
+2025-11-02 14:20:26 — [INFO] — TrainModel — Entrenando modelo: XGBoost
+2025-11-02 14:20:27 — [INFO] — TrainModel — Mejor score: 0.7359
+2025-11-02 14:20:33 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:20:33 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:20:33 — [ERROR] — TrainModel — Error al registrar el modelo en MLflow: Project was not passed and could not be determined from the environment.
+2025-11-02 14:20:36 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:20:36 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:20:37 — [INFO] — TrainModel — Modelo guardado localmente en C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\models_fallback\XGBoost_fallback
+2025-11-02 14:20:37 — [INFO] — TrainModel — Entrenando modelo: XGBoost
+2025-11-02 14:20:39 — [INFO] — TrainModel — Mejor score: 0.7719
+2025-11-02 14:20:46 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:20:46 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:20:47 — [ERROR] — TrainModel — Error al registrar el modelo en MLflow: Project was not passed and could not be determined from the environment.
+2025-11-02 14:20:47 — [ERROR] — TrainModel — Error en el entrenamiento del modelo XGBoost: Path 'C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\models_fallback\XGBoost_fallback' already exists and is not empty
+Traceback (most recent call last):
+  File "C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\src\south_german_credit_g57\training\train_model_pip.py", line 222, in main
+    mlflow.sklearn.log_model(
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\sklearn\__init__.py", line 412, in log_model
+    return Model.log(
+           ^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\models\model.py", line 714, in log
+    mlflow.tracking.fluent.log_artifacts(local_path, mlflow_model.artifact_path, run_id)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\fluent.py", line 1147, in log_artifacts
+    MlflowClient().log_artifacts(run_id, local_dir, artifact_path)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\client.py", line 1962, in log_artifacts
+    self._tracking_client.log_artifacts(run_id, local_dir, artifact_path)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\_tracking_service\client.py", line 843, in log_artifacts
+    self._get_artifact_repo(run_id).log_artifacts(local_dir, artifact_path)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\_tracking_service\client.py", line 788, in _get_artifact_repo
+    artifact_repo = get_artifact_repository(artifact_uri)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\artifact_repository_registry.py", line 133, in get_artifact_repository
+    return _artifact_repository_registry.get_artifact_repository(artifact_uri)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\artifact_repository_registry.py", line 78, in get_artifact_repository
+    return repository(artifact_uri)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\gcs_artifact_repo.py", line 63, in __init__
+    self.client = gcs_storage.Client()
+                  ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\storage\client.py", line 247, in __init__
+    super(Client, self).__init__(
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\client\__init__.py", line 339, in __init__
+    _ClientProjectMixin.__init__(self, project=project, credentials=credentials)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\client\__init__.py", line 290, in __init__
+    raise EnvironmentError(
+OSError: Project was not passed and could not be determined from the environment.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\src\south_german_credit_g57\training\train_model_pip.py", line 235, in main
+    mlflow.sklearn.save_model(best_model, str(local_path))
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\sklearn\__init__.py", line 244, in save_model
+    _validate_and_prepare_target_save_path(path)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\utils\model_utils.py", line 267, in _validate_and_prepare_target_save_path
+    raise MlflowException(
+mlflow.exceptions.MlflowException: Path 'C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\models_fallback\XGBoost_fallback' already exists and is not empty
+2025-11-02 14:20:47 — [INFO] — TrainModel — Entrenando modelo: XGBoost
+2025-11-02 14:20:47 — [INFO] — TrainModel — Mejor score: 0.7747
+2025-11-02 14:20:53 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:20:53 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:20:53 — [ERROR] — TrainModel — Error al registrar el modelo en MLflow: Project was not passed and could not be determined from the environment.
+2025-11-02 14:20:54 — [ERROR] — TrainModel — Error en el entrenamiento del modelo XGBoost: Path 'C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\models_fallback\XGBoost_fallback' already exists and is not empty
+Traceback (most recent call last):
+  File "C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\src\south_german_credit_g57\training\train_model_pip.py", line 222, in main
+    mlflow.sklearn.log_model(
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\sklearn\__init__.py", line 412, in log_model
+    return Model.log(
+           ^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\models\model.py", line 714, in log
+    mlflow.tracking.fluent.log_artifacts(local_path, mlflow_model.artifact_path, run_id)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\fluent.py", line 1147, in log_artifacts
+    MlflowClient().log_artifacts(run_id, local_dir, artifact_path)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\client.py", line 1962, in log_artifacts
+    self._tracking_client.log_artifacts(run_id, local_dir, artifact_path)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\_tracking_service\client.py", line 843, in log_artifacts
+    self._get_artifact_repo(run_id).log_artifacts(local_dir, artifact_path)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\_tracking_service\client.py", line 788, in _get_artifact_repo
+    artifact_repo = get_artifact_repository(artifact_uri)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\artifact_repository_registry.py", line 133, in get_artifact_repository
+    return _artifact_repository_registry.get_artifact_repository(artifact_uri)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\artifact_repository_registry.py", line 78, in get_artifact_repository
+    return repository(artifact_uri)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\gcs_artifact_repo.py", line 63, in __init__
+    self.client = gcs_storage.Client()
+                  ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\storage\client.py", line 247, in __init__
+    super(Client, self).__init__(
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\client\__init__.py", line 339, in __init__
+    _ClientProjectMixin.__init__(self, project=project, credentials=credentials)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\client\__init__.py", line 290, in __init__
+    raise EnvironmentError(
+OSError: Project was not passed and could not be determined from the environment.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\src\south_german_credit_g57\training\train_model_pip.py", line 235, in main
+    mlflow.sklearn.save_model(best_model, str(local_path))
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\sklearn\__init__.py", line 244, in save_model
+    _validate_and_prepare_target_save_path(path)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\utils\model_utils.py", line 267, in _validate_and_prepare_target_save_path
+    raise MlflowException(
+mlflow.exceptions.MlflowException: Path 'C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\models_fallback\XGBoost_fallback' already exists and is not empty
+2025-11-02 14:20:54 — [INFO] — TrainModel — Entrenamiento completado para todos los modelos.
+2025-11-02 14:20:54 — [INFO] — MainPipeline — Fase 3: Evaluación final en test
+2025-11-02 14:37:03 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:03 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:03 — [INFO] — MainPipeline —  Logger 'MainPipeline' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:03 — [INFO] — MainPipeline — Inicio de ejecución del pipeline de South German Credit
+2025-11-02 14:37:03 — [INFO] — MainPipeline — Dependencias ya verificadas previamente. Saltando verificación.
+2025-11-02 14:37:03 — [INFO] — MainPipeline — ../params.yaml ya está en UTF-8.
+2025-11-02 14:37:04 — [INFO] — MainPipeline — Fase 1: Limpieza de datos
+2025-11-02 14:37:04 — [INFO] — MainPipeline — Fase 2: Entrenamiento y registro de modelos
+2025-11-02 14:37:04 — [INFO] — TrainModel — Leyendo dataset desde: C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\data\processed\02_df_data_train_01.csv
+2025-11-02 14:37:04 — [INFO] — TrainModel — Creando pipeline de preprocesamiento...
+2025-11-02 14:37:04 — [INFO] — TrainModel — Conectado a MLflow.
+2025-11-02 14:37:04 — [INFO] — TrainModel — Entrenando modelo: LogisticRegression
+2025-11-02 14:37:11 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:11 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:11 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:11 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:11 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:11 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:11 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:11 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:11 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:11 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:11 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:11 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:11 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:11 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:11 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:11 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:11 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:12 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:12 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:12 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:12 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:12 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:12 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:12 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:12 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:12 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:12 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:12 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:12 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:12 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:12 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:12 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:12 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:12 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:12 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:12 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:12 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:12 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:12 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:12 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:12 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:12 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:12 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:12 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:12 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:12 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:12 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:12 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:12 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:12 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:12 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:12 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:12 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:12 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:12 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:12 — [INFO] — TrainModel — Mejor score: 0.7486
+2025-11-02 14:37:18 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:18 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:19 — [ERROR] — TrainModel — Error al registrar el modelo en MLflow: Project was not passed and could not be determined from the environment.
+2025-11-02 14:37:19 — [ERROR] — TrainModel — Error en el entrenamiento del modelo LogisticRegression: [WinError 5] Acceso denegado: 'C:\\Users\\Oscar\\OneDrive\\Documentos\\GitHub\\ML57\\MLOps_E57\\Proyecto_south_german_credit_g57\\models_fallback\\LogisticRegression_fallback'
+Traceback (most recent call last):
+  File "C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\src\south_german_credit_g57\training\train_model_pip.py", line 222, in main
+    mlflow.sklearn.log_model(
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\sklearn\__init__.py", line 412, in log_model
+    return Model.log(
+           ^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\models\model.py", line 714, in log
+    mlflow.tracking.fluent.log_artifacts(local_path, mlflow_model.artifact_path, run_id)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\fluent.py", line 1147, in log_artifacts
+    MlflowClient().log_artifacts(run_id, local_dir, artifact_path)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\client.py", line 1962, in log_artifacts
+    self._tracking_client.log_artifacts(run_id, local_dir, artifact_path)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\_tracking_service\client.py", line 843, in log_artifacts
+    self._get_artifact_repo(run_id).log_artifacts(local_dir, artifact_path)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\_tracking_service\client.py", line 788, in _get_artifact_repo
+    artifact_repo = get_artifact_repository(artifact_uri)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\artifact_repository_registry.py", line 133, in get_artifact_repository
+    return _artifact_repository_registry.get_artifact_repository(artifact_uri)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\artifact_repository_registry.py", line 78, in get_artifact_repository
+    return repository(artifact_uri)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\gcs_artifact_repo.py", line 63, in __init__
+    self.client = gcs_storage.Client()
+                  ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\storage\client.py", line 247, in __init__
+    super(Client, self).__init__(
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\client\__init__.py", line 339, in __init__
+    _ClientProjectMixin.__init__(self, project=project, credentials=credentials)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\client\__init__.py", line 290, in __init__
+    raise EnvironmentError(
+OSError: Project was not passed and could not be determined from the environment.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\src\south_german_credit_g57\training\train_model_pip.py", line 237, in main
+    shutil.rmtree(local_path)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\shutil.py", line 781, in rmtree
+    return _rmtree_unsafe(path, onexc)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\shutil.py", line 639, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\shutil.py", line 637, in _rmtree_unsafe
+    os.rmdir(path)
+PermissionError: [WinError 5] Acceso denegado: 'C:\\Users\\Oscar\\OneDrive\\Documentos\\GitHub\\ML57\\MLOps_E57\\Proyecto_south_german_credit_g57\\models_fallback\\LogisticRegression_fallback'
+2025-11-02 14:37:19 — [INFO] — TrainModel — Entrenando modelo: LogisticRegression
+2025-11-02 14:37:20 — [INFO] — TrainModel — Mejor score: 0.7599
+2025-11-02 14:37:24 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:24 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:25 — [ERROR] — TrainModel — Error al registrar el modelo en MLflow: Project was not passed and could not be determined from the environment.
+2025-11-02 14:37:25 — [ERROR] — TrainModel — Error en el entrenamiento del modelo LogisticRegression: [WinError 5] Acceso denegado: 'C:\\Users\\Oscar\\OneDrive\\Documentos\\GitHub\\ML57\\MLOps_E57\\Proyecto_south_german_credit_g57\\models_fallback\\LogisticRegression_fallback'
+Traceback (most recent call last):
+  File "C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\src\south_german_credit_g57\training\train_model_pip.py", line 222, in main
+    mlflow.sklearn.log_model(
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\sklearn\__init__.py", line 412, in log_model
+    return Model.log(
+           ^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\models\model.py", line 714, in log
+    mlflow.tracking.fluent.log_artifacts(local_path, mlflow_model.artifact_path, run_id)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\fluent.py", line 1147, in log_artifacts
+    MlflowClient().log_artifacts(run_id, local_dir, artifact_path)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\client.py", line 1962, in log_artifacts
+    self._tracking_client.log_artifacts(run_id, local_dir, artifact_path)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\_tracking_service\client.py", line 843, in log_artifacts
+    self._get_artifact_repo(run_id).log_artifacts(local_dir, artifact_path)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\_tracking_service\client.py", line 788, in _get_artifact_repo
+    artifact_repo = get_artifact_repository(artifact_uri)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\artifact_repository_registry.py", line 133, in get_artifact_repository
+    return _artifact_repository_registry.get_artifact_repository(artifact_uri)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\artifact_repository_registry.py", line 78, in get_artifact_repository
+    return repository(artifact_uri)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\gcs_artifact_repo.py", line 63, in __init__
+    self.client = gcs_storage.Client()
+                  ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\storage\client.py", line 247, in __init__
+    super(Client, self).__init__(
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\client\__init__.py", line 339, in __init__
+    _ClientProjectMixin.__init__(self, project=project, credentials=credentials)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\client\__init__.py", line 290, in __init__
+    raise EnvironmentError(
+OSError: Project was not passed and could not be determined from the environment.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\src\south_german_credit_g57\training\train_model_pip.py", line 237, in main
+    shutil.rmtree(local_path)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\shutil.py", line 781, in rmtree
+    return _rmtree_unsafe(path, onexc)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\shutil.py", line 639, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\shutil.py", line 637, in _rmtree_unsafe
+    os.rmdir(path)
+PermissionError: [WinError 5] Acceso denegado: 'C:\\Users\\Oscar\\OneDrive\\Documentos\\GitHub\\ML57\\MLOps_E57\\Proyecto_south_german_credit_g57\\models_fallback\\LogisticRegression_fallback'
+2025-11-02 14:37:25 — [INFO] — TrainModel — Entrenando modelo: LogisticRegression
+2025-11-02 14:37:26 — [INFO] — TrainModel — Mejor score: 0.7600
+2025-11-02 14:37:30 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:30 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:31 — [ERROR] — TrainModel — Error al registrar el modelo en MLflow: Project was not passed and could not be determined from the environment.
+2025-11-02 14:37:31 — [ERROR] — TrainModel — Error en el entrenamiento del modelo LogisticRegression: [WinError 5] Acceso denegado: 'C:\\Users\\Oscar\\OneDrive\\Documentos\\GitHub\\ML57\\MLOps_E57\\Proyecto_south_german_credit_g57\\models_fallback\\LogisticRegression_fallback'
+Traceback (most recent call last):
+  File "C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\src\south_german_credit_g57\training\train_model_pip.py", line 222, in main
+    mlflow.sklearn.log_model(
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\sklearn\__init__.py", line 412, in log_model
+    return Model.log(
+           ^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\models\model.py", line 714, in log
+    mlflow.tracking.fluent.log_artifacts(local_path, mlflow_model.artifact_path, run_id)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\fluent.py", line 1147, in log_artifacts
+    MlflowClient().log_artifacts(run_id, local_dir, artifact_path)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\client.py", line 1962, in log_artifacts
+    self._tracking_client.log_artifacts(run_id, local_dir, artifact_path)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\_tracking_service\client.py", line 843, in log_artifacts
+    self._get_artifact_repo(run_id).log_artifacts(local_dir, artifact_path)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\_tracking_service\client.py", line 788, in _get_artifact_repo
+    artifact_repo = get_artifact_repository(artifact_uri)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\artifact_repository_registry.py", line 133, in get_artifact_repository
+    return _artifact_repository_registry.get_artifact_repository(artifact_uri)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\artifact_repository_registry.py", line 78, in get_artifact_repository
+    return repository(artifact_uri)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\gcs_artifact_repo.py", line 63, in __init__
+    self.client = gcs_storage.Client()
+                  ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\storage\client.py", line 247, in __init__
+    super(Client, self).__init__(
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\client\__init__.py", line 339, in __init__
+    _ClientProjectMixin.__init__(self, project=project, credentials=credentials)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\client\__init__.py", line 290, in __init__
+    raise EnvironmentError(
+OSError: Project was not passed and could not be determined from the environment.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\src\south_german_credit_g57\training\train_model_pip.py", line 237, in main
+    shutil.rmtree(local_path)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\shutil.py", line 781, in rmtree
+    return _rmtree_unsafe(path, onexc)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\shutil.py", line 639, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\shutil.py", line 637, in _rmtree_unsafe
+    os.rmdir(path)
+PermissionError: [WinError 5] Acceso denegado: 'C:\\Users\\Oscar\\OneDrive\\Documentos\\GitHub\\ML57\\MLOps_E57\\Proyecto_south_german_credit_g57\\models_fallback\\LogisticRegression_fallback'
+2025-11-02 14:37:31 — [INFO] — TrainModel — Entrenando modelo: RandomForest
+2025-11-02 14:37:32 — [INFO] — TrainModel — Mejor score: 0.7730
+2025-11-02 14:37:38 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:38 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:39 — [ERROR] — TrainModel — Error al registrar el modelo en MLflow: Project was not passed and could not be determined from the environment.
+2025-11-02 14:37:39 — [ERROR] — TrainModel — Error en el entrenamiento del modelo RandomForest: [WinError 5] Acceso denegado: 'C:\\Users\\Oscar\\OneDrive\\Documentos\\GitHub\\ML57\\MLOps_E57\\Proyecto_south_german_credit_g57\\models_fallback\\RandomForest_fallback'
+Traceback (most recent call last):
+  File "C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\src\south_german_credit_g57\training\train_model_pip.py", line 222, in main
+    mlflow.sklearn.log_model(
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\sklearn\__init__.py", line 412, in log_model
+    return Model.log(
+           ^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\models\model.py", line 714, in log
+    mlflow.tracking.fluent.log_artifacts(local_path, mlflow_model.artifact_path, run_id)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\fluent.py", line 1147, in log_artifacts
+    MlflowClient().log_artifacts(run_id, local_dir, artifact_path)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\client.py", line 1962, in log_artifacts
+    self._tracking_client.log_artifacts(run_id, local_dir, artifact_path)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\_tracking_service\client.py", line 843, in log_artifacts
+    self._get_artifact_repo(run_id).log_artifacts(local_dir, artifact_path)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\_tracking_service\client.py", line 788, in _get_artifact_repo
+    artifact_repo = get_artifact_repository(artifact_uri)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\artifact_repository_registry.py", line 133, in get_artifact_repository
+    return _artifact_repository_registry.get_artifact_repository(artifact_uri)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\artifact_repository_registry.py", line 78, in get_artifact_repository
+    return repository(artifact_uri)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\gcs_artifact_repo.py", line 63, in __init__
+    self.client = gcs_storage.Client()
+                  ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\storage\client.py", line 247, in __init__
+    super(Client, self).__init__(
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\client\__init__.py", line 339, in __init__
+    _ClientProjectMixin.__init__(self, project=project, credentials=credentials)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\client\__init__.py", line 290, in __init__
+    raise EnvironmentError(
+OSError: Project was not passed and could not be determined from the environment.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\src\south_german_credit_g57\training\train_model_pip.py", line 237, in main
+    shutil.rmtree(local_path)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\shutil.py", line 781, in rmtree
+    return _rmtree_unsafe(path, onexc)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\shutil.py", line 639, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\shutil.py", line 637, in _rmtree_unsafe
+    os.rmdir(path)
+PermissionError: [WinError 5] Acceso denegado: 'C:\\Users\\Oscar\\OneDrive\\Documentos\\GitHub\\ML57\\MLOps_E57\\Proyecto_south_german_credit_g57\\models_fallback\\RandomForest_fallback'
+2025-11-02 14:37:39 — [INFO] — TrainModel — Entrenando modelo: RandomForest
+2025-11-02 14:37:42 — [INFO] — TrainModel — Mejor score: 0.7895
+2025-11-02 14:37:55 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:55 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:37:55 — [ERROR] — TrainModel — Error al registrar el modelo en MLflow: Project was not passed and could not be determined from the environment.
+2025-11-02 14:37:55 — [ERROR] — TrainModel — Error en el entrenamiento del modelo RandomForest: [WinError 5] Acceso denegado: 'C:\\Users\\Oscar\\OneDrive\\Documentos\\GitHub\\ML57\\MLOps_E57\\Proyecto_south_german_credit_g57\\models_fallback\\RandomForest_fallback'
+Traceback (most recent call last):
+  File "C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\src\south_german_credit_g57\training\train_model_pip.py", line 222, in main
+    mlflow.sklearn.log_model(
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\sklearn\__init__.py", line 412, in log_model
+    return Model.log(
+           ^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\models\model.py", line 714, in log
+    mlflow.tracking.fluent.log_artifacts(local_path, mlflow_model.artifact_path, run_id)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\fluent.py", line 1147, in log_artifacts
+    MlflowClient().log_artifacts(run_id, local_dir, artifact_path)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\client.py", line 1962, in log_artifacts
+    self._tracking_client.log_artifacts(run_id, local_dir, artifact_path)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\_tracking_service\client.py", line 843, in log_artifacts
+    self._get_artifact_repo(run_id).log_artifacts(local_dir, artifact_path)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\_tracking_service\client.py", line 788, in _get_artifact_repo
+    artifact_repo = get_artifact_repository(artifact_uri)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\artifact_repository_registry.py", line 133, in get_artifact_repository
+    return _artifact_repository_registry.get_artifact_repository(artifact_uri)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\artifact_repository_registry.py", line 78, in get_artifact_repository
+    return repository(artifact_uri)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\gcs_artifact_repo.py", line 63, in __init__
+    self.client = gcs_storage.Client()
+                  ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\storage\client.py", line 247, in __init__
+    super(Client, self).__init__(
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\client\__init__.py", line 339, in __init__
+    _ClientProjectMixin.__init__(self, project=project, credentials=credentials)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\client\__init__.py", line 290, in __init__
+    raise EnvironmentError(
+OSError: Project was not passed and could not be determined from the environment.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\src\south_german_credit_g57\training\train_model_pip.py", line 237, in main
+    shutil.rmtree(local_path)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\shutil.py", line 781, in rmtree
+    return _rmtree_unsafe(path, onexc)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\shutil.py", line 639, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\shutil.py", line 637, in _rmtree_unsafe
+    os.rmdir(path)
+PermissionError: [WinError 5] Acceso denegado: 'C:\\Users\\Oscar\\OneDrive\\Documentos\\GitHub\\ML57\\MLOps_E57\\Proyecto_south_german_credit_g57\\models_fallback\\RandomForest_fallback'
+2025-11-02 14:37:55 — [INFO] — TrainModel — Entrenando modelo: RandomForest
+2025-11-02 14:37:59 — [INFO] — TrainModel — Mejor score: 0.7930
+2025-11-02 14:38:16 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:38:16 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:38:17 — [ERROR] — TrainModel — Error al registrar el modelo en MLflow: Project was not passed and could not be determined from the environment.
+2025-11-02 14:38:17 — [ERROR] — TrainModel — Error en el entrenamiento del modelo RandomForest: [WinError 5] Acceso denegado: 'C:\\Users\\Oscar\\OneDrive\\Documentos\\GitHub\\ML57\\MLOps_E57\\Proyecto_south_german_credit_g57\\models_fallback\\RandomForest_fallback'
+Traceback (most recent call last):
+  File "C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\src\south_german_credit_g57\training\train_model_pip.py", line 222, in main
+    mlflow.sklearn.log_model(
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\sklearn\__init__.py", line 412, in log_model
+    return Model.log(
+           ^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\models\model.py", line 714, in log
+    mlflow.tracking.fluent.log_artifacts(local_path, mlflow_model.artifact_path, run_id)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\fluent.py", line 1147, in log_artifacts
+    MlflowClient().log_artifacts(run_id, local_dir, artifact_path)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\client.py", line 1962, in log_artifacts
+    self._tracking_client.log_artifacts(run_id, local_dir, artifact_path)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\_tracking_service\client.py", line 843, in log_artifacts
+    self._get_artifact_repo(run_id).log_artifacts(local_dir, artifact_path)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\_tracking_service\client.py", line 788, in _get_artifact_repo
+    artifact_repo = get_artifact_repository(artifact_uri)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\artifact_repository_registry.py", line 133, in get_artifact_repository
+    return _artifact_repository_registry.get_artifact_repository(artifact_uri)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\artifact_repository_registry.py", line 78, in get_artifact_repository
+    return repository(artifact_uri)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\gcs_artifact_repo.py", line 63, in __init__
+    self.client = gcs_storage.Client()
+                  ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\storage\client.py", line 247, in __init__
+    super(Client, self).__init__(
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\client\__init__.py", line 339, in __init__
+    _ClientProjectMixin.__init__(self, project=project, credentials=credentials)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\client\__init__.py", line 290, in __init__
+    raise EnvironmentError(
+OSError: Project was not passed and could not be determined from the environment.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\src\south_german_credit_g57\training\train_model_pip.py", line 237, in main
+    shutil.rmtree(local_path)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\shutil.py", line 781, in rmtree
+    return _rmtree_unsafe(path, onexc)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\shutil.py", line 639, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\shutil.py", line 637, in _rmtree_unsafe
+    os.rmdir(path)
+PermissionError: [WinError 5] Acceso denegado: 'C:\\Users\\Oscar\\OneDrive\\Documentos\\GitHub\\ML57\\MLOps_E57\\Proyecto_south_german_credit_g57\\models_fallback\\RandomForest_fallback'
+2025-11-02 14:38:17 — [INFO] — TrainModel — Entrenando modelo: XGBoost
+2025-11-02 14:38:18 — [INFO] — TrainModel — Mejor score: 0.7359
+2025-11-02 14:38:24 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:38:24 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:38:24 — [ERROR] — TrainModel — Error al registrar el modelo en MLflow: Project was not passed and could not be determined from the environment.
+2025-11-02 14:38:24 — [ERROR] — TrainModel — Error en el entrenamiento del modelo XGBoost: [WinError 5] Acceso denegado: 'C:\\Users\\Oscar\\OneDrive\\Documentos\\GitHub\\ML57\\MLOps_E57\\Proyecto_south_german_credit_g57\\models_fallback\\XGBoost_fallback'
+Traceback (most recent call last):
+  File "C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\src\south_german_credit_g57\training\train_model_pip.py", line 222, in main
+    mlflow.sklearn.log_model(
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\sklearn\__init__.py", line 412, in log_model
+    return Model.log(
+           ^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\models\model.py", line 714, in log
+    mlflow.tracking.fluent.log_artifacts(local_path, mlflow_model.artifact_path, run_id)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\fluent.py", line 1147, in log_artifacts
+    MlflowClient().log_artifacts(run_id, local_dir, artifact_path)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\client.py", line 1962, in log_artifacts
+    self._tracking_client.log_artifacts(run_id, local_dir, artifact_path)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\_tracking_service\client.py", line 843, in log_artifacts
+    self._get_artifact_repo(run_id).log_artifacts(local_dir, artifact_path)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\_tracking_service\client.py", line 788, in _get_artifact_repo
+    artifact_repo = get_artifact_repository(artifact_uri)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\artifact_repository_registry.py", line 133, in get_artifact_repository
+    return _artifact_repository_registry.get_artifact_repository(artifact_uri)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\artifact_repository_registry.py", line 78, in get_artifact_repository
+    return repository(artifact_uri)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\gcs_artifact_repo.py", line 63, in __init__
+    self.client = gcs_storage.Client()
+                  ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\storage\client.py", line 247, in __init__
+    super(Client, self).__init__(
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\client\__init__.py", line 339, in __init__
+    _ClientProjectMixin.__init__(self, project=project, credentials=credentials)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\client\__init__.py", line 290, in __init__
+    raise EnvironmentError(
+OSError: Project was not passed and could not be determined from the environment.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\src\south_german_credit_g57\training\train_model_pip.py", line 237, in main
+    shutil.rmtree(local_path)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\shutil.py", line 781, in rmtree
+    return _rmtree_unsafe(path, onexc)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\shutil.py", line 639, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\shutil.py", line 637, in _rmtree_unsafe
+    os.rmdir(path)
+PermissionError: [WinError 5] Acceso denegado: 'C:\\Users\\Oscar\\OneDrive\\Documentos\\GitHub\\ML57\\MLOps_E57\\Proyecto_south_german_credit_g57\\models_fallback\\XGBoost_fallback'
+2025-11-02 14:38:24 — [INFO] — TrainModel — Entrenando modelo: XGBoost
+2025-11-02 14:38:27 — [INFO] — TrainModel — Mejor score: 0.7726
+2025-11-02 14:38:33 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:38:33 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:38:34 — [ERROR] — TrainModel — Error al registrar el modelo en MLflow: Project was not passed and could not be determined from the environment.
+2025-11-02 14:38:34 — [ERROR] — TrainModel — Error en el entrenamiento del modelo XGBoost: [WinError 5] Acceso denegado: 'C:\\Users\\Oscar\\OneDrive\\Documentos\\GitHub\\ML57\\MLOps_E57\\Proyecto_south_german_credit_g57\\models_fallback\\XGBoost_fallback'
+Traceback (most recent call last):
+  File "C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\src\south_german_credit_g57\training\train_model_pip.py", line 222, in main
+    mlflow.sklearn.log_model(
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\sklearn\__init__.py", line 412, in log_model
+    return Model.log(
+           ^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\models\model.py", line 714, in log
+    mlflow.tracking.fluent.log_artifacts(local_path, mlflow_model.artifact_path, run_id)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\fluent.py", line 1147, in log_artifacts
+    MlflowClient().log_artifacts(run_id, local_dir, artifact_path)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\client.py", line 1962, in log_artifacts
+    self._tracking_client.log_artifacts(run_id, local_dir, artifact_path)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\_tracking_service\client.py", line 843, in log_artifacts
+    self._get_artifact_repo(run_id).log_artifacts(local_dir, artifact_path)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\_tracking_service\client.py", line 788, in _get_artifact_repo
+    artifact_repo = get_artifact_repository(artifact_uri)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\artifact_repository_registry.py", line 133, in get_artifact_repository
+    return _artifact_repository_registry.get_artifact_repository(artifact_uri)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\artifact_repository_registry.py", line 78, in get_artifact_repository
+    return repository(artifact_uri)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\gcs_artifact_repo.py", line 63, in __init__
+    self.client = gcs_storage.Client()
+                  ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\storage\client.py", line 247, in __init__
+    super(Client, self).__init__(
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\client\__init__.py", line 339, in __init__
+    _ClientProjectMixin.__init__(self, project=project, credentials=credentials)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\client\__init__.py", line 290, in __init__
+    raise EnvironmentError(
+OSError: Project was not passed and could not be determined from the environment.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\src\south_german_credit_g57\training\train_model_pip.py", line 237, in main
+    shutil.rmtree(local_path)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\shutil.py", line 781, in rmtree
+    return _rmtree_unsafe(path, onexc)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\shutil.py", line 639, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\shutil.py", line 637, in _rmtree_unsafe
+    os.rmdir(path)
+PermissionError: [WinError 5] Acceso denegado: 'C:\\Users\\Oscar\\OneDrive\\Documentos\\GitHub\\ML57\\MLOps_E57\\Proyecto_south_german_credit_g57\\models_fallback\\XGBoost_fallback'
+2025-11-02 14:38:34 — [INFO] — TrainModel — Entrenando modelo: XGBoost
+2025-11-02 14:38:35 — [INFO] — TrainModel — Mejor score: 0.7718
+2025-11-02 14:38:40 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:38:40 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:38:40 — [ERROR] — TrainModel — Error al registrar el modelo en MLflow: Project was not passed and could not be determined from the environment.
+2025-11-02 14:38:41 — [ERROR] — TrainModel — Error en el entrenamiento del modelo XGBoost: [WinError 5] Acceso denegado: 'C:\\Users\\Oscar\\OneDrive\\Documentos\\GitHub\\ML57\\MLOps_E57\\Proyecto_south_german_credit_g57\\models_fallback\\XGBoost_fallback'
+Traceback (most recent call last):
+  File "C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\src\south_german_credit_g57\training\train_model_pip.py", line 222, in main
+    mlflow.sklearn.log_model(
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\sklearn\__init__.py", line 412, in log_model
+    return Model.log(
+           ^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\models\model.py", line 714, in log
+    mlflow.tracking.fluent.log_artifacts(local_path, mlflow_model.artifact_path, run_id)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\fluent.py", line 1147, in log_artifacts
+    MlflowClient().log_artifacts(run_id, local_dir, artifact_path)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\client.py", line 1962, in log_artifacts
+    self._tracking_client.log_artifacts(run_id, local_dir, artifact_path)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\_tracking_service\client.py", line 843, in log_artifacts
+    self._get_artifact_repo(run_id).log_artifacts(local_dir, artifact_path)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\_tracking_service\client.py", line 788, in _get_artifact_repo
+    artifact_repo = get_artifact_repository(artifact_uri)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\artifact_repository_registry.py", line 133, in get_artifact_repository
+    return _artifact_repository_registry.get_artifact_repository(artifact_uri)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\artifact_repository_registry.py", line 78, in get_artifact_repository
+    return repository(artifact_uri)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\gcs_artifact_repo.py", line 63, in __init__
+    self.client = gcs_storage.Client()
+                  ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\storage\client.py", line 247, in __init__
+    super(Client, self).__init__(
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\client\__init__.py", line 339, in __init__
+    _ClientProjectMixin.__init__(self, project=project, credentials=credentials)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\client\__init__.py", line 290, in __init__
+    raise EnvironmentError(
+OSError: Project was not passed and could not be determined from the environment.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\src\south_german_credit_g57\training\train_model_pip.py", line 237, in main
+    shutil.rmtree(local_path)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\shutil.py", line 781, in rmtree
+    return _rmtree_unsafe(path, onexc)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\shutil.py", line 639, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\shutil.py", line 637, in _rmtree_unsafe
+    os.rmdir(path)
+PermissionError: [WinError 5] Acceso denegado: 'C:\\Users\\Oscar\\OneDrive\\Documentos\\GitHub\\ML57\\MLOps_E57\\Proyecto_south_german_credit_g57\\models_fallback\\XGBoost_fallback'
+2025-11-02 14:38:41 — [INFO] — TrainModel — Entrenamiento completado para todos los modelos.
+2025-11-02 14:38:41 — [INFO] — MainPipeline — Fase 3: Evaluación final en test
