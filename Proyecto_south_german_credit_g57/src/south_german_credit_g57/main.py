@@ -31,32 +31,40 @@ logger = logging.getLogger("MainPipeline")
 # VERIFICACIÓN DE DEPENDENCIAS (SOLO 1ª VEZ)
 # ==========================================================
 def install_package(package_name: str):
-    """Instala un paquete vía pip."""
+    """Instala o actualiza un paquete vía pip (compatible con macOS y Windows)."""
     try:
-        subprocess.check_call([sys.executable, "-m", "pip", "install", package_name])
+        subprocess.check_call([sys.executable, "-m", "pip", "install", "--upgrade", package_name])
         logger.info(f"Instalado o actualizado: {package_name}")
     except subprocess.CalledProcessError as e:
         logger.error(f"Error al instalar {package_name}: {e}")
         sys.exit(1)
 
-def verify_and_install_requirements(requirements_path="requirements.txt"):
-    """Instala los paquetes requeridos solo si aún no se verificaron."""
+
+def verify_and_install_requirements(requirements_path: str):
+    """Verifica e instala los paquetes requeridos solo si no se ha hecho antes."""
     marker_path = PROJECT_ROOT / ".requirements_verified"
 
+    # Si ya se verificó previamente, saltar
     if marker_path.exists():
         logger.info("Dependencias ya verificadas previamente. Saltando instalación.")
         return
 
     if not os.path.exists(requirements_path):
-        logger.warning(f"No se encontró {requirements_path}.")
+        logger.warning(f"No se encontró {requirements_path}. Se omite la verificación.")
         return
 
     logger.info("Ejecutando verificación inicial de dependencias...")
+
     with open(requirements_path, "r") as f:
         lines = [line.strip() for line in f if line.strip() and not line.startswith("#")]
 
     fixed = 0
     for line in lines:
+        # Evitar módulos internos de MLflow
+        if "mlflow-tracing" in line.lower():
+            logger.info("Omitiendo 'mlflow-tracing' (viene incluido con MLflow 2.x o no aplica).")
+            continue
+
         if "==" in line:
             name, version = line.split("==", 1)
         else:
@@ -75,9 +83,10 @@ def verify_and_install_requirements(requirements_path="requirements.txt"):
             install_package(f"{name}=={version}" if version else name)
             fixed += 1
 
+    # Crear marcador
     with open(marker_path, "w") as f:
         f.write(f"Verificado el {datetime.now():%Y-%m-%d %H:%M:%S}")
-    logger.info(f"Dependencias verificadas. ({fixed} paquetes instalados o actualizados).")
+    logger.info(f"Dependencias verificadas correctamente. ({fixed} paquetes instalados o actualizados).")
 
 
 # ==========================================================
@@ -90,7 +99,8 @@ def run_pipeline(config_path: str, skip_clean=False, skip_train=False, skip_eval
 
     try:
         # 0. Verificar dependencias (solo la primera vez)
-        verify_and_install_requirements("requirements.txt")
+        req_path = str(PROJECT_ROOT / "requirements.txt")
+        verify_and_install_requirements(req_path)
 
         # Fase 1: Limpieza de datos
         if not skip_clean:
