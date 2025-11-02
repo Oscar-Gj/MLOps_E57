@@ -1932,3 +1932,719 @@ Traceback (most recent call last):
 PermissionError: [WinError 5] Acceso denegado: 'C:\\Users\\Oscar\\OneDrive\\Documentos\\GitHub\\ML57\\MLOps_E57\\Proyecto_south_german_credit_g57\\models_fallback\\XGBoost_fallback'
 2025-11-02 14:38:41 — [INFO] — TrainModel — Entrenamiento completado para todos los modelos.
 2025-11-02 14:38:41 — [INFO] — MainPipeline — Fase 3: Evaluación final en test
+2025-11-02 14:45:28 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:28 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:28 — [INFO] — MainPipeline —  Logger 'MainPipeline' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:28 — [INFO] — MainPipeline — Inicio de ejecución del pipeline de South German Credit
+2025-11-02 14:45:28 — [INFO] — MainPipeline — Dependencias ya verificadas previamente. Saltando verificación.
+2025-11-02 14:45:28 — [INFO] — MainPipeline — ../params.yaml ya está en UTF-8.
+2025-11-02 14:45:29 — [INFO] — MainPipeline — Fase 1: Limpieza de datos
+2025-11-02 14:45:29 — [INFO] — MainPipeline — Fase 2: Entrenamiento y registro de modelos
+2025-11-02 14:45:29 — [INFO] — TrainModel — Leyendo dataset desde: C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\..\data\processed\02_df_data_train_01.csv
+2025-11-02 14:45:29 — [INFO] — TrainModel — Creando pipeline de preprocesamiento...
+2025-11-02 14:45:29 — [INFO] — TrainModel — Conectado a MLflow.
+2025-11-02 14:45:29 — [INFO] — TrainModel — Entrenando modelo: LogisticRegression
+2025-11-02 14:45:37 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:37 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:38 — [INFO] — TrainModel — Mejor score: 0.7438
+2025-11-02 14:45:43 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:43 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:44 — [ERROR] — TrainModel — Error al registrar el modelo en MLflow: Project was not passed and could not be determined from the environment.
+2025-11-02 14:45:44 — [ERROR] — TrainModel — Error en el entrenamiento del modelo LogisticRegression: [WinError 5] Acceso denegado: 'C:\\Users\\Oscar\\OneDrive\\Documentos\\GitHub\\ML57\\MLOps_E57\\Proyecto_south_german_credit_g57\\models_fallback\\LogisticRegression_fallback'
+Traceback (most recent call last):
+  File "C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\src\south_german_credit_g57\training\train_model_pip.py", line 227, in main
+    mlflow.sklearn.log_model(
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\sklearn\__init__.py", line 412, in log_model
+    return Model.log(
+           ^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\models\model.py", line 714, in log
+    mlflow.tracking.fluent.log_artifacts(local_path, mlflow_model.artifact_path, run_id)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\fluent.py", line 1147, in log_artifacts
+    MlflowClient().log_artifacts(run_id, local_dir, artifact_path)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\client.py", line 1962, in log_artifacts
+    self._tracking_client.log_artifacts(run_id, local_dir, artifact_path)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\_tracking_service\client.py", line 843, in log_artifacts
+    self._get_artifact_repo(run_id).log_artifacts(local_dir, artifact_path)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\_tracking_service\client.py", line 788, in _get_artifact_repo
+    artifact_repo = get_artifact_repository(artifact_uri)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\artifact_repository_registry.py", line 133, in get_artifact_repository
+    return _artifact_repository_registry.get_artifact_repository(artifact_uri)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\artifact_repository_registry.py", line 78, in get_artifact_repository
+    return repository(artifact_uri)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\gcs_artifact_repo.py", line 63, in __init__
+    self.client = gcs_storage.Client()
+                  ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\storage\client.py", line 247, in __init__
+    super(Client, self).__init__(
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\client\__init__.py", line 339, in __init__
+    _ClientProjectMixin.__init__(self, project=project, credentials=credentials)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\client\__init__.py", line 290, in __init__
+    raise EnvironmentError(
+OSError: Project was not passed and could not be determined from the environment.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\shutil.py", line 637, in _rmtree_unsafe
+    os.rmdir(path)
+PermissionError: [WinError 5] Acceso denegado: 'C:\\Users\\Oscar\\OneDrive\\Documentos\\GitHub\\ML57\\MLOps_E57\\Proyecto_south_german_credit_g57\\models_fallback\\LogisticRegression_fallback'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\src\south_german_credit_g57\training\train_model_pip.py", line 241, in main
+    shutil.rmtree(local_path, onerror=on_rm_error)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\shutil.py", line 781, in rmtree
+    return _rmtree_unsafe(path, onexc)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\shutil.py", line 639, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\shutil.py", line 750, in onexc
+    return onerror(func, path, exc_info)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\src\south_german_credit_g57\training\train_model_pip.py", line 256, in on_rm_error
+    os.remove(path)
+PermissionError: [WinError 5] Acceso denegado: 'C:\\Users\\Oscar\\OneDrive\\Documentos\\GitHub\\ML57\\MLOps_E57\\Proyecto_south_german_credit_g57\\models_fallback\\LogisticRegression_fallback'
+2025-11-02 14:45:44 — [INFO] — TrainModel — Entrenando modelo: LogisticRegression
+2025-11-02 14:45:45 — [INFO] — TrainModel — Mejor score: 0.7619
+2025-11-02 14:45:50 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:50 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:50 — [ERROR] — TrainModel — Error al registrar el modelo en MLflow: Project was not passed and could not be determined from the environment.
+2025-11-02 14:45:53 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:53 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:54 — [INFO] — TrainModel — Modelo guardado localmente en C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\models_fallback\LogisticRegression_fallback
+2025-11-02 14:45:54 — [INFO] — TrainModel — Entrenando modelo: LogisticRegression
+2025-11-02 14:45:55 — [INFO] — TrainModel — Mejor score: 0.7618
+2025-11-02 14:45:59 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:45:59 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:46:00 — [ERROR] — TrainModel — Error al registrar el modelo en MLflow: Project was not passed and could not be determined from the environment.
+2025-11-02 14:46:03 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:46:03 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:46:03 — [INFO] — TrainModel — Modelo guardado localmente en C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\models_fallback\LogisticRegression_fallback
+2025-11-02 14:46:04 — [INFO] — TrainModel — Entrenando modelo: RandomForest
+2025-11-02 14:46:04 — [INFO] — TrainModel — Mejor score: 0.7730
+2025-11-02 14:46:11 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:46:11 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:46:11 — [ERROR] — TrainModel — Error al registrar el modelo en MLflow: Project was not passed and could not be determined from the environment.
+2025-11-02 14:46:11 — [ERROR] — TrainModel — Error en el entrenamiento del modelo RandomForest: [WinError 5] Acceso denegado: 'C:\\Users\\Oscar\\OneDrive\\Documentos\\GitHub\\ML57\\MLOps_E57\\Proyecto_south_german_credit_g57\\models_fallback\\RandomForest_fallback'
+Traceback (most recent call last):
+  File "C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\src\south_german_credit_g57\training\train_model_pip.py", line 227, in main
+    mlflow.sklearn.log_model(
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\sklearn\__init__.py", line 412, in log_model
+    return Model.log(
+           ^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\models\model.py", line 714, in log
+    mlflow.tracking.fluent.log_artifacts(local_path, mlflow_model.artifact_path, run_id)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\fluent.py", line 1147, in log_artifacts
+    MlflowClient().log_artifacts(run_id, local_dir, artifact_path)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\client.py", line 1962, in log_artifacts
+    self._tracking_client.log_artifacts(run_id, local_dir, artifact_path)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\_tracking_service\client.py", line 843, in log_artifacts
+    self._get_artifact_repo(run_id).log_artifacts(local_dir, artifact_path)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\_tracking_service\client.py", line 788, in _get_artifact_repo
+    artifact_repo = get_artifact_repository(artifact_uri)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\artifact_repository_registry.py", line 133, in get_artifact_repository
+    return _artifact_repository_registry.get_artifact_repository(artifact_uri)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\artifact_repository_registry.py", line 78, in get_artifact_repository
+    return repository(artifact_uri)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\gcs_artifact_repo.py", line 63, in __init__
+    self.client = gcs_storage.Client()
+                  ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\storage\client.py", line 247, in __init__
+    super(Client, self).__init__(
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\client\__init__.py", line 339, in __init__
+    _ClientProjectMixin.__init__(self, project=project, credentials=credentials)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\client\__init__.py", line 290, in __init__
+    raise EnvironmentError(
+OSError: Project was not passed and could not be determined from the environment.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\shutil.py", line 637, in _rmtree_unsafe
+    os.rmdir(path)
+PermissionError: [WinError 5] Acceso denegado: 'C:\\Users\\Oscar\\OneDrive\\Documentos\\GitHub\\ML57\\MLOps_E57\\Proyecto_south_german_credit_g57\\models_fallback\\RandomForest_fallback'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\src\south_german_credit_g57\training\train_model_pip.py", line 241, in main
+    shutil.rmtree(local_path, onerror=on_rm_error)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\shutil.py", line 781, in rmtree
+    return _rmtree_unsafe(path, onexc)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\shutil.py", line 639, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\shutil.py", line 750, in onexc
+    return onerror(func, path, exc_info)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\src\south_german_credit_g57\training\train_model_pip.py", line 256, in on_rm_error
+    os.remove(path)
+PermissionError: [WinError 5] Acceso denegado: 'C:\\Users\\Oscar\\OneDrive\\Documentos\\GitHub\\ML57\\MLOps_E57\\Proyecto_south_german_credit_g57\\models_fallback\\RandomForest_fallback'
+2025-11-02 14:46:11 — [INFO] — TrainModel — Entrenando modelo: RandomForest
+2025-11-02 14:46:14 — [INFO] — TrainModel — Mejor score: 0.7876
+2025-11-02 14:46:27 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:46:27 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:46:28 — [ERROR] — TrainModel — Error al registrar el modelo en MLflow: Project was not passed and could not be determined from the environment.
+2025-11-02 14:46:31 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:46:31 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:46:31 — [INFO] — TrainModel — Modelo guardado localmente en C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\models_fallback\RandomForest_fallback
+2025-11-02 14:46:31 — [INFO] — TrainModel — Entrenando modelo: RandomForest
+2025-11-02 14:46:35 — [INFO] — TrainModel — Mejor score: 0.7907
+2025-11-02 14:46:52 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:46:52 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:46:53 — [ERROR] — TrainModel — Error al registrar el modelo en MLflow: Project was not passed and could not be determined from the environment.
+2025-11-02 14:46:56 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:46:56 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:46:56 — [INFO] — TrainModel — Modelo guardado localmente en C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\models_fallback\RandomForest_fallback
+2025-11-02 14:46:57 — [INFO] — TrainModel — Entrenando modelo: XGBoost
+2025-11-02 14:46:58 — [INFO] — TrainModel — Mejor score: 0.7359
+2025-11-02 14:47:04 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:47:04 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:47:05 — [ERROR] — TrainModel — Error al registrar el modelo en MLflow: Project was not passed and could not be determined from the environment.
+2025-11-02 14:47:06 — [ERROR] — TrainModel — Error en el entrenamiento del modelo XGBoost: [WinError 5] Acceso denegado: 'C:\\Users\\Oscar\\OneDrive\\Documentos\\GitHub\\ML57\\MLOps_E57\\Proyecto_south_german_credit_g57\\models_fallback\\XGBoost_fallback'
+Traceback (most recent call last):
+  File "C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\src\south_german_credit_g57\training\train_model_pip.py", line 227, in main
+    mlflow.sklearn.log_model(
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\sklearn\__init__.py", line 412, in log_model
+    return Model.log(
+           ^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\models\model.py", line 714, in log
+    mlflow.tracking.fluent.log_artifacts(local_path, mlflow_model.artifact_path, run_id)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\fluent.py", line 1147, in log_artifacts
+    MlflowClient().log_artifacts(run_id, local_dir, artifact_path)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\client.py", line 1962, in log_artifacts
+    self._tracking_client.log_artifacts(run_id, local_dir, artifact_path)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\_tracking_service\client.py", line 843, in log_artifacts
+    self._get_artifact_repo(run_id).log_artifacts(local_dir, artifact_path)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\tracking\_tracking_service\client.py", line 788, in _get_artifact_repo
+    artifact_repo = get_artifact_repository(artifact_uri)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\artifact_repository_registry.py", line 133, in get_artifact_repository
+    return _artifact_repository_registry.get_artifact_repository(artifact_uri)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\artifact_repository_registry.py", line 78, in get_artifact_repository
+    return repository(artifact_uri)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\mlflow\store\artifact\gcs_artifact_repo.py", line 63, in __init__
+    self.client = gcs_storage.Client()
+                  ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\storage\client.py", line 247, in __init__
+    super(Client, self).__init__(
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\client\__init__.py", line 339, in __init__
+    _ClientProjectMixin.__init__(self, project=project, credentials=credentials)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\site-packages\google\cloud\client\__init__.py", line 290, in __init__
+    raise EnvironmentError(
+OSError: Project was not passed and could not be determined from the environment.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\shutil.py", line 637, in _rmtree_unsafe
+    os.rmdir(path)
+PermissionError: [WinError 5] Acceso denegado: 'C:\\Users\\Oscar\\OneDrive\\Documentos\\GitHub\\ML57\\MLOps_E57\\Proyecto_south_german_credit_g57\\models_fallback\\XGBoost_fallback'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\src\south_german_credit_g57\training\train_model_pip.py", line 241, in main
+    shutil.rmtree(local_path, onerror=on_rm_error)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\shutil.py", line 781, in rmtree
+    return _rmtree_unsafe(path, onexc)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\shutil.py", line 639, in _rmtree_unsafe
+    onexc(os.rmdir, path, err)
+  File "C:\Users\Oscar\anaconda3\envs\jarvis\Lib\shutil.py", line 750, in onexc
+    return onerror(func, path, exc_info)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\src\south_german_credit_g57\training\train_model_pip.py", line 256, in on_rm_error
+    os.remove(path)
+PermissionError: [WinError 5] Acceso denegado: 'C:\\Users\\Oscar\\OneDrive\\Documentos\\GitHub\\ML57\\MLOps_E57\\Proyecto_south_german_credit_g57\\models_fallback\\XGBoost_fallback'
+2025-11-02 14:47:06 — [INFO] — TrainModel — Entrenando modelo: XGBoost
+2025-11-02 14:47:09 — [INFO] — TrainModel — Mejor score: 0.7713
+2025-11-02 14:47:15 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:47:15 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:47:16 — [ERROR] — TrainModel — Error al registrar el modelo en MLflow: Project was not passed and could not be determined from the environment.
+2025-11-02 14:47:19 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:47:19 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:47:20 — [INFO] — TrainModel — Modelo guardado localmente en C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\models_fallback\XGBoost_fallback
+2025-11-02 14:47:21 — [INFO] — TrainModel — Entrenando modelo: XGBoost
+2025-11-02 14:47:22 — [INFO] — TrainModel — Mejor score: 0.7686
+2025-11-02 14:47:28 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:47:28 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:47:28 — [ERROR] — TrainModel — Error al registrar el modelo en MLflow: Project was not passed and could not be determined from the environment.
+2025-11-02 14:47:31 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:47:31 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:47:32 — [INFO] — TrainModel — Modelo guardado localmente en C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\models_fallback\XGBoost_fallback
+2025-11-02 14:47:32 — [INFO] — TrainModel — Entrenamiento completado para todos los modelos.
+2025-11-02 14:47:32 — [INFO] — MainPipeline — Fase 3: Evaluación final en test
+2025-11-02 14:50:54 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:50:54 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:50:54 — [INFO] — MainPipeline —  Logger 'MainPipeline' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:50:54 — [INFO] — MainPipeline — Inicio de ejecución del pipeline de South German Credit
+2025-11-02 14:50:54 — [INFO] — MainPipeline — Dependencias ya verificadas previamente. Saltando verificación.
+2025-11-02 14:50:54 — [INFO] — MainPipeline — ../params.yaml ya está en UTF-8.
+2025-11-02 14:50:54 — [INFO] — MainPipeline — Fase 1: Limpieza de datos
+2025-11-02 14:50:55 — [INFO] — MainPipeline — Fase 2: Entrenamiento y registro de modelos
+2025-11-02 14:50:55 — [INFO] — TrainModel — Leyendo dataset desde: C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\..\data\processed\02_df_data_train_01.csv
+2025-11-02 14:50:55 — [INFO] — TrainModel — Creando pipeline de preprocesamiento...
+2025-11-02 14:50:55 — [INFO] — TrainModel — Conectado a MLflow.
+2025-11-02 14:50:55 — [INFO] — TrainModel — Entrenando modelo: LogisticRegression
+2025-11-02 14:51:02 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:02 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:03 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:03 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:03 — [INFO] — TrainModel — Mejor score: 0.7473
+2025-11-02 14:51:08 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:09 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:10 — [ERROR] — TrainModel — Error al registrar el modelo en MLflow: Project was not passed and could not be determined from the environment.
+2025-11-02 14:51:13 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:13 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:14 — [INFO] — TrainModel — Modelo guardado localmente en C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\models_fallback\LogisticRegression_fallback
+2025-11-02 14:51:14 — [INFO] — TrainModel — Entrenando modelo: LogisticRegression
+2025-11-02 14:51:14 — [INFO] — TrainModel — Mejor score: 0.7583
+2025-11-02 14:51:19 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:19 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:19 — [ERROR] — TrainModel — Error al registrar el modelo en MLflow: Project was not passed and could not be determined from the environment.
+2025-11-02 14:51:22 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:22 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:23 — [INFO] — TrainModel — Modelo guardado localmente en C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\models_fallback\LogisticRegression_fallback
+2025-11-02 14:51:23 — [INFO] — TrainModel — Entrenando modelo: LogisticRegression
+2025-11-02 14:51:24 — [INFO] — TrainModel — Mejor score: 0.7594
+2025-11-02 14:51:28 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:28 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:29 — [ERROR] — TrainModel — Error al registrar el modelo en MLflow: Project was not passed and could not be determined from the environment.
+2025-11-02 14:51:32 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:32 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:32 — [INFO] — TrainModel — Modelo guardado localmente en C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\models_fallback\LogisticRegression_fallback
+2025-11-02 14:51:33 — [INFO] — TrainModel — Entrenando modelo: RandomForest
+2025-11-02 14:51:33 — [INFO] — TrainModel — Mejor score: 0.7701
+2025-11-02 14:51:40 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:40 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:40 — [ERROR] — TrainModel — Error al registrar el modelo en MLflow: Project was not passed and could not be determined from the environment.
+2025-11-02 14:51:43 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:43 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:51:44 — [INFO] — TrainModel — Modelo guardado localmente en C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\models_fallback\RandomForest_fallback
+2025-11-02 14:51:44 — [INFO] — TrainModel — Entrenando modelo: RandomForest
+2025-11-02 14:51:47 — [INFO] — TrainModel — Mejor score: 0.7881
+2025-11-02 14:52:00 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:52:00 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:52:00 — [ERROR] — TrainModel — Error al registrar el modelo en MLflow: Project was not passed and could not be determined from the environment.
+2025-11-02 14:52:03 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:52:03 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:52:04 — [INFO] — TrainModel — Modelo guardado localmente en C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\models_fallback\RandomForest_fallback
+2025-11-02 14:52:04 — [INFO] — TrainModel — Entrenando modelo: RandomForest
+2025-11-02 14:52:07 — [INFO] — TrainModel — Mejor score: 0.7892
+2025-11-02 14:52:25 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:52:25 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:52:25 — [ERROR] — TrainModel — Error al registrar el modelo en MLflow: Project was not passed and could not be determined from the environment.
+2025-11-02 14:52:28 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:52:28 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:52:29 — [INFO] — TrainModel — Modelo guardado localmente en C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\models_fallback\RandomForest_fallback
+2025-11-02 14:52:29 — [INFO] — TrainModel — Entrenando modelo: XGBoost
+2025-11-02 14:52:30 — [INFO] — TrainModel — Mejor score: 0.7359
+2025-11-02 14:52:36 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:52:36 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:52:36 — [ERROR] — TrainModel — Error al registrar el modelo en MLflow: Project was not passed and could not be determined from the environment.
+2025-11-02 14:52:39 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:52:39 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:52:40 — [INFO] — TrainModel — Modelo guardado localmente en C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\models_fallback\XGBoost_fallback
+2025-11-02 14:52:40 — [INFO] — TrainModel — Entrenando modelo: XGBoost
+2025-11-02 14:52:42 — [INFO] — TrainModel — Mejor score: 0.7706
+2025-11-02 14:52:49 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:52:49 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:52:50 — [ERROR] — TrainModel — Error al registrar el modelo en MLflow: Project was not passed and could not be determined from the environment.
+2025-11-02 14:52:53 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:52:53 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:52:53 — [INFO] — TrainModel — Modelo guardado localmente en C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\models_fallback\XGBoost_fallback
+2025-11-02 14:52:53 — [INFO] — TrainModel — Entrenando modelo: XGBoost
+2025-11-02 14:52:54 — [INFO] — TrainModel — Mejor score: 0.7724
+2025-11-02 14:52:59 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:52:59 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:53:00 — [ERROR] — TrainModel — Error al registrar el modelo en MLflow: Project was not passed and could not be determined from the environment.
+2025-11-02 14:53:03 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:53:03 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 14:53:03 — [INFO] — TrainModel — Modelo guardado localmente en C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\models_fallback\XGBoost_fallback
+2025-11-02 14:53:04 — [INFO] — TrainModel — Entrenamiento completado para todos los modelos.
+2025-11-02 14:53:04 — [INFO] — MainPipeline — Fase 3: Evaluación final en test
+2025-11-02 15:37:40 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:40 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:40 — [INFO] — MainPipeline —  Logger 'MainPipeline' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:40 — [INFO] — MainPipeline — Inicio de ejecución del pipeline de South German Credit
+2025-11-02 15:37:40 — [INFO] — MainPipeline — Dependencias ya verificadas previamente. Saltando verificación.
+2025-11-02 15:37:40 — [INFO] — MainPipeline — ../params.yaml ya está en UTF-8.
+2025-11-02 15:37:41 — [INFO] — MainPipeline — Fase 1: Limpieza de datos
+2025-11-02 15:37:41 — [INFO] — MainPipeline — Fase 2: Entrenamiento y registro de modelos
+2025-11-02 15:37:41 — [INFO] — TrainModel — Leyendo dataset desde: C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\..\data\processed\02_df_data_train_01.csv
+2025-11-02 15:37:41 — [INFO] — TrainModel — Creando pipeline de preprocesamiento...
+2025-11-02 15:37:41 — [INFO] — TrainModel — Conectado a MLflow.
+2025-11-02 15:37:41 — [INFO] — TrainModel — Entrenando modelo: LogisticRegression
+2025-11-02 15:37:48 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:48 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:48 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:48 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:48 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:48 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:48 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:48 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:48 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:48 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:48 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:48 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:48 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:48 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:48 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:48 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:48 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:48 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:48 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:48 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:48 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:48 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:49 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:49 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:49 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:49 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:49 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:49 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:49 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:49 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:49 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:49 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:49 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:49 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:49 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:49 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:49 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:49 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:49 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:49 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:49 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:49 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:49 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:49 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:49 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:49 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:49 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:49 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:49 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:49 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:49 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:49 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:49 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:49 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:49 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:49 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:49 — [INFO] — TrainModel — Mejor score: 0.7446
+2025-11-02 15:37:55 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:55 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:56 — [ERROR] — TrainModel — Error al registrar el modelo en MLflow: Project was not passed and could not be determined from the environment.
+2025-11-02 15:37:59 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:59 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:37:59 — [INFO] — TrainModel — Modelo guardado localmente en C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\models_fallback\LogisticRegression_fallback
+2025-11-02 15:38:00 — [INFO] — TrainModel — Entrenando modelo: LogisticRegression
+2025-11-02 15:38:00 — [INFO] — TrainModel — Mejor score: 0.7612
+2025-11-02 15:38:04 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:38:04 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:38:05 — [ERROR] — TrainModel — Error al registrar el modelo en MLflow: Project was not passed and could not be determined from the environment.
+2025-11-02 15:38:08 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:38:08 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:38:08 — [INFO] — TrainModel — Modelo guardado localmente en C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\models_fallback\LogisticRegression_fallback
+2025-11-02 15:38:08 — [INFO] — TrainModel — Entrenando modelo: LogisticRegression
+2025-11-02 15:38:09 — [INFO] — TrainModel — Mejor score: 0.7601
+2025-11-02 15:38:14 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:38:14 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:38:15 — [ERROR] — TrainModel — Error al registrar el modelo en MLflow: Project was not passed and could not be determined from the environment.
+2025-11-02 15:38:18 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:38:18 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:38:18 — [INFO] — TrainModel — Modelo guardado localmente en C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\models_fallback\LogisticRegression_fallback
+2025-11-02 15:38:18 — [INFO] — TrainModel — Entrenando modelo: RandomForest
+2025-11-02 15:38:19 — [INFO] — TrainModel — Mejor score: 0.7724
+2025-11-02 15:38:25 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:38:25 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:38:26 — [ERROR] — TrainModel — Error al registrar el modelo en MLflow: Project was not passed and could not be determined from the environment.
+2025-11-02 15:38:29 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:38:29 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:38:29 — [INFO] — TrainModel — Modelo guardado localmente en C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\models_fallback\RandomForest_fallback
+2025-11-02 15:38:29 — [INFO] — TrainModel — Entrenando modelo: RandomForest
+2025-11-02 15:38:32 — [INFO] — TrainModel — Mejor score: 0.7918
+2025-11-02 15:38:42 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:38:42 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:38:43 — [ERROR] — TrainModel — Error al registrar el modelo en MLflow: Project was not passed and could not be determined from the environment.
+2025-11-02 15:38:46 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:38:46 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:38:46 — [INFO] — TrainModel — Modelo guardado localmente en C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\models_fallback\RandomForest_fallback
+2025-11-02 15:38:46 — [INFO] — TrainModel — Entrenando modelo: RandomForest
+2025-11-02 15:38:50 — [INFO] — TrainModel — Mejor score: 0.7917
+2025-11-02 15:39:07 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:39:07 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:39:07 — [ERROR] — TrainModel — Error al registrar el modelo en MLflow: Project was not passed and could not be determined from the environment.
+2025-11-02 15:39:11 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:39:11 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:39:11 — [INFO] — TrainModel — Modelo guardado localmente en C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\models_fallback\RandomForest_fallback
+2025-11-02 15:39:11 — [INFO] — TrainModel — Entrenando modelo: XGBoost
+2025-11-02 15:39:13 — [INFO] — TrainModel — Mejor score: 0.7359
+2025-11-02 15:39:18 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:39:18 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:39:19 — [ERROR] — TrainModel — Error al registrar el modelo en MLflow: Project was not passed and could not be determined from the environment.
+2025-11-02 15:39:22 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:39:22 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:39:23 — [INFO] — TrainModel — Modelo guardado localmente en C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\models_fallback\XGBoost_fallback
+2025-11-02 15:39:23 — [INFO] — TrainModel — Entrenando modelo: XGBoost
+2025-11-02 15:39:25 — [INFO] — TrainModel — Mejor score: 0.7718
+2025-11-02 15:39:31 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:39:31 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:39:31 — [ERROR] — TrainModel — Error al registrar el modelo en MLflow: Project was not passed and could not be determined from the environment.
+2025-11-02 15:39:34 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:39:35 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:39:35 — [INFO] — TrainModel — Modelo guardado localmente en C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\models_fallback\XGBoost_fallback
+2025-11-02 15:39:35 — [INFO] — TrainModel — Entrenando modelo: XGBoost
+2025-11-02 15:39:36 — [INFO] — TrainModel — Mejor score: 0.7677
+2025-11-02 15:39:41 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:39:41 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:39:42 — [ERROR] — TrainModel — Error al registrar el modelo en MLflow: Project was not passed and could not be determined from the environment.
+2025-11-02 15:39:45 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:39:45 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:39:45 — [INFO] — TrainModel — Modelo guardado localmente en C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\models_fallback\XGBoost_fallback
+2025-11-02 15:39:45 — [INFO] — TrainModel — Entrenamiento completado para todos los modelos.
+2025-11-02 15:39:45 — [INFO] — MainPipeline — Fase 3: Evaluación final en test
+2025-11-02 15:45:35 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:35 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:35 — [INFO] — MainPipeline —  Logger 'MainPipeline' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:35 — [INFO] — MainPipeline — Inicio de ejecución del pipeline de South German Credit
+2025-11-02 15:45:35 — [INFO] — MainPipeline — Dependencias ya verificadas previamente. Saltando verificación.
+2025-11-02 15:45:35 — [INFO] — MainPipeline — ../params.yaml ya está en UTF-8.
+2025-11-02 15:45:36 — [INFO] — MainPipeline — Fase 1: Limpieza de datos
+2025-11-02 15:45:36 — [INFO] — MainPipeline — Fase 2: Entrenamiento y registro de modelos
+2025-11-02 15:45:36 — [INFO] — TrainModel — Leyendo dataset desde: C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\..\data\processed\02_df_data_train_01.csv
+2025-11-02 15:45:36 — [INFO] — TrainModel — Creando pipeline de preprocesamiento...
+2025-11-02 15:45:36 — [INFO] — TrainModel — Conectado a MLflow.
+2025-11-02 15:45:36 — [INFO] — TrainModel — Entrenando modelo: LogisticRegression
+2025-11-02 15:45:43 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:43 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:43 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:43 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:43 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:43 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:43 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:43 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:43 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:43 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:43 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:43 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:43 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:43 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:43 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:43 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:43 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:43 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:43 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:43 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:43 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:43 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:43 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:43 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:43 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:43 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:43 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:43 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:43 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:43 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:43 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:43 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:43 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:43 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:43 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:43 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:44 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:44 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:44 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:44 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:44 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:44 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:44 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:44 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:44 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:44 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:44 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:44 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:44 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:44 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:44 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:44 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:44 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:44 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:44 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:44 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:44 — [INFO] — TrainModel — Mejor score: 0.7476
+2025-11-02 15:45:50 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:50 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:45:55 — [INFO] — TrainModel — Modelo LogisticRegression registrado correctamente en MLflow.
+2025-11-02 15:45:56 — [INFO] — TrainModel — Entrenando modelo: LogisticRegression
+2025-11-02 15:45:56 — [INFO] — TrainModel — Mejor score: 0.7600
+2025-11-02 15:46:00 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:46:01 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:46:05 — [INFO] — TrainModel — Modelo LogisticRegression registrado correctamente en MLflow.
+2025-11-02 15:46:05 — [INFO] — TrainModel — Entrenando modelo: LogisticRegression
+2025-11-02 15:46:06 — [INFO] — TrainModel — Mejor score: 0.7607
+2025-11-02 15:46:11 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:46:11 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:46:15 — [INFO] — TrainModel — Modelo LogisticRegression registrado correctamente en MLflow.
+2025-11-02 15:46:15 — [INFO] — TrainModel — Entrenando modelo: RandomForest
+2025-11-02 15:46:16 — [INFO] — TrainModel — Mejor score: 0.7715
+2025-11-02 15:46:22 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:46:22 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:46:28 — [INFO] — TrainModel — Modelo RandomForest registrado correctamente en MLflow.
+2025-11-02 15:46:28 — [INFO] — TrainModel — Entrenando modelo: RandomForest
+2025-11-02 15:46:31 — [INFO] — TrainModel — Mejor score: 0.7908
+2025-11-02 15:46:44 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:46:44 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:46:50 — [INFO] — TrainModel — Modelo RandomForest registrado correctamente en MLflow.
+2025-11-02 15:46:50 — [INFO] — TrainModel — Entrenando modelo: RandomForest
+2025-11-02 15:46:53 — [INFO] — TrainModel — Mejor score: 0.7888
+2025-11-02 15:47:10 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:47:10 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:47:17 — [INFO] — TrainModel — Modelo RandomForest registrado correctamente en MLflow.
+2025-11-02 15:47:17 — [INFO] — TrainModel — Entrenando modelo: XGBoost
+2025-11-02 15:47:19 — [INFO] — TrainModel — Mejor score: 0.7359
+2025-11-02 15:47:24 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:47:24 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:47:29 — [INFO] — TrainModel — Modelo XGBoost registrado correctamente en MLflow.
+2025-11-02 15:47:29 — [INFO] — TrainModel — Entrenando modelo: XGBoost
+2025-11-02 15:47:31 — [INFO] — TrainModel — Mejor score: 0.7711
+2025-11-02 15:47:37 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:47:37 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:47:42 — [INFO] — TrainModel — Modelo XGBoost registrado correctamente en MLflow.
+2025-11-02 15:47:42 — [INFO] — TrainModel — Entrenando modelo: XGBoost
+2025-11-02 15:47:43 — [INFO] — TrainModel — Mejor score: 0.7692
+2025-11-02 15:47:48 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:47:48 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:47:53 — [INFO] — TrainModel — Modelo XGBoost registrado correctamente en MLflow.
+2025-11-02 15:47:54 — [INFO] — TrainModel — Entrenamiento completado para todos los modelos.
+2025-11-02 15:47:54 — [INFO] — MainPipeline — Fase 3: Evaluación final en test
+2025-11-02 15:48:01 — [INFO] — MainPipeline — Fase 4: Evaluación local rápida (train/test split)
+2025-11-02 15:48:01 — [WARNING] — MainPipeline — No se pudo ejecutar evaluación local: [Errno 2] No such file or directory: 'data/processed/02_df_data_preparation_01.csv'
+2025-11-02 15:48:01 — [INFO] — MainPipeline — Pipeline completado correctamente.
+2025-11-02 15:48:01 — [INFO] — MainPipeline — Consulta resultados en la interfaz MLflow UI.
+2025-11-02 15:54:07 — [INFO] — MetricsModule —  Logger 'MetricsModule' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:54:07 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:54:07 — [INFO] — MainPipeline —  Logger 'MainPipeline' inicializado — Archivo: 2025-11-02.log
+2025-11-02 15:54:07 — [INFO] — MainPipeline — Inicio de ejecución del pipeline de South German Credit
+2025-11-02 15:54:07 — [INFO] — MainPipeline — Dependencias ya verificadas previamente. Saltando verificación.
+2025-11-02 15:54:07 — [INFO] — MainPipeline — ../params.yaml ya está en UTF-8.
+2025-11-02 15:54:07 — [INFO] — MainPipeline — MLflow configurado en modo LOCAL → file://C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\mlruns

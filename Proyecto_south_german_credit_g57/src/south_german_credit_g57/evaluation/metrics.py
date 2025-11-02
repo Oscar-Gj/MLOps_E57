@@ -155,6 +155,7 @@ def main(config_path: str, model_name: str):
     reports_dir.mkdir(parents=True, exist_ok=True)
     
     # 5. Iniciar Run de Evaluación en MLflow
+    mlflow.end_run()
     with mlflow.start_run(run_name=f"eval_{model_name}_v-latest") as run:
         run_id = run.info.run_id
         logger.info(f"Run de MLflow iniciado (ID: {run_id}). Evaluando modelo en {eval_experiment_name}")

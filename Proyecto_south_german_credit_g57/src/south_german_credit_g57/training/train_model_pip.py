@@ -40,6 +40,11 @@ import yaml
 import os
 import chardet
 import json
+import shutil, stat
+
+def on_rm_error(func, path, exc_info):
+    os.chmod(path, stat.S_IWRITE)
+    os.remove(path)
 
 logger = get_logger("TrainModel")
 warnings.filterwarnings("ignore")
@@ -233,9 +238,9 @@ def main(config_path: str):
                     fallback_dir.mkdir(exist_ok=True)
                     local_path = fallback_dir / f"{model_name}_fallback"
                     if local_path.exists():
-                        import shutil
-                        shutil.rmtree(local_path)
+                        shutil.rmtree(local_path, onerror=on_rm_error)
                     mlflow.sklearn.save_model(best_model, str(local_path))
+
 
                     mlflow.log_param("local_model_path", str(local_path))
                     logger.info(f"Modelo guardado localmente en {local_path}")
@@ -245,3 +250,7 @@ def main(config_path: str):
             mlflow.end_run(status="FAILED")
 
     logger.info("Entrenamiento completado para todos los modelos.")
+
+def on_rm_error(func, path, exc_info):
+    os.chmod(path, stat.S_IWRITE)
+    os.remove(path)

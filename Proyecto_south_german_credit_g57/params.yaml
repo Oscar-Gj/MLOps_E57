@@ -31,17 +31,18 @@ base:
 data:
 
 
-  raw: "C:/Users/Oscar/OneDrive/Documentos/GitHub/ML57/MLOps_E57/Proyecto_south_german_credit_g57/data/raw/german_credit_modified.csv"
+  raw: "../data/raw/german_credit_modified.csv"
 
 
   processed: "data/processed/02_df_data_preparation_01.csv"
 
 
-  train: 'data/processed/02_df_data_train_01.csv'
+
+  train: "../data/processed/02_df_data_train_01.csv"
 
 
-  test: 'data/processed/02_df_data_test_01.csv'
 
+  test: "../data/processed/02_df_data_test_01.csv"
 
 
 
@@ -374,7 +375,9 @@ training:
 
 mlflow:
 
+  mode: "local"
 
+  
   experiment_name: "Experimento-Conexión-MLFlow-Grupo57"
 
 

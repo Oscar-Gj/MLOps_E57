@@ -150,9 +150,17 @@ def run_pipeline(config_path: str, skip_clean=False, skip_train=False, skip_eval
         config = yaml.safe_load(f)
 
 
-    # 4. Configurar MLflow
-    mlflow.set_tracking_uri(config["mlflow"]["tracking_uri"])
-    mlflow.set_experiment("SouthGermanCredit_FullPipeline")
+    mlflow_mode = config.get("mlflow", {}).get("mode", "local")
+
+    if mlflow_mode == "local":
+        local_uri = "file://" + os.path.join(PROJECT_ROOT, "mlruns")
+        mlflow.set_tracking_uri(local_uri)
+        logger.info(f"MLflow configurado en modo LOCAL → {local_uri}")
+    else:
+        remote_uri = config["mlflow"]["tracking_uri"]
+        mlflow.set_tracking_uri(remote_uri)
+        logger.info(f"MLflow configurado en modo CLOUD → {remote_uri}")
+
 
     # 5. Ejecutar fases principales
     with mlflow.start_run(run_name=f"Full_Run_{datetime.now():%Y%m%d_%H%M%S}") as run:
@@ -211,6 +219,13 @@ def run_pipeline(config_path: str, skip_clean=False, skip_train=False, skip_eval
                 datasets = {"train": (X_train, y_train), "test": (X_test, y_test)}
                 results = evaluate_all_phases(model, datasets)
                 logger.info(f"Resultados locales: {results}")
+
+                # 🔸 Registrar métricas locales en MLflow
+                for phase, metrics_dict in results.items():
+                    for metric_name, metric_value in metrics_dict.items():
+                        mlflow.log_metric(f"local_{phase}_{metric_name}", metric_value)
+
+                logger.info("Métricas locales registradas en MLflow correctamente.")
             else:
                 logger.warning("No se encontró modelo local para evaluación rápida.")
         except Exception as e:

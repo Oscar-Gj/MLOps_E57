@@ -1,0 +1,8 @@
+              precision    recall  f1-score   support
+
+   Bueno (0)       0.81      0.93      0.87       138
+    Malo (1)       0.78      0.51      0.61        61
+
+    accuracy                           0.80       199
+   macro avg       0.79      0.72      0.74       199
+weighted avg       0.80      0.80      0.79       199
