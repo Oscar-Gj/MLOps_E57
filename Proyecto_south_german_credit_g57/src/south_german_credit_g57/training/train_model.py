@@ -43,6 +43,7 @@ from sklearn.metrics import make_scorer, accuracy_score, precision_score, recall
 from imblearn.metrics import geometric_mean_score
 
 from mlflow.models.signature import infer_signature
+from mlflow.data.pandas_dataset import PandasDataset
 
 # Ignorar warnings
 warnings.filterwarnings("ignore")
@@ -294,6 +295,16 @@ def main(config_path: str):
                 mlflow.log_param(f"{model_name}_param_grid", json.dumps(param_grid))
                 mlflow.log_param(f"{model_name}_best_params", json.dumps(best_params))
                 mlflow.log_metric(f"best_cv_{gs_config['scoring']}", best_score)
+                # Registrar dataset en MLflow
+                try:
+                    dataset_d = pd.read_csv(config['data']['train'])
+                    dataset_dict = mlflow.data.from_pandas(
+                        dataset_d, source=config['data']['train'], name="South German Credit", targets="credit_risk",
+                    )
+                    mlflow.log_input(dataset_dict, context="training")
+                    logger.info("Dataset de entrenamiento registrado como artifact en MLflow.")
+                except Exception as e:
+                    logger.warning(f"No se pudo registrar el dataset en MLflow: {e}")
 
                 # --- 4. RE-EVALUACIÓN DEL MEJOR MODELO CON MÚLTIPLES MÉTRICAS ---
                 logger.info(f"Re-evaluando el mejor estimador con {gs_config['cv']} folds y {gs_config['n_repeats']} repeticiones para obtener todas las métricas...")
@@ -341,6 +352,7 @@ def main(config_path: str):
 
         except Exception as e:
             logger.error(f"Error en el experimento {model_name}: {e}", exc_info=True)
+            mlflow.end_run(status="FAILED")
 
     logger.info("--- Todos los experimentos han finalizado ---")
     logger.info(f"Ejecuta 'mlflow ui' en tu terminal para ver los resultados.")
