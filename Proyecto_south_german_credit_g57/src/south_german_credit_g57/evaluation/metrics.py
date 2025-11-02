@@ -1,29 +1,31 @@
-import pandas as pd
-import numpy as np
-import yaml
+# ==========================================================
+# EVALUACIÓN EXTENDIDA (FASE 4) - SOUTH GERMAN CREDIT PROJECT
+# ==========================================================
 import argparse
-import logging
 import mlflow
-import mlflow.models
-from mlflow.tracking import MlflowClient  
-import sys
-import os
+import mlflow.sklearn
+from mlflow.tracking import MlflowClient
+import pandas as pd
+import sys, os, logging, yaml, chardet
 from pathlib import Path
-import matplotlib.pyplot as plt
-import seaborn as sns
 
-from sklearn.metrics import classification_report, confusion_matrix, roc_auc_score, roc_curve, accuracy_score, f1_score, precision_score, recall_score
-from imblearn.metrics import geometric_mean_score 
+# --- Importar funciones del módulo de métricas ---
+from south_german_credit_g57.evaluation.metrics_module import (
+    calculate_classification_metrics,
+    log_confusion_matrix_plot
+)
 
-# --- Configuración del Logger ---
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-logger = logging.getLogger(__name__)
+# --- Configuración de logger global ---
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+logger = logging.getLogger("EvaluateModel")
 
 
-import chardet, yaml, pathlib
-
+# ==========================================================
+# FUNCIONES AUXILIARES
+# ==========================================================
 def load_config(config_path: str):
-    path = pathlib.Path(config_path)
+    """Carga el archivo YAML asegurando UTF-8."""
+    path = Path(config_path)
     raw = path.read_bytes()
     enc_info = chardet.detect(raw)
     detected = enc_info.get("encoding", "utf-8")
@@ -35,224 +37,120 @@ def load_config(config_path: str):
 
 
 def load_test_data(path: str, target_col: str):
-    """Carga los datos de prueba y los divide en X, y."""
-    logger.info(f"Cargando datos de prueba desde: {path}")
-    try:
-        df = pd.read_csv(path)
-        X_test = df.drop(columns=[target_col])
-        y_test = df[target_col]
-        logger.info(f"Datos de prueba cargados. Shape de X: {X_test.shape}, Shape de y: {y_test.shape}")
-        return X_test, y_test
-    except FileNotFoundError:
-        logger.error(f"Error: No se encontró el archivo de datos en {path}.")
-        sys.exit(1)
+    """Carga el dataset de prueba desde CSV."""
+    df = pd.read_csv(path)
+    X_test = df.drop(columns=[target_col])
+    y_test = df[target_col]
+    logger.info(f"Datos de prueba cargados correctamente. Shape: {df.shape}")
+    return X_test, y_test
 
-def plot_confusion_matrix(y_true, y_pred, save_path):
-    """Genera y guarda la matriz de confusión."""
-    try:
-        cm = confusion_matrix(y_true, y_pred)
-        plt.figure(figsize=(8, 6))
-        sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', 
-                    xticklabels=['Bueno (0)', 'Malo (1)'], 
-                    yticklabels=['Bueno (0)', 'Malo (1)'])
-        plt.title('Matriz de Confusión')
-        plt.ylabel('Valor Real')
-        plt.xlabel('Predicción')
-        plt.savefig(save_path)
-        plt.close()
-        logger.info(f"Matriz de confusión guardada en: {save_path}")
-    except Exception as e:
-        logger.warning(f"No se pudo generar la matriz de confusión: {e}")
-
-def plot_roc_curve(y_true, y_proba, save_path):
-    """Genera y guarda la curva ROC."""
-    try:
-        fpr, tpr, _ = roc_curve(y_true, y_proba)
-        auc = roc_auc_score(y_true, y_proba)
-        plt.figure(figsize=(8, 6))
-        plt.plot(fpr, tpr, color='darkorange', lw=2, label=f'Curva ROC (AUC = {auc:.2f})')
-        plt.plot([0, 1], [0, 1], color='navy', lw=2, linestyle='--')
-        plt.xlim([0.0, 1.0])
-        plt.ylim([0.0, 1.05])
-        plt.xlabel('Tasa de Falsos Positivos')
-        plt.ylabel('Tasa de Verdaderos Positivos')
-        plt.title('Curva ROC')
-        plt.legend(loc="lower right")
-        plt.savefig(save_path)
-        plt.close()
-        logger.info(f"Curva ROC guardada en: {save_path}")
-    except Exception as e:
-        logger.warning(f"No se pudo generar la curva ROC: {e}")
 
 def find_best_model(config: dict) -> str:
-    """
-    Busca en MLflow el mejor run del experimento de entrenamiento 
-    y devuelve el nombre del modelo registrado correspondiente.
-    """
-    mlflow_config = config.get('mlflow', {})
-    train_experiment_name = mlflow_config.get('experiment_name', 'Experimento-Conexión-MLFlow-Grupo57')
-    metric_name = config['grid_search']['scoring']
+    """Busca en MLflow el mejor modelo del experimento de entrenamiento."""
+    mlflow_cfg = config.get("mlflow", {})
+    exp_name = mlflow_cfg.get("experiment_name", "Experimento-Conexión-MLFlow-Grupo57")
+    metric_name = config["grid_search"]["scoring"]
     sort_metric = f"metrics.avg_cv_{metric_name}"
-    
-    logger.info(f"Buscando el mejor modelo en el experimento '{train_experiment_name}' ordenado por '{sort_metric}' DESC")
-    
-    try:
-        best_runs = mlflow.search_runs(
-            experiment_names=[train_experiment_name],
-            order_by=[f"{sort_metric} DESC"],
-            max_results=1
-        )
-        
-        if best_runs.empty:
-            logger.error(f"No se encontraron runs en el experimento '{train_experiment_name}' que tengan la métrica '{sort_metric}'.")
-            logger.error("Asegúrate de haber ejecutado 'train_model.py' (versión GridSearchCV) y que haya finalizado exitosamente.")
-            sys.exit(1)
-            
-        best_run = best_runs.iloc[0]
-        best_run_name = best_run["tags.mlflow.runName"]
-        best_score = best_run[sort_metric]
-        
-        logger.info(f"Mejor run de entrenamiento encontrado: '{best_run_name}' con {sort_metric.split('.')[-1]} = {best_score:.4f}")
-        
-        if "_GridSearch" not in best_run_name:
-            logger.error(f"El nombre del run '{best_run_name}' no sigue el formato esperado 'ModelName_GridSearch'.")
-            sys.exit(1)
-            
-        base_model_name = best_run_name.replace("_GridSearch", "")
-        registered_model_name = f"{base_model_name}_model"
-        
-        logger.info(f"Modelo 'campeón' identificado: '{registered_model_name}'")
-        return registered_model_name
 
-    except Exception as e:
-        logger.error(f"Error al buscar el mejor modelo en MLflow: {e}", exc_info=True)
+    logger.info(f"Buscando mejor modelo del experimento '{exp_name}' ordenado por '{sort_metric}'...")
+
+    runs = mlflow.search_runs(
+        experiment_names=[exp_name],
+        order_by=[f"{sort_metric} DESC"],
+        max_results=1
+    )
+    if runs.empty:
+        logger.error("No se encontraron runs válidos en MLflow.")
         sys.exit(1)
 
-def main(config_path: str, model_name: str):
-    
-    # 1. Cargar Configuración y Datos
+    best_run = runs.iloc[0]
+    base_model = best_run["tags.mlflow.runName"].replace("_GridSearch", "")
+    best_model = f"{base_model}_model"
+
+    logger.info(f"Modelo campeón encontrado: {best_model}")
+    return best_model
+
+
+# ==========================================================
+# FUNCIÓN PRINCIPAL
+# ==========================================================
+def main(config_path: str, model_name: str = None):
+    """Evalúa el modelo campeón en el conjunto de prueba y registra resultados en MLflow."""
+    # 1️⃣ Cargar configuración
     config = load_config(config_path)
-    X_test, y_test = load_test_data(
-        path=config['data']['test'],
-        target_col=config['base']['target_col']
-    )
-    
-    # 2. Configurar MLflow
-    mlflow_config = config.get('mlflow', {})
-    if 'tracking_uri' in mlflow_config:
-        mlflow.set_tracking_uri(mlflow_config['tracking_uri'])
-    eval_experiment_name = mlflow_config.get('evaluation_experiment_name', 'MLFlow-Grupo57-Evaluación')
-    mlflow.set_experiment(eval_experiment_name)
-    
-    # 3. Determinar el nombre del modelo
+    mlflow_cfg = config.get("mlflow", {})
+
+    # 2️⃣ Configurar MLflow (local o remoto)
+    if mlflow_cfg.get("mode", "cloud") == "local":
+        uri = "file://" + str(Path("mlruns").resolve())
+        mlflow.set_tracking_uri(uri)
+        logger.info(f"MLflow configurado en modo LOCAL → {uri}")
+    else:
+        mlflow.set_tracking_uri(mlflow_cfg["tracking_uri"])
+        logger.info(f"MLflow configurado en modo CLOUD → {mlflow_cfg['tracking_uri']}")
+
+    eval_exp = mlflow_cfg.get("evaluation_experiment_name", "MLFlow-Grupo57-Evaluación")
+    mlflow.set_experiment(eval_exp)
+
+    # 3️⃣ Cargar datos de prueba
+    X_test, y_test = load_test_data(config["data"]["test"], config["base"]["target_col"])
+
+    # 4️⃣ Determinar modelo a evaluar
     if model_name is None:
         model_name = find_best_model(config)
-    
-    logger.info(f"--- Iniciando Evaluación para el modelo: {model_name} ---")
+    model_uri = f"models:/{model_name}/latest"
+    logger.info(f"Evaluando modelo: {model_name} ({model_uri})")
 
-    # 4. Crear directorios de reportes
-    reports_dir = Path("reports/evaluation")
-    reports_dir.mkdir(parents=True, exist_ok=True)
-    
-    # 5. Iniciar Run de Evaluación en MLflow
+    # 5️⃣ Iniciar run de evaluación
     mlflow.end_run()
-    with mlflow.start_run(run_name=f"eval_{model_name}_v-latest") as run:
-        run_id = run.info.run_id
-        logger.info(f"Run de MLflow iniciado (ID: {run_id}). Evaluando modelo en {eval_experiment_name}")
-        
-        # 6. Definir URIs y Cargar Información del Modelo
-        model_version = "latest" 
-        model_uri = f"models:/{model_name}/{model_version}"
-        
-        # Registrar qué modelo se está evaluando
-        mlflow.log_param("model_name_evaluated", model_name)
-        mlflow.log_param("model_version_evaluated", model_version)
-        mlflow.log_param("model_uri_evaluated", model_uri)
+    with mlflow.start_run(run_name=f"evaluation_{model_name}") as run:
+        mlflow.log_param("evaluated_model", model_name)
+        mlflow.log_param("evaluation_phase", "final_test")
 
         try:
-            logger.info(f"Obteniendo información del run de entrenamiento para {model_uri}")
-            
-            # Obtener el run_id del modelo registrado
-            model_info = mlflow.models.get_model_info(model_uri)
-            parent_run_id = model_info.run_id
-            mlflow.log_param("parent_training_run_id", parent_run_id)
+            # 6️⃣ Cargar modelo desde MLflow
+            model = mlflow.sklearn.load_model(model_uri)
+            logger.info("Modelo cargado correctamente desde el registry.")
 
-            # Conectar al cliente de MLflow
-            client = MlflowClient()
-            parent_run_data = client.get_run(parent_run_id).data
+            # 7️⃣ Generar predicciones
+            y_pred = model.predict(X_test)
+            y_prob = model.predict_proba(X_test)[:, 1] if hasattr(model, "predict_proba") else None
 
-            # Registrar todos los parámetros del run de entrenamiento
-            logger.info("Registrando parámetros del run de entrenamiento...")
-            parent_params = parent_run_data.params
-            for k, v in parent_params.items():
-                # Prefijar para evitar colisiones y dar claridad
-                mlflow.log_param(f"train_{k}", v) 
+            # 8️⃣ Calcular métricas
+            metrics = calculate_classification_metrics(y_test, y_pred, y_prob)
+            metrics_prefixed = {f"final_test_{k}": v for k, v in metrics.items() if k != "confusion_matrix"}
+            mlflow.log_metrics(metrics_prefixed)
+            logger.info("Métricas finales registradas en MLflow correctamente.")
 
-            # Registrar todas las métricas del run de entrenamiento (ej. avg_cv_metrics)
-            logger.info("Registrando métricas del run de entrenamiento...")
-            parent_metrics = parent_run_data.metrics
-            for k, v in parent_metrics.items():
-                # Prefijar para evitar colisiones y dar claridad
-                mlflow.log_metric(f"train_{k}", v)
-            
-            logger.info("Información del entrenamiento registrada exitosamente.")
+            # 9️⃣ Matriz de confusión
+            log_confusion_matrix_plot(y_test, y_pred, phase="final_test")
 
-            # 7. Cargar el artefacto del modelo
-            logger.info(f"Cargando el artefacto del modelo desde: {model_uri}")
-            loaded_model = mlflow.sklearn.load_model(model_uri)
-            
+            # 🔟 Guardar reporte local y subir como artefacto
+            reports_dir = Path("reports/evaluation_final")
+            reports_dir.mkdir(parents=True, exist_ok=True)
+            report_path = reports_dir / f"report_{model_name}.txt"
+
+            with open(report_path, "w") as f:
+                for k, v in metrics.items():
+                    f.write(f"{k}: {v}\n")
+
+            mlflow.log_artifact(str(report_path))
+            logger.info(f"Reporte de clasificación guardado y registrado: {report_path}")
+
         except Exception as e:
-            logger.error(f"Error al cargar el modelo o sus metadatos '{model_name}' desde MLflow: {e}", exc_info=True)
+            logger.error(f"Error durante la evaluación: {e}", exc_info=True)
             mlflow.end_run(status="FAILED")
             sys.exit(1)
-            
-        # 8. Generar predicciones
-        logger.info("Iniciando predicciones en el conjunto de prueba...")
-        y_pred = loaded_model.predict(X_test)
-        y_proba = loaded_model.predict_proba(X_test)[:, 1] # Probabilidad de la clase '1'
-        
-        # 9. Calcular y registrar métricas de TEST
-        metrics = {
-            "test_accuracy": accuracy_score(y_test, y_pred),
-            "test_precision": precision_score(y_test, y_pred),
-            "test_recall": recall_score(y_test, y_pred),
-            "test_f1": f1_score(y_test, y_pred),
-            "test_roc_auc": roc_auc_score(y_test, y_proba),
-            "test_gmean": geometric_mean_score(y_test, y_pred)
-        }
-        
-        mlflow.log_metrics(metrics)
-        logger.info("Métricas de PRUEBA (test set) registradas:")
-        for k, v in metrics.items():
-            logger.info(f"{k}: {v:.4f}")
-            
-        # 10. Generar y registrar artefactos (gráficos)
-        cm_path = str(reports_dir / f"cm_{run_id}.png")
-        roc_path = str(reports_dir / f"roc_{run_id}.png")
-        
-        plot_confusion_matrix(y_test, y_pred, cm_path)
-        plot_roc_curve(y_test, y_proba, roc_path)
-        
-        mlflow.log_artifact(cm_path, "plots")
-        mlflow.log_artifact(roc_path, "plots")
-        
-        # 11. Registrar reporte de clasificación
-        report_str = classification_report(y_test, y_pred, target_names=['Bueno (0)', 'Malo (1)'])
-        report_path = str(reports_dir / f"report_{run_id}.txt")
-        with open(report_path, 'w') as f:
-            f.write(report_str)
-        
-        mlflow.log_artifact(report_path)
-        logger.info(f"Reporte de clasificación guardado y registrado: {report_path}")
-        logger.info("Evaluación finalizada y registrada en MLflow.")
+
+    logger.info("✅ Evaluación finalizada correctamente y registrada en MLflow.")
 
 
+# ==========================================================
+# ENTRYPOINT
+# ==========================================================
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Script de evaluación de modelo sobre el conjunto de prueba.")
-    parser.add_argument('--config', type=str, default='params.yaml', help='Ruta al archivo de configuración YAML.')
-    
-    parser.add_argument('--model_name', type=str, required=False, default=None, 
-                        help='(Opcional) Nombre del modelo en MLflow. Si no se provee, busca el mejor del experimento de training.')
-    
+    parser = argparse.ArgumentParser(description="Evaluación extendida de modelo (fase 4).")
+    parser.add_argument("--config", type=str, default="params.yaml", help="Ruta al archivo YAML de configuración.")
+    parser.add_argument("--model_name", type=str, default=None, help="(Opcional) Nombre del modelo en MLflow.")
     args = parser.parse_args()
     main(config_path=args.config, model_name=args.model_name)

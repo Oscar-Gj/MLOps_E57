@@ -1,5 +1,5 @@
 # ==========================================================
-# TRAIN MODEL PIPELINE - SOUTH GERMAN CREDIT (Versión Híbrida)
+# TRAIN MODEL PIPELINE - SOUTH GERMAN CREDIT (Versión Final)
 # ==========================================================
 from south_german_credit_g57.libraries import *
 from south_german_credit_g57.utils.logger import get_logger
@@ -41,6 +41,8 @@ import os
 import chardet
 import json
 import shutil, stat
+import matplotlib.pyplot as plt
+from sklearn.metrics import ConfusionMatrixDisplay, RocCurveDisplay
 
 def on_rm_error(func, path, exc_info):
     os.chmod(path, stat.S_IWRITE)
@@ -174,17 +176,29 @@ def main(config_path: str):
         random_state=config["base"]["random_state"]
     )
 
-    mlflow.set_tracking_uri(config["mlflow"]["tracking_uri"])
+    # Configuración de MLflow (local o cloud)
+    mlflow_mode = config.get("mlflow", {}).get("mode", "cloud")
+    if mlflow_mode == "local":
+        local_uri = "file://" + str((PROJECT_ROOT / "mlruns").resolve())
+        mlflow.set_tracking_uri(local_uri)
+        logger.info(f"MLflow en modo LOCAL → {local_uri}")
+    else:
+        mlflow.set_tracking_uri(config["mlflow"]["tracking_uri"])
+        logger.info(f"MLflow en modo CLOUD → {config['mlflow']['tracking_uri']}")
     mlflow.set_experiment(config["mlflow"]["experiment_name"])
+
     logger.info("Conectado a MLflow.")
 
+    # Entrenar todos los modelos definidos
     for key, model_cfg in config["training"].items():
         model_name = model_cfg["name"]
         logger.info(f"Entrenando modelo: {model_name}")
 
         try:
             with mlflow.start_run(run_name=model_name, nested=True):
-                # Pipeline completo
+                # -----------------------------
+                # Pipeline de entrenamiento
+                # -----------------------------
                 model = get_model_class(model_name)()
                 sampler_cls = get_sampler_class(model_cfg["resampler"])
                 steps = [("preprocessor", preprocessor)]
@@ -193,7 +207,20 @@ def main(config_path: str):
                 steps.append(("model", model))
                 pipeline = ImbPipeline(steps=steps)
 
+                mlflow.set_tags({
+                    "model_name": model_name,
+                    "resampler": model_cfg.get("resampler", "None"),
+                    "cv_splits": gs_cfg["cv"],
+                    "cv_repeats": gs_cfg["n_repeats"]
+                })
+                mlflow.log_params({
+                    "train_rows": int(X.shape[0]),
+                    "train_cols": int(X.shape[1]),
+                })
+
+                # -----------------------------
                 # GridSearchCV
+                # -----------------------------
                 grid = GridSearchCV(
                     estimator=pipeline,
                     param_grid=model_cfg["param_grid"],
@@ -210,18 +237,59 @@ def main(config_path: str):
                 mlflow.log_metric("best_cv_score", best_score)
                 logger.info(f"Mejor score: {best_score:.4f}")
 
-                # Evaluación cruzada completa
+                # -----------------------------
+                # Evaluación cruzada promedio
+                # -----------------------------
                 scores = cross_validate(best_model, X, y, cv=cv, scoring=get_scoring())
-                metrics_avg = {f"cv_{k.replace('test_','avg_')}": np.mean(v) for k, v in scores.items() if "test_" in k}
+                metrics_avg = {
+                    f"avg_cv_{k.replace('test_', '')}": float(np.mean(v))
+                    for k, v in scores.items() if k.startswith("test_")
+                }
                 mlflow.log_metrics(metrics_avg)
 
-                # Métricas personalizadas
+                # -----------------------------
+                # Evaluación en TRAIN
+                # -----------------------------
                 y_pred = best_model.predict(X)
                 y_prob = best_model.predict_proba(X)[:, 1] if hasattr(best_model, "predict_proba") else None
-                custom_metrics = calculate_classification_metrics(y, y_pred, y_prob)
-                mlflow.log_metrics({f"train_{k}": v for k, v in custom_metrics.items() if k != "confusion_matrix"})
+                train_metrics = calculate_classification_metrics(y, y_pred, y_prob)
+                mlflow.log_metrics({f"train_{k}": v for k, v in train_metrics.items() if k != "confusion_matrix"})
 
-                # Registro detallado del modelo con fallback
+                # -----------------------------
+                # Evaluación en TEST
+                # -----------------------------
+                try:
+                    X_test, y_test = load_data(config["data"]["test"], config["base"]["target_col"])
+                    y_test_pred = best_model.predict(X_test)
+                    y_test_prob = best_model.predict_proba(X_test)[:, 1] if hasattr(best_model, "predict_proba") else None
+
+                    test_metrics = calculate_classification_metrics(y_test, y_test_pred, y_test_prob)
+                    mlflow.log_metrics({f"test_{k}": float(v) for k, v in test_metrics.items() if k != "confusion_matrix"})
+
+                    # Artefactos visuales
+                    fig_cm, ax_cm = plt.subplots()
+                    ConfusionMatrixDisplay.from_predictions(y_test, y_test_pred, ax=ax_cm)
+                    ax_cm.set_title(f"Confusion Matrix - {model_name}")
+                    cm_path = f"cm_{model_name}.png"
+                    fig_cm.savefig(cm_path, bbox_inches="tight")
+                    plt.close(fig_cm)
+                    mlflow.log_artifact(cm_path, artifact_path="evaluation")
+
+                    if y_test_prob is not None:
+                        fig_roc, ax_roc = plt.subplots()
+                        RocCurveDisplay.from_predictions(y_test, y_test_prob, ax=ax_roc)
+                        ax_roc.set_title(f"ROC Curve - {model_name}")
+                        roc_path = f"roc_{model_name}.png"
+                        fig_roc.savefig(roc_path, bbox_inches="tight")
+                        plt.close(fig_roc)
+                        mlflow.log_artifact(roc_path, artifact_path="evaluation")
+
+                except Exception as e_test:
+                    logger.warning(f"No se pudo ejecutar evaluación holdout: {e_test}")
+
+                # -----------------------------
+                # Registro del modelo
+                # -----------------------------
                 try:
                     signature = infer_signature(X, best_model.predict(X))
                     mlflow.sklearn.log_model(
@@ -240,8 +308,6 @@ def main(config_path: str):
                     if local_path.exists():
                         shutil.rmtree(local_path, onerror=on_rm_error)
                     mlflow.sklearn.save_model(best_model, str(local_path))
-
-
                     mlflow.log_param("local_model_path", str(local_path))
                     logger.info(f"Modelo guardado localmente en {local_path}")
 
@@ -249,8 +315,4 @@ def main(config_path: str):
             logger.error(f"Error en el entrenamiento del modelo {model_name}: {e}", exc_info=True)
             mlflow.end_run(status="FAILED")
 
-    logger.info("Entrenamiento completado para todos los modelos.")
-
-def on_rm_error(func, path, exc_info):
-    os.chmod(path, stat.S_IWRITE)
-    os.remove(path)
+    logger.info("✅ Entrenamiento completado para todos los modelos.")

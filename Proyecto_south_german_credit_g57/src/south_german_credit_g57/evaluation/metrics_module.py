@@ -1,27 +1,34 @@
 # ==========================================================
-# METRICS MODULE - SOUTH GERMAN CREDIT PROJECT
+# METRICS MODULE - SOUTH GERMAN CREDIT PROJECT (Versión Final)
 # ==========================================================
-from south_german_credit_g57.libraries import *        # Usa tus librerías globales
-from south_german_credit_g57.utils.logger import get_logger
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
 from typing import Dict, Tuple
+import mlflow
+import logging
 
+from sklearn.metrics import (
+    accuracy_score, precision_score, recall_score, f1_score,
+    roc_auc_score, confusion_matrix
+)
+from imblearn.metrics import geometric_mean_score
 
-logger = get_logger("MetricsModule")
+logger = logging.getLogger("MetricsModule")
 
 # ==========================================================
-#  FUNCIÓN BASE DE CÁLCULO
+# 1️⃣ FUNCIÓN BASE DE CÁLCULO
 # ==========================================================
 def calculate_classification_metrics(y_true, y_pred, y_prob=None) -> Dict[str, float]:
-    """
-    Calcula métricas estándar de clasificación binaria.
-    Incluye accuracy, precision, recall, f1, roc_auc y matriz de confusión.
-    """
+    """Calcula métricas estándar de clasificación binaria."""
     try:
         metrics = {
             "accuracy": accuracy_score(y_true, y_pred),
             "precision": precision_score(y_true, y_pred, zero_division=0),
             "recall": recall_score(y_true, y_pred, zero_division=0),
-            "f1_score": f1_score(y_true, y_pred, zero_division=0),
+            "f1": f1_score(y_true, y_pred, zero_division=0),
+            "gmean": geometric_mean_score(y_true, y_pred),
         }
 
         if y_prob is not None:
@@ -29,15 +36,14 @@ def calculate_classification_metrics(y_true, y_pred, y_prob=None) -> Dict[str, f
                 metrics["roc_auc"] = roc_auc_score(y_true, y_prob)
             except ValueError:
                 metrics["roc_auc"] = np.nan
-                logger.warning(" ROC-AUC no se pudo calcular (probabilidades inválidas).")
+                logger.warning("ROC-AUC no se pudo calcular (probabilidades inválidas).")
 
         cm = confusion_matrix(y_true, y_pred)
         metrics["confusion_matrix"] = cm.tolist()
-
         return metrics
 
     except Exception as e:
-        logger.error(f" Error al calcular métricas: {e}", exc_info=True)
+        logger.error(f"Error al calcular métricas: {e}", exc_info=True)
         return {}
 
 # ==========================================================
@@ -45,21 +51,19 @@ def calculate_classification_metrics(y_true, y_pred, y_prob=None) -> Dict[str, f
 # ==========================================================
 def log_metrics_mlflow(metrics: Dict[str, float], phase: str = "train"):
     """Registra métricas (excepto la matriz) en MLflow con prefijo por fase."""
+    if not metrics:
+        logger.warning(f"No hay métricas para registrar en fase '{phase}'.")
+        return
     try:
-        if not metrics:
-            logger.warning(f" No hay métricas para registrar en fase '{phase}'.")
-            return
-
         for key, value in metrics.items():
             if key != "confusion_matrix":
                 mlflow.log_metric(f"{phase}_{key}", float(value))
-
-        logger.info(f" Métricas registradas en MLflow para fase '{phase}'.")
+        logger.info(f"Métricas registradas en MLflow para fase '{phase}'.")
     except Exception as e:
-        logger.error(f" Error al registrar métricas ({phase}): {e}", exc_info=True)
+        logger.error(f"Error al registrar métricas ({phase}): {e}", exc_info=True)
 
 # ==========================================================
-#  MATRIZ DE CONFUSIÓN COMO ARTIFACTO
+# 3️⃣ MATRIZ DE CONFUSIÓN COMO ARTIFACTO
 # ==========================================================
 def log_confusion_matrix_plot(y_true, y_pred, phase: str = "train"):
     """Genera y sube la matriz de confusión a MLflow."""
@@ -67,30 +71,24 @@ def log_confusion_matrix_plot(y_true, y_pred, phase: str = "train"):
         cm = confusion_matrix(y_true, y_pred)
         fig, ax = plt.subplots(figsize=(5, 4))
         sns.heatmap(cm, annot=True, fmt="d", cmap="Blues", cbar=False, ax=ax)
-        ax.set_xlabel("Predicted")
-        ax.set_ylabel("Actual")
+        ax.set_xlabel("Predicción")
+        ax.set_ylabel("Real")
         ax.set_title(f"Matriz de Confusión ({phase})")
-
         plot_path = f"confusion_matrix_{phase}.png"
         fig.tight_layout()
         fig.savefig(plot_path)
-        mlflow.log_artifact(plot_path)
+        mlflow.log_artifact(plot_path, artifact_path="plots")
         plt.close(fig)
-
-        logger.info(f" Matriz de confusión ({phase}) registrada en MLflow.")
+        logger.info(f"Matriz de confusión ({phase}) registrada en MLflow.")
     except Exception as e:
-        logger.error(f" Error al generar matriz de confusión ({phase}): {e}", exc_info=True)
+        logger.error(f"Error al generar matriz de confusión ({phase}): {e}", exc_info=True)
 
 # ==========================================================
-#  EVALUACIÓN INDIVIDUAL (UNA FASE)
+# 4️⃣ EVALUACIÓN INDIVIDUAL (UNA FASE)
 # ==========================================================
 def evaluate_and_log(model, X: pd.DataFrame, y: pd.Series, phase: str = "train") -> Dict[str, float]:
-    """
-    Evalúa un modelo sobre un conjunto específico (train / val / test).
-    Calcula métricas, las registra y devuelve el diccionario resultante.
-    """
-    logger.info(f" Evaluando modelo en fase '{phase}'...")
-
+    """Evalúa un modelo sobre un conjunto específico (train / test / val)."""
+    logger.info(f"Evaluando modelo en fase '{phase}'...")
     try:
         y_pred = model.predict(X)
         y_prob = None
@@ -98,50 +96,39 @@ def evaluate_and_log(model, X: pd.DataFrame, y: pd.Series, phase: str = "train")
             try:
                 y_prob = model.predict_proba(X)[:, 1]
             except Exception:
-                logger.warning(" El modelo no soporta predict_proba correctamente.")
+                logger.warning("El modelo no soporta predict_proba correctamente.")
 
-        # Calcular y registrar métricas
         metrics = calculate_classification_metrics(y, y_pred, y_prob)
         log_metrics_mlflow(metrics, phase=phase)
         log_confusion_matrix_plot(y, y_pred, phase=phase)
 
         logger.info(
-            f" [{phase.upper()}] "
+            f"[{phase.upper()}] "
             f"Acc: {metrics.get('accuracy',0):.3f} | "
             f"Prec: {metrics.get('precision',0):.3f} | "
             f"Rec: {metrics.get('recall',0):.3f} | "
-            f"F1: {metrics.get('f1_score',0):.3f} | "
+            f"F1: {metrics.get('f1',0):.3f} | "
             f"AUC: {metrics.get('roc_auc',0):.3f}"
         )
-
         return metrics
 
     except Exception as e:
-        logger.error(f" Error durante la evaluación ({phase}): {e}", exc_info=True)
+        logger.error(f"Error durante la evaluación ({phase}): {e}", exc_info=True)
         return {}
 
 # ==========================================================
-#  EVALUACIÓN MULTIFASE AUTOMÁTICA (TRAIN / VAL / TEST)
+# 5️⃣ EVALUACIÓN MULTIFASE AUTOMÁTICA
 # ==========================================================
 def evaluate_all_phases(model, datasets: Dict[str, Tuple[pd.DataFrame, pd.Series]]) -> Dict[str, Dict[str, float]]:
-    """
-    Evalúa automáticamente las fases disponibles: train, val, test.
-    Si alguna no existe, la omite sin generar errores.
-    """
-    logger.info(" Iniciando evaluación completa del modelo en fases disponibles...")
+    """Evalúa automáticamente train, val y test si están presentes."""
+    logger.info("Iniciando evaluación multifase del modelo...")
     results = {}
-
-    valid_phases = [phase for phase in ["train", "val", "test"] if phase in datasets]
-    if not valid_phases:
-        logger.warning(" No se proporcionó ningún conjunto de datos para evaluar.")
-        return results
-
-    for phase in valid_phases:
-        try:
-            X, y = datasets[phase]
-            results[phase] = evaluate_and_log(model, X, y, phase)
-        except Exception as e:
-            logger.error(f" Error en fase '{phase}': {e}", exc_info=True)
-
-    logger.info("🏁 Evaluación completada correctamente.")
+    for phase in ["train", "val", "test"]:
+        if phase in datasets:
+            try:
+                X, y = datasets[phase]
+                results[phase] = evaluate_and_log(model, X, y, phase)
+            except Exception as e:
+                logger.error(f"Error en fase '{phase}': {e}", exc_info=True)
+    logger.info("Evaluación multifase completada.")
     return results
