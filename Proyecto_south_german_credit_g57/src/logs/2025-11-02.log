@@ -2701,3 +2701,51 @@ PermissionError: [WinError 5] Acceso denegado: 'C:\\Users\\Oscar\\OneDrive\\Docu
 2025-11-02 16:38:53 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
 2025-11-02 16:38:57 — [INFO] — TrainModel — Modelo XGBoost registrado correctamente en MLflow.
 2025-11-02 16:38:58 — [INFO] — TrainModel — ✅ Entrenamiento completado para todos los modelos.
+2025-11-02 16:47:53 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 16:47:53 — [INFO] — MainPipeline —  Logger 'MainPipeline' inicializado — Archivo: 2025-11-02.log
+2025-11-02 16:49:46 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 16:49:46 — [INFO] — MainPipeline —  Logger 'MainPipeline' inicializado — Archivo: 2025-11-02.log
+2025-11-02 16:50:01 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 16:50:01 — [INFO] — TrainModel — Leyendo dataset desde: C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\..\data\processed\02_df_data_train_01.csv
+2025-11-02 16:50:01 — [INFO] — TrainModel — Creando pipeline de preprocesamiento...
+2025-11-02 16:50:01 — [INFO] — TrainModel — MLflow en modo CLOUD → https://mlflow-super-g57-137680020436.us-central1.run.app
+2025-11-02 16:50:01 — [INFO] — TrainModel — Conectado a MLflow.
+2025-11-02 16:50:01 — [INFO] — TrainModel — Entrenando modelo: LogisticRegression
+2025-11-02 16:50:08 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 16:50:08 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 16:50:08 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 16:50:08 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 16:50:08 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 16:50:08 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 16:50:09 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 16:50:09 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 16:50:09 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 16:50:09 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 16:50:09 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 16:50:09 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 16:50:09 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 16:50:09 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 16:50:09 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 16:50:09 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 16:50:09 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 16:50:09 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 16:50:09 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 16:50:09 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 16:50:09 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 16:50:09 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 16:50:09 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 16:50:09 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 16:50:09 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 16:50:09 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 16:50:09 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 16:50:09 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 16:50:09 — [INFO] — TrainModel — Mejor score: 0.7486
+2025-11-02 16:50:11 — [INFO] — TrainModel — Leyendo dataset desde: C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\..\data\processed\02_df_data_test_01.csv
+2025-11-02 16:50:18 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 16:50:22 — [INFO] — TrainModel — Modelo LogisticRegression registrado correctamente en MLflow.
+2025-11-02 16:50:23 — [INFO] — TrainModel — Entrenando modelo: RandomForest
+2025-11-02 16:50:24 — [INFO] — TrainModel — Mejor score: 0.7660
+2025-11-02 16:50:27 — [INFO] — TrainModel — Leyendo dataset desde: C:\Users\Oscar\OneDrive\Documentos\GitHub\ML57\MLOps_E57\Proyecto_south_german_credit_g57\..\data\processed\02_df_data_test_01.csv
+2025-11-02 16:50:32 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 16:50:36 — [INFO] — TrainModel — Modelo RandomForest registrado correctamente en MLflow.
+2025-11-02 16:50:36 — [INFO] — TrainModel — Entrenando modelo: XGBoost

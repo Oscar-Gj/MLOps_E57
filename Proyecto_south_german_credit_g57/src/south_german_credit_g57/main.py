@@ -8,6 +8,7 @@ import os
 import logging
 from datetime import datetime
 from pathlib import Path
+from importlib import metadata
 
 # --- Rutas base ---
 CURRENT_DIR = Path(__file__).resolve().parent
@@ -27,6 +28,59 @@ logger = logging.getLogger("MainPipeline")
 
 
 # ==========================================================
+# VERIFICACIÓN DE DEPENDENCIAS (SOLO 1ª VEZ)
+# ==========================================================
+def install_package(package_name: str):
+    """Instala un paquete vía pip."""
+    try:
+        subprocess.check_call([sys.executable, "-m", "pip", "install", package_name])
+        logger.info(f"Instalado o actualizado: {package_name}")
+    except subprocess.CalledProcessError as e:
+        logger.error(f"Error al instalar {package_name}: {e}")
+        sys.exit(1)
+
+def verify_and_install_requirements(requirements_path="requirements.txt"):
+    """Instala los paquetes requeridos solo si aún no se verificaron."""
+    marker_path = PROJECT_ROOT / ".requirements_verified"
+
+    if marker_path.exists():
+        logger.info("Dependencias ya verificadas previamente. Saltando instalación.")
+        return
+
+    if not os.path.exists(requirements_path):
+        logger.warning(f"No se encontró {requirements_path}.")
+        return
+
+    logger.info("Ejecutando verificación inicial de dependencias...")
+    with open(requirements_path, "r") as f:
+        lines = [line.strip() for line in f if line.strip() and not line.startswith("#")]
+
+    fixed = 0
+    for line in lines:
+        if "==" in line:
+            name, version = line.split("==", 1)
+        else:
+            name, version = line, None
+
+        try:
+            installed_version = metadata.version(name)
+            if version and installed_version != version:
+                logger.warning(f"{name}: versión instalada {installed_version}, requerida {version}. Corrigiendo...")
+                install_package(f"{name}=={version}")
+                fixed += 1
+            else:
+                logger.info(f"{name} {installed_version} OK")
+        except metadata.PackageNotFoundError:
+            logger.warning(f"{name} no instalado. Instalando...")
+            install_package(f"{name}=={version}" if version else name)
+            fixed += 1
+
+    with open(marker_path, "w") as f:
+        f.write(f"Verificado el {datetime.now():%Y-%m-%d %H:%M:%S}")
+    logger.info(f"Dependencias verificadas. ({fixed} paquetes instalados o actualizados).")
+
+
+# ==========================================================
 # FUNCIÓN PRINCIPAL
 # ==========================================================
 def run_pipeline(config_path: str, skip_clean=False, skip_train=False, skip_eval=False, full_eval=False):
@@ -35,6 +89,9 @@ def run_pipeline(config_path: str, skip_clean=False, skip_train=False, skip_eval
     start_time = datetime.now()
 
     try:
+        # 0. Verificar dependencias (solo la primera vez)
+        verify_and_install_requirements("requirements.txt")
+
         # Fase 1: Limpieza de datos
         if not skip_clean:
             logger.info("Fase 1: Limpieza de datos.")
