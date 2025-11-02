@@ -7,12 +7,12 @@ import sys, os
 src_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "../"))
 if src_path not in sys.path:
     sys.path.insert(0, src_path)
-print(f"Carpeta SRC agregada al PYTHONPATH: {src_path}")
 
 # --- Imports del proyecto ---
 from south_german_credit_g57.libraries import *
 from south_german_credit_g57.preprocessing.clean_data import load_data, clean_data
 from south_german_credit_g57.preprocessing.pipeline import build_pipeline
+from south_german_credit_g57.utils.dvc_utils import dvc_session
 
 
 # =============================================================
@@ -102,4 +102,7 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    # Ejecuta DVC pull al inicio y push al final para registrar cambios de dataset
+    project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
+    with dvc_session(repo_path=project_root, push_on_success_only=True, verbose=True):
+        main()

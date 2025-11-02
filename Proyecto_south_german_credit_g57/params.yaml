@@ -69,6 +69,8 @@ preprocessing:
   ordinal:
     features: ['employment_duration', 'installment_rate', 'present_residence', 'number_credits', 'people_liable']
     imputer_strategy: 'most_frequent'
+  test_size: 0.2
+  random_state: 1
 
 # -------------------------------------------------
 # 4. CONFIGURACIÓN DEL GRID SEARCH (NUEVA SECCIÓN)
@@ -179,3 +181,23 @@ mlflow:
 # -------------------------------------------------
 reports:
   dir: 'reports' # Directorio para guardar plots y reportes HTML
+
+# -------------------------------------------------
+# 8. COMPATIBILIDAD CON main.py (rama main)
+#    Estructuras esperadas por el script principal
+# -------------------------------------------------
+features:
+  numeric: ['duration', 'amount', 'age']
+  ordinal: ['employment_duration', 'installment_rate', 'present_residence', 'number_credits', 'people_liable']
+  categorical: ['status', 'credit_history', 'purpose', 'savings', 'personal_status_sex', 'other_debtors', 'property', 'other_installment_plans', 'housing', 'job', 'telephone', 'foreign_worker']
+
+experiments:
+  rf:
+    model_params:
+      n_estimators: 100
+      max_depth: 5
+      min_samples_leaf: 2
+      min_samples_split: 2
+      class_weight: 'balanced'
+      bootstrap: false
+      random_state: 1
