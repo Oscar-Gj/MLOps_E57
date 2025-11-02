@@ -2755,3 +2755,11 @@ PermissionError: [WinError 5] Acceso denegado: 'C:\\Users\\Oscar\\OneDrive\\Docu
 2025-11-02 16:50:53 — [INFO] — TrainModel — Modelo XGBoost registrado correctamente en MLflow.
 2025-11-02 16:50:53 — [INFO] — TrainModel — ✅ Entrenamiento completado para todos los modelos.
 2025-11-02 17:02:48 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 17:04:42 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 17:08:17 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 17:11:47 — [INFO] — TrainModel —  Logger 'TrainModel' inicializado — Archivo: 2025-11-02.log
+2025-11-02 17:18:16 — [INFO] — TrainModel — Leyendo dataset desde: /Users/oscar/Documents/GitHub/MLOps_E57/Proyecto_south_german_credit_g57/../data/processed/02_df_data_train_01.csv
+2025-11-02 17:18:16 — [INFO] — TrainModel — Creando pipeline de preprocesamiento...
+2025-11-02 17:18:16 — [INFO] — TrainModel — MLflow en modo CLOUD → https://mlflow-super-g57-137680020436.us-central1.run.app
+2025-11-02 17:18:16 — [INFO] — TrainModel — Conectado a MLflow.
+2025-11-02 17:18:16 — [INFO] — TrainModel — Entrenando modelo: LogisticRegression
