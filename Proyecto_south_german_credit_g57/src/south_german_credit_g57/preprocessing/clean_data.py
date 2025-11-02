@@ -51,10 +51,10 @@ def clean_data(df: pd.DataFrame, config: Dict) -> pd.DataFrame:
 
     # 3. Definir listas de features y target
     target = config['base']['target_col']
-    num_cols = config['features']['numeric']
+    num_cols = config['preprocessing']['numeric']['features']
     
     # Combinar features categóricas y ordinales para limpieza de texto
-    obj_cols = config['features']['categorical'] + config['features']['ordinal']
+    obj_cols = config['preprocessing']['nominal']['features'] + config['preprocessing']['ordinal']['features']
 
     # 4. Reemplazar todos los strings de basura con NaN (identificados en celda [54])
     logger.info("Reemplazando valores de texto erróneos por NaN...")
@@ -73,7 +73,7 @@ def clean_data(df: pd.DataFrame, config: Dict) -> pd.DataFrame:
 
     # 7. Corregir/Tapar outliers, convirtiéndolos en NaN (según celda [52])
     logger.info("Corrigiendo outliers...")
-    outlier_caps = config['data_cleaning']['outlier_caps']
+    outlier_caps = config['data_cleaning']['outlier_cols']
     for col, cap in outlier_caps.items():
         if col in df_clean.columns:
             # Usamos pd.NA para compatibilidad con el tipo Float64
@@ -120,7 +120,7 @@ def save_data(df: pd.DataFrame, config: Dict):
     train_path = config['data']['train']
     test_path = config['data']['test']
     target = config['base']['target_col']
-    split_params = config['preprocessing']
+    split_params = config['data_cleaning']
     
     # 1. Guardar el dataset procesado completo
     logger.info(f"Guardando datos procesados completos en: {processed_path}")

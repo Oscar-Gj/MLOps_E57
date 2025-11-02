@@ -41,6 +41,9 @@ data_cleaning:
     - 'telephone'
     - 'foreign_worker'
     - 'credit_risk'
+    - 'mixed'
+  drop_cols:
+    - 'mixed'
   outlier_cols:
     duration: 60
     age: 65
@@ -50,6 +53,7 @@ data_cleaning:
     other_debtors: 0.04
     other_installment_plans: 0.04
   test_size: 0.2
+  random_state: 1
 
 # -------------------------------------------------
 # 3. PARÁMETROS DE PREPROCESAMIENTO DE FEATURES
@@ -167,4 +171,11 @@ training:
 # -------------------------------------------------
 mlflow:
   experiment_name: "Experimento-Conexión-MLFlow-Grupo57"
+  evaluation_experiment_name: "MLFlow-Grupo57-Evaluación"
   tracking_uri: "https://mlflow-super-g57-137680020436.us-central1.run.app"
+
+# -------------------------------------------------
+# 7. PARÁMETROS DE GUARDADO DE REPORTES
+# -------------------------------------------------
+reports:
+  dir: 'reports' # Directorio para guardar plots y reportes HTML
