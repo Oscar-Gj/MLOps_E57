@@ -104,5 +104,5 @@ def main():
 if __name__ == "__main__":
     # Ejecuta DVC pull al inicio y push al final para registrar cambios de dataset
     project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
-    with dvc_session(repo_path=project_root, push_on_success_only=True, verbose=True):
+    with dvc_session(repo_path=project_root, pull_force=True, push_on_success_only=True, verbose=True):
         main()
