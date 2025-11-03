@@ -93,6 +93,7 @@ google-auth>=2.34.0
 google-auth-httplib2>=0.2.1
 PyDrive2>=1.21.3
 fsspec>=2025.2.0
+google-cloud-storage>=3.4.1
 
 # =============================
 # API, backend y despliegue
