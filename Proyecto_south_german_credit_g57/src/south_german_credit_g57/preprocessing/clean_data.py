@@ -69,13 +69,25 @@ def clean_data(df: pd.DataFrame, config: Dict) -> pd.DataFrame:
     obj_cols = config['preprocessing']['nominal']['features'] + config['preprocessing']['ordinal']['features']
 
     # Reemplazar strings basura
-    garbage_strings = ['?', 'null', 'invalid', 'error', ' NAN ', ' INVALID ', ' ERROR ', ' n/a ']
-    df_clean = df_clean.replace(garbage_strings, np.nan)
+    # garbage_strings = ['?', 'null', 'invalid', 'error', ' NAN ', ' INVALID ', ' ERROR ', ' n/a ']
+    garbage_strings = [
+        '', 'na', 'n/a', 'none', 'null', 'nil', 'nan',
+        'missing', 'unknown', 'error', 'invalid', 'undefined', 'unavailable'
+    ]
+    # df_clean = df_clean.replace(garbage_strings, np.nan)
 
     # Limpiar espacios
     for col in obj_cols:
         if col in df_clean.columns:
+            # 1. Convertir a string y quitar espacios al inicio/final
             df_clean[col] = df_clean[col].astype(str).str.strip()
+            
+            # 2. Crear una versión normalizada (minúsculas) para comparación
+            normalized = df_clean[col].str.lower()
+            
+            # 3. Reemplazar valores cuya versión normalizada está en garbage_strings
+            mask = normalized.isin(garbage_strings)
+            df_clean.loc[mask, col] = np.nan
 
     # Convertir columnas numéricas
     for col in num_cols:
@@ -92,7 +104,10 @@ def clean_data(df: pd.DataFrame, config: Dict) -> pd.DataFrame:
         if col in df_clean.columns:
             counts = df_clean[col].value_counts()
             rare_categories = counts[counts < 7].index
-            df_clean[col] = df_clean[col].replace(rare_categories, np.nan)
+            if len(rare_categories) > 0:
+                mask = df_clean[col].isin(rare_categories)
+                df_clean[col] = df_clean[col].mask(mask, np.nan)
+                df_clean[col] = df_clean[col].astype(object)
 
     # Target
     df_clean[target] = pd.to_numeric(df_clean[target], errors='coerce')
