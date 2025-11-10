@@ -9,9 +9,9 @@ Antes de ejecutar las pruebas, asegúrate de tener el entorno virtual activado y
 pip install -r requirements.txt
 ```
 
-Luego, instala las dependencias de desarrollo y testing (pytest y sus plugins):
+Unicamente si deseas generar un reporte con formato HTML, instala la dependencia `pytest-cov`:
 ```bash
-pip install pytest pytest-mock pytest-cov
+pip install pytest-cov
 ```
 
 ## 2. Ejecución de Pruebas
