@@ -1,0 +1,8 @@
+data:
+  input: "data/processed/02_df_data_test_01.csv"
+  output: "data/processed/02_df_data_drift_auto.csv"
+
+drift:
+  seed: 42
+  intensidad_global: 0.25
+
