@@ -1,0 +1,5 @@
+timestamp,total_columns,drifted_columns,drift_share,threshold,nivel,accion,source
+2025-11-11 11:19:00,21,20,0.9523809523809523,0.2,🔴 Drift severo,Reentrenar modelo con nuevos datos y verificar bias.,/Users/oscar/Documents/GitHub/MLOps_E57/Proyecto_south_german_credit_g57/src/south_german_credit_g57/drift_detection/reports/drift/2025-11-11_10-43/data_drift_summary.json
+2025-11-11 11:21:08,21,20,0.9523809523809523,🔴 Drift severo,⚙️ Reentrenar modelo automáticamente.,/Users/oscar/Documents/GitHub/MLOps_E57/Proyecto_south_german_credit_g57/src/south_german_credit_g57/drift_detection/reports/drift/2025-11-11_10-43/data_drift_summary.json
+2025-11-11 11:21:48,21,20,0.9523809523809523,🔴 Drift severo,⚙️ Reentrenar modelo.,/Users/oscar/Documents/GitHub/MLOps_E57/Proyecto_south_german_credit_g57/src/south_german_credit_g57/drift_detection/reports/drift/2025-11-11_10-43/data_drift_summary.json
+2025-11-11 11:22:07,21,20,0.9523809523809523,🔴 Drift severo,⚙️ Reentrenar modelo.,/Users/oscar/Documents/GitHub/MLOps_E57/Proyecto_south_german_credit_g57/src/south_german_credit_g57/drift_detection/reports/drift/2025-11-11_10-43/data_drift_summary.json
