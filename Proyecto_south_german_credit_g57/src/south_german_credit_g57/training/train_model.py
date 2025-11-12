@@ -39,11 +39,17 @@ from imblearn.under_sampling import NearMiss
 from imblearn.combine import SMOTETomek
 
 # Métricas
-from sklearn.metrics import make_scorer, accuracy_score, precision_score, recall_score, f1_score, roc_auc_score
+from sklearn.metrics import (
+    make_scorer, accuracy_score, precision_score, recall_score, 
+    f1_score, roc_auc_score, ConfusionMatrixDisplay, RocCurveDisplay
+)
 from imblearn.metrics import geometric_mean_score
 
 from mlflow.models.signature import infer_signature
 from mlflow.data.pandas_dataset import PandasDataset
+import matplotlib.pyplot as plt
+from src.south_german_credit_g57.evaluation.metrics_module import calculate_classification_metrics
+
 
 # Ignorar warnings
 warnings.filterwarnings("ignore")
@@ -101,7 +107,8 @@ def create_preprocessing_pipeline(config: Dict) -> ColumnTransformer:
     # Pipeline Categórico (Nominal)
     nominales_pipe = Pipeline(steps=[
         ('imputer', SimpleImputer(strategy=cfg_prep['nominal']['imputer_strategy'])),
-        ('binary_encoder', BinaryEncoderWrapper(cols=None))
+        # ('binary_encoder', BinaryEncoderWrapper(cols=None))
+        ('binary_encoder', BinaryEncoder(cols=None, return_df=True))
     ])
 
     # Pipeline Categórico (Ordinal)
@@ -332,21 +339,107 @@ def main(config_path: str):
                 mlflow.log_metrics(metrics_to_log)
                 logger.info(f"Métricas registradas. (avg_cv_gmean: {metrics_to_log.get('avg_cv_gmean', 0):.4f})")
                 
+                logger.info("Evaluando el mejor modelo en el conjunto de entrenamiento...")
+                y_train_pred = best_pipeline.predict(X_train)
+                y_train_prob = best_pipeline.predict_proba(X_train)[:, 1] if hasattr(best_pipeline, "predict_proba") else None
+                
+                train_metrics = calculate_classification_metrics(y_train, y_train_pred, y_train_prob)
+                train_metrics_log = {}
+                for k, v in train_metrics.items():
+                    if isinstance(v, (int, float, np.number)):  # métrica escalar
+                        train_metrics_log[f"train_{k}"] = float(v)
+                    else:
+                        # guarda objetos complejos (como matrices o listas) como artifact JSON
+                        mlflow.log_dict({k: v}, f"metrics/train_{k}.json")
+
+                mlflow.log_metrics(train_metrics_log)
+
+
+                logger.info(f"Métricas de entrenamiento registradas (train_gmean: {train_metrics.get('gmean', 0):.4f}).")
+                
+                # --- EVALUACIÓN EN TEST ---
+                try:
+                    logger.info("Cargando datos de test para evaluación holdout...")
+                    X_test, y_test = load_training_data(
+                        path=config['data']['test'],
+                        target_col=config['base']['target_col']
+                    )
+                    
+                    y_test_pred = best_pipeline.predict(X_test)
+                    y_test_prob = best_pipeline.predict_proba(X_test)[:, 1] if hasattr(best_pipeline, "predict_proba") else None
+                    
+                    test_metrics = calculate_classification_metrics(y_test, y_test_pred, y_test_prob)
+                    test_metrics_log = {}
+                    for k, v in test_metrics.items():
+                        if isinstance(v, (int, float, np.number)):
+                            test_metrics_log[f"test_{k}"] = float(v)
+                        else:
+                            mlflow.log_dict({k: v}, f"metrics/test_{k}.json")
+
+                    mlflow.log_metrics(test_metrics_log)
+
+                    logger.info(f"Métricas de test registradas (test_gmean: {test_metrics.get('gmean', 0):.4f}).")
+                    
+                    # Artefactos visuales: Confusion Matrix
+                    fig_cm, ax_cm = plt.subplots(figsize=(8, 6))
+                    ConfusionMatrixDisplay.from_predictions(y_test, y_test_pred, ax=ax_cm, cmap='Blues')
+                    ax_cm.set_title(f"Confusion Matrix - {model_name}")
+                    cm_path = f"cm_{model_name}.png"
+                    fig_cm.savefig(cm_path, bbox_inches="tight", dpi=100)
+                    plt.close(fig_cm)
+                    mlflow.log_artifact(cm_path, artifact_path="evaluation")
+                    logger.info(f"Matriz de confusión guardada y registrada.")
+                    
+                    # Limpiar archivo local
+                    if os.path.exists(cm_path):
+                        os.remove(cm_path)
+                    
+                    # Artefactos visuales: ROC Curve
+                    if y_test_prob is not None:
+                        fig_roc, ax_roc = plt.subplots(figsize=(8, 6))
+                        RocCurveDisplay.from_predictions(y_test, y_test_prob, ax=ax_roc)
+                        ax_roc.set_title(f"ROC Curve - {model_name}")
+                        roc_path = f"roc_{model_name}.png"
+                        fig_roc.savefig(roc_path, bbox_inches="tight", dpi=100)
+                        plt.close(fig_roc)
+                        mlflow.log_artifact(roc_path, artifact_path="evaluation")
+                        logger.info(f"Curva ROC guardada y registrada.")
+                        
+                        # Limpiar archivo local
+                        if os.path.exists(roc_path):
+                            os.remove(roc_path)
+                    
+                except Exception as e_test:
+                    logger.warning(f"No se pudo ejecutar evaluación holdout en test: {e_test}")
+                
                 
                 # --- 5. FIRMA Y REGISTRO DEL MODELO ---
                 logger.info("Generando firma del modelo...")
-                # Usamos el 'best_pipeline' para la firma
-                y_pred_signature = best_pipeline.predict(X_train)
-                signature = infer_signature(X_train, y_pred_signature)
+                try:
+                    y_pred_signature = best_pipeline.predict(X_train)
+                    signature = infer_signature(X_train, y_pred_signature)
 
-                logger.info("Registrando el *mejor modelo* en MLflow...")
-                mlflow.sklearn.log_model(
-                    sk_model=best_pipeline, # ¡Registramos el mejor estimador!
-                    artifact_path="model_pipeline", 
-                    signature=signature,
-                    input_example=X_train.iloc[:5],
-                    registered_model_name=f"{model_name}_model"
-                )
+                    logger.info("Registrando el *mejor modelo* en MLflow...")
+                    mlflow.sklearn.log_model(
+                        sk_model=best_pipeline,
+                        artifact_path="model_pipeline", 
+                        signature=signature,
+                        input_example=X_train.iloc[:5],
+                        registered_model_name=f"{model_name}_model"
+                    )
+                    
+                    logger.info(f"Modelo {model_name} registrado correctamente en MLflow.")
+                
+                except Exception as e_log:
+                    logger.error(f"Error al registrar el modelo en MLflow: {e_log}")
+                    # Fallback: guardar localmente
+                    fallback_dir = "models_fallback"
+                    fallback_dir.mkdir(exist_ok=True)
+                    local_path = fallback_dir / f"{model_name}_fallback"
+                    mlflow.sklearn.save_model(best_pipeline, str(local_path))
+                    mlflow.log_param("local_model_path", str(local_path))
+                    logger.info(f"Modelo guardado localmente en {local_path}")
+                
                 
                 logger.info(f"Experimento {model_name} (GridSearch) finalizado y registrado.")
 

@@ -283,9 +283,9 @@ training:
     resampler_params:
       version: 3
     param_grid:
-      model__n_estimators: [100]
-      model__max_depth: [5, 10]
-      model__min_samples_split: [2]
+      model__n_estimators: [100, 200]
+      model__max_depth: [5, 10, 15]
+      model__min_samples_split: [2,3,4]
       model__class_weight: ["balanced"]
 
 
