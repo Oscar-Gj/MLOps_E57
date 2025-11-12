@@ -17,29 +17,6 @@ Arquitectura y estructura del proyecto
 
 El repositorio sigue la plantilla Cookiecutter Data Science, lo que garantiza una organización clara y mantenible del código, los datos y los artefactos generados.
 
-├── data/
-│   ├── raw/                  # Datos originales (CSV)
-│   ├── processed/            # Datos transformados (Parquet)
-│
-├── notebooks/                # Notebooks de exploración y análisis
-│
-├── src/                      # Código fuente modular
-│   ├── data/                 # Módulos de ingesta y preparación de datos
-│   ├── features/             # Generación y selección de características
-│   ├── models/               # Entrenamiento, validación y evaluación
-│   ├── utils/                # Funciones auxiliares (logging, métricas, etc.)
-│   └── main.py               # Punto de entrada principal del pipeline
-│
-├── models/                   # Modelos entrenados y exportados (.joblib)
-│
-├── reports/                  # Visualizaciones, resultados y documentación
-│
-├── config.py                 # Configuración global del proyecto
-├── params.yaml               # Parámetros de entrenamiento y rutas
-├── requirements.txt          # Dependencias del entorno
-├── dvc.yaml                  # Definición del pipeline DVC
-└── README.md                 # Descripción general del proyecto
-
 Flujo general del programa
 
 El programa automatiza la ejecución completa del pipeline MLOps, integrando las siguientes etapas:
@@ -84,27 +61,8 @@ Instalar todas las dependencias con:
 
 pip install -r requirements.txt
 
-Ejecución del proyecto
-1. Clonar el repositorio
-git clone https://github.com/<usuario>/<nombre-del-repositorio>.git
-cd <nombre-del-repositorio>
-
-2. Ejecutar el pipeline completo
-python src/main.py
-
-3. Reproducir las etapas con DVC
-dvc repro
-
-4. Consultar los experimentos registrados
-
-Acceder al servidor remoto de MLflow configurado en Google Cloud:
-
-[http://<tu-servidor-mlflow>](https://mlflow-super-g57-137680020436.us-central1.run.app/)
-
-5. Desplegar la API de predicción
-
-
 Resultados
 
 El proyecto produce un modelo final optimizado para la clasificación del riesgo crediticio, validado bajo métricas como Accuracy, Precision, Recall, F1-score, AUC, G-Mean y Matriz de confusión.
 El modelo es reproducible, versionado y desplegable, siguiendo las mejores prácticas del ciclo MLOps, con trazabilidad total de los datos, experimentos y resultados.
+
