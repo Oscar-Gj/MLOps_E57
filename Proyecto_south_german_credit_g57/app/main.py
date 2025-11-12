@@ -20,7 +20,7 @@ try:
     model = mlflow.pyfunc.load_model(model_uri)
     print("✅ Modelo cargado exitosamente desde MLflow")
 except Exception as e:
-    raise RuntimeError(f"❌ Error al cargar el modelo desde MLflow: {e}")
+    raise RuntimeError(f"Error al cargar el modelo desde MLflow: {e}")
 
 # Columnas esperadas por el modelo
 EXPECTED_COLUMNS = [
