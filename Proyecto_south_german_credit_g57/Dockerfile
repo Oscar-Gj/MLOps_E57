@@ -27,6 +27,9 @@ COPY ./start.sh /code/start.sh
 # (main.py, streamlit_app.py, y tu imagen a57.png)
 COPY ./app /code/app
 
+# Copiamos la carpeta 'models' que contiene el modelo entrenado
+COPY ./models /code/models
+
 # -----------------------------------------------------------------
 # Fase 4: Configuración Final y Ejecución
 # -----------------------------------------------------------------
