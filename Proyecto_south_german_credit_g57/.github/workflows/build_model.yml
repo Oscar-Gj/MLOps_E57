@@ -1,0 +1,11 @@
+name: Crea los archivos del modelo
+
+on:
+  [workflow_dispatch]
+
+jobs:
+  init:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Alistar los archivos archivos del modelo de clasificación
+        uses: actions/checkout@v2
