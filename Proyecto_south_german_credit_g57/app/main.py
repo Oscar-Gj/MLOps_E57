@@ -4,13 +4,17 @@ import pandas as pd
 import pickle
 from typing import Literal
 import os
+from pathlib import Path
 
 # Inicialización de FastAPI
 app = FastAPI(title="Credit Prediction API")
 
 # Ruta local del modelo
 # MODEL_PATH = "models/latest_model.pkl" 
-MODEL_PATH = "models/latest_model.pkl" 
+CURRENT_DIR = Path(__file__).resolve().parent
+PROJECT_ROOT = CURRENT_DIR.parents[0]
+MODEL_DIR = PROJECT_ROOT / "models"
+MODEL_PATH = MODEL_DIR / "latest_model.pkl" 
 
 # Variable global para el modelo
 model = None
