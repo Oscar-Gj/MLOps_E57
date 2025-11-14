@@ -27,5 +27,4 @@ jobs:
           service: ${{ vars.IMG_CANONICAL }}-streamlit
           region: ${{ vars.GCP_ZONE }}
           image: ${{ vars.GCP_ZONE }}-docker.pkg.dev/${{ vars.GCP_PROJECT_LAB }}/${{ vars.GCP_IMG_REPO }}/${{ vars.IMG_CANONICAL }}:${{ vars.IMG_VER }}
-          flags: '--port 8001 --allow-unauthenticated'
-          
+          flags: '--port ${{ vars.GCP_EXP_PORT_STREAMLIT  }} --allow-unauthenticated'
