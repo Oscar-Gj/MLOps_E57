@@ -10,5 +10,9 @@ jobs:
       - name: Gestión de la Imagen para el contenedor
         uses: actions/checkout@v4
       - name: Crea la imagen
+<<<<<<< HEAD
         run: docker build ./${{ vars.PROJECT_NAME }} -t docker.io/${{ vars.DOCKER_ACCT }}/${{ vars.IMG_CANONICAL }}:${{ vars.IMG_VER }}
         
+=======
+        run: docker build ./Proyecto_south_german_credit_g57 -t docker.io/a01794629/mlops_e57:latest
+>>>>>>> 6fcef4c7d32569957c16840e07f4334b9b3517bf
