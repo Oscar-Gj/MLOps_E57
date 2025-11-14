@@ -14,6 +14,5 @@ jobs:
       - name: Registra la Imagen en Docker-Hub
         run: |
           docker login -u ${{ vars.DOCKER_ACCT }} -p ${{secrets.DOCKER_KEY}}
-        
-        # docker push docker.io/${{ vars.DOCKER_ACCT }}/${{ vars.IMG_CANONICAL }}:${{ vars.IMG_VER }}
-        # docker tag docker.io/${{ vars.DOCKER_ACCT }}/${{ vars.IMG_CANONICAL }}:${{ vars.IMG_VER }} us-central1-docker.pkg.dev/laboratorio1-447417/mlflow-mlops-g57/mlops_e57:latest
+          docker push docker.io/${{ vars.DOCKER_ACCT }}/${{ vars.IMG_CANONICAL }}:${{ vars.IMG_VER }}
+          docker tag docker.io/${{ vars.DOCKER_ACCT }}/${{ vars.IMG_CANONICAL }}:${{ vars.IMG_VER }} us-central1-docker.pkg.dev/laboratorio1-447417/mlflow-mlops-g57/mlops_e57:latest
