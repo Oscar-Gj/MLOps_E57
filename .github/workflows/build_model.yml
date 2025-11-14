@@ -16,3 +16,14 @@ jobs:
           docker login -u ${{ vars.DOCKER_ACCT }} -p ${{secrets.DOCKER_KEY}}
           docker push docker.io/${{ vars.DOCKER_ACCT }}/${{ vars.IMG_CANONICAL }}:${{ vars.IMG_VER }}
           docker tag docker.io/${{ vars.DOCKER_ACCT }}/${{ vars.IMG_CANONICAL }}:${{ vars.IMG_VER }} ${{ vars.GCP_ZONE }}-docker.pkg.dev/${{ vars.GCP_PROJECT_LAB }}/${{ vars.GCP_IMG_REPO }}/${{ vars.IMG_CANONICAL }}:${{ vars.IMG_VER }}
+      - name: Autentica en GCP vía IAM
+        id: auth
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: '${{secrets.GCP_CREDS}}'
+      - name: Prepara el ambiente de consola en GCP
+        uses: google-github-actions/setup-gcloud@v2
+      - name: Publica la Imagen en el Artifact Registry en GCP
+        run: gcloud auth configure-docker ${{ vars.GCP_ZONE }}-docker.pkg.dev
+      - name: Registra la Imagen al Artifact Registry en GCP desde el Docker-Hub
+        run: docker push ${{ vars.GCP_ZONE }}-docker.pkg.dev/${{ vars.GCP_PROJECT_LAB }}/${{ vars.GCP_IMG_REPO }}/${{ vars.IMG_CANONICAL }}:${{ vars.IMG_VER }}
