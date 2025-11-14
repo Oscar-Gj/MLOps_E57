@@ -1,6 +1,6 @@
 name: Prepara el contenedor del modelo
-# on:
-#  [workflow_dispatch]
+#on:
+#[workflow_dispatch]
 
 on:
   push:
