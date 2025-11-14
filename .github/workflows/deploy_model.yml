@@ -17,9 +17,8 @@ jobs:
       - name: Despliega la Imagen en un Contenedor en Cloud Run
         uses: google-github-actions/deploy-cloudrun@v2
         with:
-          #service: ${{ vars.IMG_CANONICAL }}-api
-          service: mlops-e57-api
+          service: ${{ vars.IMG_CANONICAL }}-api
           region: ${{ vars.GCP_ZONE }}
           image: ${{ vars.GCP_ZONE }}-docker.pkg.dev/${{ vars.GCP_PROJECT_LAB }}/${{ vars.GCP_IMG_REPO }}/${{ vars.IMG_CANONICAL }}:${{ vars.IMG_VER }}
           flags: '--port ${{ vars.GCP_EXP_PORT }} --allow-unauthenticated'
-
+          
