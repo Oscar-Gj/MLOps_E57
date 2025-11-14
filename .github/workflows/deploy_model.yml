@@ -14,10 +14,11 @@ jobs:
         uses: google-github-actions/setup-gcloud@v2
       - name: Configura el Docker-Hub como el elemento para leer desde el Artifact Registry
         run: gcloud auth configure-docker ${{ vars.GCP_ZONE }}-docker.pkg.dev
-      #- name: Despliega la Imagen en un Contenedor en Cloud Run
-      #  uses: google-github-actions/deploy-cloudrun@v2
-      #  with:
-      #    service: ${{ vars.GCP_IMG_CANNONICAL }}-adp2
-      #    region: ${{ vars.GCP_ZONE }}
-      #    image: ${{ vars.GCP_ZONE }}-docker.pkg.dev/${{ vars.GCP_PROJECT_LAB }}/${{ vars.GCP_IMG_REPO }}/${{ vars.GCP_IMG_CANNONICAL }}:${{ vars.GCP_IMG_VER }}
-      #    flags: '--port 8000 --allow-unauthenticated'
+      - name: Despliega la Imagen en un Contenedor en Cloud Run
+        uses: google-github-actions/deploy-cloudrun@v2
+        with:
+          service: ${{ vars.IMG_CANONICAL }}-api
+          region: ${{ vars.GCP_ZONE }}
+          image: ${{ vars.GCP_ZONE }}-docker.pkg.dev/${{ vars.GCP_PROJECT_LAB }}/${{ vars.GCP_IMG_REPO }}/${{ vars.IMG_CANONICAL }}:${{ vars.IMG_VER }}
+          flags: '--port ${{ vars.GCP_EXP_PORT }} --allow-unauthenticated'
+
