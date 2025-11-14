@@ -1,10 +1,13 @@
 name: Prepara el contenedor del modelo
-
+# on:
+#  [workflow_dispatch]
 on:
-  [workflow_dispatch]
-
+  push:
+    branches:
+      - main
 jobs:
   build-container:
+    if: contains(github.event.head_commit.message, 'build-img-model-G57-predict-risk')
     runs-on: ubuntu-latest
     steps:
       - name: Gestión de la Imagen para el contenedor
