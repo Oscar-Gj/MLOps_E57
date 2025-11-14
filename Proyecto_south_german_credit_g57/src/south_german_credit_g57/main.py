@@ -1,4 +1,4 @@
-# ==========================================================
+﻿# ==========================================================
 # MAIN PIPELINE ORCHESTRATOR - SOUTH GERMAN CREDIT G57
 # ==========================================================
 import argparse
@@ -10,6 +10,17 @@ from datetime import datetime
 from pathlib import Path
 from importlib import metadata
 
+# --- Configuración del entorno y rutas ---
+import sys, os
+src_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "../"))
+if src_path not in sys.path:
+    sys.path.insert(0, src_path)
+
+# --- Imports del proyecto ---
+from south_german_credit_g57.libraries import *
+from south_german_credit_g57.preprocessing.clean_data import load_data, clean_data
+from south_german_credit_g57.preprocessing.pipeline import build_pipeline
+from south_german_credit_g57.utils.dvc_utils import dvc_session
 # --- Rutas base ---
 CURRENT_DIR = Path(__file__).resolve().parent
 PROJECT_ROOT = CURRENT_DIR.parents[1]
@@ -142,7 +153,7 @@ def run_pipeline(config_path: str, skip_clean=False, skip_train=False, skip_eval
 # ENTRYPOINT
 # ==========================================================
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Orquestador del pipeline completo (Clean → Train → Eval).")
+    parser = argparse.ArgumentParser(description="Orquestador del pipeline completo (Clean -> Train -> Eval).")
     parser.add_argument("--config", type=str, default="params.yaml", help="Ruta al archivo YAML de configuración.")
     parser.add_argument("--skip-clean", action="store_true", help="Omitir la fase de limpieza de datos.")
     parser.add_argument("--skip-train", action="store_true", help="Omitir la fase de entrenamiento de modelo.")
@@ -150,10 +161,19 @@ if __name__ == "__main__":
     parser.add_argument("--full-eval", action="store_true", help="Ejecuta la evaluación extendida (fase 4) al final del pipeline.")
     args = parser.parse_args()
 
-    run_pipeline(
-        config_path=args.config,
-        skip_clean=args.skip_clean,
-        skip_train=args.skip_train,
-        skip_eval=args.skip_eval,
-        full_eval=args.full_eval,
-    )
+    # Ejecuta DVC pull al inicio y push al final alrededor del pipeline completo.
+    project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
+    with dvc_session(
+        repo_path=project_root,
+        remote="g57_remote_data",
+        pull_force=True,
+        push_on_success_only=True,
+        verbose=True,
+    ):
+        run_pipeline(
+            config_path=args.config,
+            skip_clean=args.skip_clean,
+            skip_train=args.skip_train,
+            skip_eval=args.skip_eval,
+            full_eval=args.full_eval,
+        )

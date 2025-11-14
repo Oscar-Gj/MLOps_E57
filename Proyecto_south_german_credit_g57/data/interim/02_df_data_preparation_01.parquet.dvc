@@ -1,0 +1,5 @@
+outs:
+- md5: f7a7d67ea6ef455bab7aabd0989d2b33
+  size: 24598
+  hash: md5
+  path: 02_df_data_preparation_01.parquet
