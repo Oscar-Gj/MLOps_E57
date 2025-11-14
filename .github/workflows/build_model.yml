@@ -8,7 +8,7 @@ on:
       - main
 jobs:
   build-container:
-    if: contains(github.event.head_commit.message, 'build-img-model-G57-predict-risk')
+    if: contains(github.event.head_commit.message, 'build-img-model-G57-predict-risk') # succeeded is about 7m-4s
     runs-on: ubuntu-latest
     steps:
       - name: Gestión de la Imagen para el contenedor
