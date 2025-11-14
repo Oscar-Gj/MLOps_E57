@@ -10,12 +10,12 @@ jobs:
       - name: Gestión de la Imagen para el contenedor
         uses: actions/checkout@v4
       - name: Crea la imagen
-        run: docker build ./Proyecto_south_german_credit_g57 -t docker.io/a01794620/mlops_e57:latest
-      - name: Registra la Imagen en Docker-Hub
-        run: |
-          docker login -u a01794620 -p dckr_pat_Xoh1nA75rqJF4MqAPUjxkM9VJdw
-          docker push docker.io/a01794620/mlops_e57:latest
-          docker tag docker.io/a01794620mlops_e57:latest us-central1-docker.pkg.dev/laboratorio1-447417/mlflow-mlops-g57/mlops_e57:latest
+        run: docker build ./${{ vars.PROJECT_NAME }} -t docker.io/${{ vars.DOCKER_ACCT }}/${{ vars.IMG_CANONICAL }}:${{ vars.IMG_VER }}
+      #- name: Registra la Imagen en Docker-Hub
+      #  run: |
+      #    docker login -u a01794620 -p dckr_pat_Xoh1nA75rqJF4MqAPUjxkM9VJdw
+      #    docker push docker.io/a01794620/mlops_e57:latest
+      #    docker tag docker.io/a01794620mlops_e57:latest us-central1-docker.pkg.dev/laboratorio1-447417/mlflow-mlops-g57/mlops_e57:latest
 
 #- name: Autentica en GCP vía IAM
 #id: auth
