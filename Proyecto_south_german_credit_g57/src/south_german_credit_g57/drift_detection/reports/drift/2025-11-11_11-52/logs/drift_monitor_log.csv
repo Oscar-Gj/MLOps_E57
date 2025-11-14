@@ -1,0 +1,2 @@
+timestamp,total_columns,drifted_columns,drift_share,nivel,accion,source,top_columns_drift
+2025-11-11 11:52:56,21,19,0.9047619047619048,🔴 Drift severo,⚙️ Reentrenar modelo.,/Users/oscar/Documents/GitHub/MLOps_E57/Proyecto_south_german_credit_g57/src/south_german_credit_g57/drift_detection/reports/drift/2025-11-11_11-52/data_drift_summary.json,Ninguna

@@ -1,0 +1,85 @@
+# ==========================================
+# PARAMS.YAML PARA TEST DE INTEGRACIÓN
+# ==========================================
+# Carga datos de 'tests/fixtures'
+# Escribe salidas en 'test_outputs/'
+# Entrena un modelo muy rápido
+# ==========================================
+
+base:
+  project_name: "SouthGermanCredit_G57_Test"
+  random_state: 42
+  target_col: "kredit"
+
+data:
+  raw: "tests/fixtures/sample_data.csv"
+  processed: "tests/outputs/processed.csv"
+  train: "tests/outputs/train.csv"
+  test: "tests/outputs/test.csv"
+  
+data_cleaning:
+  rename_cols:
+    - 'laufkont'
+    - 'laufzeit'
+    - 'moral'
+    - 'verw'
+    - 'hoehe'
+    - 'sparkont'
+    - 'beszeit'
+    - 'rate'
+    - 'famstat'
+    - 'buerge'
+    - 'wohnzeit'
+    - 'verm'
+    - 'alter'
+    - 'weitkred'
+    - 'wohn'
+    - 'bishkred'
+    - 'beruf'
+    - 'pers'
+    - 'telef'
+    - 'gastarb'
+    - 'kredit'
+  drop_cols:
+    - 'buerge'
+    - 'telef'
+    - 'gastarb'
+  outlier_cols:
+    laufzeit: 70
+    hoehe: 18000
+    alter: 70
+  test_size: 0.2
+  random_state: 42
+
+preprocessing:
+  numeric:
+    features: ['laufzeit', 'hoehe', 'rate', 'wohnzeit', 'alter', 'bishkred', 'pers']
+    imputer_strategy: "median"
+  nominal:
+    features: ['laufkont', 'moral', 'verw', 'famstat', 'weitkred', 'wohn', 'beruf']
+    imputer_strategy: "most_frequent"
+  ordinal:
+    features: ['sparkont', 'beszeit', 'verm']
+    imputer_strategy: "most_frequent"
+
+grid_search:
+  cv: 2 # <-- Muy rápido
+  n_repeats: 1 # <-- Muy rápido
+  n_jobs: -1
+  verbose: 0
+  scoring: "roc_auc"
+
+training:
+  # --- Solo 1 modelo para que el test sea rápido ---
+  LogisticRegression:
+    name: "LogisticRegression"
+    resampler: null
+    param_grid:
+      model__C: [0.1, 1.0]
+      model__solver: ['liblinear']
+
+mlflow:
+  mode: "local" # <-- Modo local para que no intente conectar a la nube
+  tracking_uri: "" 
+  experiment_name: "Test-Integration-Experimento"
+  evaluation_experiment_name: "Test-Integration-Evaluacion"

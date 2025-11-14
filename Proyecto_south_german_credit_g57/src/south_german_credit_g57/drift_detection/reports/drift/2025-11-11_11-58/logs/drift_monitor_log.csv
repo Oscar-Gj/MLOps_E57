@@ -1,0 +1,3 @@
+timestamp,total_columns,drifted_columns,drift_share,nivel,accion,source,top_columns_drift
+2025-11-11 11:58:07,21,6,0.2857142857142857,🟠 Drift moderado,Revisar pipeline de features o data sources recientes.,/Users/oscar/Documents/GitHub/MLOps_E57/Proyecto_south_german_credit_g57/src/south_german_credit_g57/drift_detection/reports/drift/2025-11-11_11-58/data_drift_summary.json,Ninguna
+2025-11-11 11:59:50,21,6,0.2857142857142857,🟠 Drift moderado,Revisar pipeline de features o data sources recientes.,/Users/oscar/Documents/GitHub/MLOps_E57/Proyecto_south_german_credit_g57/src/south_german_credit_g57/drift_detection/reports/drift/2025-11-11_11-58/data_drift_summary.json,Ninguna

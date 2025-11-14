@@ -1,77 +1,199 @@
 # ====================================================
 # ENTORNO DE ENTRENAMIENTO - PROYECTO CREDIT RISK ML
 # Autor: Equipo 57 MLOps
-# Compatible con Python 3.12
+# Compatible con Python 3.12 - 3.13 (Windows, macOS ARM, Linux)
 # ====================================================
 
 # =============================
-# Núcleo y manejo de datos
+# Núcleo, manejo de datos y utilidades
 # =============================
-pandas==2.1.4
 numpy==1.26.4
-scipy==1.11.3
-pyyaml==6.0.2
-python-dotenv==1.0.1
+pandas>=2.2.3
+scipy>=1.13.1
+Bottleneck>=1.4.2
+numexpr>=2.10.1
+cvxopt==1.3.2; sys_platform != "darwin"
+pyarrow>=17.0.0
+polars>=1.21.0
+arrow>=1.3.0
+appdirs>=1.4.4
+packaging>=24.1
+platformdirs>=4.2.2
+filelock>=3.16.1
+pyyaml>=6.0.2
+python-dotenv>=1.0.1
+python-dateutil>=2.9.0.post0
+pytz>=2024.2
+tzdata>=2025.1
+typing_extensions>=4.12.2
+attrs>=24.2.0
+importlib_metadata>=8.4.0
+zipp>=3.20.2
 
 # =============================
-# Visualización y EDA
+# Visualización y análisis exploratorio
 # =============================
-matplotlib==3.9.2
-seaborn==0.13.2
-plotly==5.24.1
+matplotlib>=3.9.2
+seaborn>=0.13.2
+plotly>=5.24.1
+statsmodels>=0.14.4
+scikit-image>=0.25.2
+imageio>=2.36.0
+pillow>=11.0.0
+fonttools>=4.53.1
+graphviz>=0.20.3
+pydot>=3.0.2
+tabulate>=0.9.0
 
 # =============================
-# Machine Learning - Modelado
+# Machine Learning y Modelado
 # =============================
-scikit-learn==1.3.2
-xgboost==2.1.1
-catboost==1.2.5
-lightgbm==4.5.0
+scikit-learn>=1.5.2
+xgboost>=2.1.2
+lightgbm>=4.5.0
+catboost>=1.2.8
+imbalanced-learn>=0.12.4
+category-encoders>=2.7.0
+lime>=0.2.0.1
+shap>=0.46.0
+joblib>=1.4.2
+tqdm>=4.66.5
+numba>=0.60.0
+llvmlite>=0.43.0
+dill>=0.3.9
+brotli>=1.1.0
 
 # =============================
-# Balanceo de clases y codificación
+# MLOps, versionado y trazabilidad
 # =============================
-imbalanced-learn==0.12.3
-category-encoders==2.6.3
+mlflow>=2.17.1
+dvc>=3.51.2
+hydra-core>=1.3.2
+omegaconf>=2.3.0
+GitPython>=3.1.43
+gto>=1.9.0
 
 # =============================
-# Versionado, monitoreo y trazabilidad (MLOps)
+# Fairness, monitoreo y explainability
 # =============================
-dvc==3.50.0
-mlflow==2.15.1
-evidently==0.4.38
-deepchecks==0.19.1
-fairlearn==0.10.0
+deepchecks>=0.19.1
+evidently>=0.4.38
+fairlearn>=0.10.0
 
 # =============================
-# Explicabilidad y fairness
+# Big Data, almacenamiento y conectores externos
 # =============================
-shap==0.46.0
-lime==0.2.0.1
+pyspark>=3.5.3
+minio>=7.2.9
+httpx>=0.28.1
+requests>=2.32.3
+urllib3>=2.2.3
+google-api-python-client>=2.147.0
+google-auth>=2.34.0
+google-auth-httplib2>=0.2.1
+PyDrive2>=1.21.3
+fsspec>=2025.2.0
+google-cloud-storage>=3.4.1
 
 # =============================
-# Preprocesamiento y pipelines
+# API, backend y despliegue
 # =============================
-joblib==1.4.2
-tqdm==4.66.5
+fastapi>=0.115.0
+uvicorn>=0.30.6
+Flask>=3.1.0
+flask-cors>=4.0.0
+SQLAlchemy>=2.0.32
+starlette>=0.40.0
+orjson>=3.10.3
+itsdangerous>=2.2.0
+Jinja2>=3.1.4
+MarkupSafe>=3.0.2
 
 # =============================
-# Orquestación, testing y control de calidad
+# Asincronía y servidores
 # =============================
-cookiecutter==2.6.0
-pytest==8.3.2
-pre-commit==3.8.0
-flake8==7.1.1
-
-# =============================
-# Despliegue (opcional)
-# =============================
-fastapi==0.114.0
-uvicorn==0.30.3
+aiohttp>=3.10.5
+aiosignal>=1.3.2
+anyio>=4.4.0
+asyncssh>=2.14.2
+nest-asyncio>=1.6.0
+multidict>=6.0.5
+frozenlist>=1.4.1
+yarl>=1.9.4
 
 # =============================
 # Notebooks e interacción
 # =============================
-jupyterlab==4.2.4
-notebook==7.2.2
-ipykernel==6.29.5
+jupyterlab>=4.2.5
+notebook>=7.2.2
+ipykernel>=6.29.5
+ipywidgets>=8.1.3
+nbconvert>=7.16.4
+nbformat>=5.10.4
+traitlets>=5.14.3
+tornado>=6.4.1
+debugpy>=1.8.5
+
+# =============================
+# Testing, linting y control de calidad
+# =============================
+pytest>=8.3.3
+pytest-mock>=3.15.1
+flake8>=7.1.1
+pre-commit>=3.7.1
+cookiecutter>=2.6.0
+black>=24.8.0
+isort>=5.13.2
+
+# =============================
+# Serialización y JSON
+# =============================
+simplejson>=3.19.3
+fastjsonschema>=2.20.0
+jsonschema>=4.23.0
+pydantic>=2.9.2
+pydantic-settings>=2.7.0
+
+# =============================
+# Seguridad y cifrado
+# =============================
+cryptography>=43.0.3
+pyOpenSSL>=24.2.1
+rsa>=4.9
+argon2-cffi>=23.1.0
+bcrypt>=4.2.0
+
+# =============================
+# Workers y colas
+# =============================
+celery>=5.4.0
+kombu>=5.3.0
+billiard>=4.2.0
+vine>=5.1.0
+diskcache>=5.6.3
+
+# =============================
+# Parsing y formato
+# =============================
+beautifulsoup4>=4.12.3
+html5lib>=1.1
+bleach>=6.1.0
+markdown-it-py>=3.0.0
+Markdown>=3.6
+mistune>=3.0.2
+
+# =============================
+# Otros módulos
+# =============================
+Cython>=3.0.10
+cloudpickle>=3.0.0
+psutil>=5.9.8
+colorama>=0.4.6
+rich>=13.9.2
+six>=1.17.0
+
+# =============================
+# Dependencias específicas de Windows
+# =============================
+pywin32==306; sys_platform == "win32"
+pywinpty==2.0.14; sys_platform == "win32"

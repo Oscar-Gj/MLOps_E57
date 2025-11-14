@@ -1,0 +1,32 @@
+data:
+  input: "data/processed/02_df_data_test_01.csv"
+  output: "data/processed/02_df_data_drift_auto.csv"
+
+
+drift:
+  seed: 42
+  intensidad_global: 0.25
+  target_col: "credit_risk"          #  nombre exacto de tu y
+  exclude_cols: ['credit_risk',
+                  # status,
+                  # duration,
+                  # credit_history,
+                  # purpose,
+                  # amount,
+                  # savings,
+                  employment_duration,
+                  installment_rate,
+                  personal_status_sex,
+                  other_debtors,
+                  present_residence,
+                  property,
+                  age,
+                  other_installment_plans,
+                  housing,
+                  number_credits,
+                  job,
+                  people_liable,
+                  telephone,
+                  foreign_worker
+                  ]               #  opcional: más columnas a no tocar
+

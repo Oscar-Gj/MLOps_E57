@@ -1,0 +1,7 @@
+Columnas protegidas (sin drift): ['personal_status_sex', 'other_debtors', 'credit_risk', 'present_residence', 'employment_duration', 'number_credits', 'other_installment_plans', 'property', 'people_liable', 'foreign_worker', 'installment_rate', 'job', 'telephone', 'age', 'housing']
+status: numérico - ambos
+duration: numérico - subir
+credit_history: numérico - subir
+purpose: numérico - ambos
+amount: numérico - bajar
+savings: numérico - subir
