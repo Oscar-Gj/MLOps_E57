@@ -11,3 +11,4 @@ jobs:
         uses: actions/checkout@v4
       - name: Crea la imagen
         run: docker build ./${{ vars.PROJECT_NAME }} -t docker.io/${{ vars.DOCKER_ACCT }}/${{ vars.IMG_CANONICAL }}:${{ vars.IMG_VER }}
+        
