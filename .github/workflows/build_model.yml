@@ -1,11 +1,30 @@
-name: Crea los archivos del modelo
+name: Prepara el contenedor del modelo
 
 on:
   [workflow_dispatch]
 
 jobs:
-  init:
+  build-container:
     runs-on: ubuntu-latest
     steps:
-      - name: Alistar los archivos archivos del modelo de clasificación
-        uses: actions/checkout@v2
+      - name: Gestión de la Imagen para el contenedor
+        uses: actions/checkout@v4
+      - name: Crea la imagen
+        run: docker build ./Proyecto_south_german_credit_g57 -t docker.io/a01794620/mlops_e57:latest
+
+#- name: Registra la Imagen en Docker-Hub
+#run: |
+#docker login -u ${{ vars.GIT_USR }} -p ${{secrets.DOCKER_NISH_TTOKEN}}
+#docker push docker.io/${{ vars.GIT_USR }}/${{ vars.GCP_IMG_CANNONICAL }}:${{ vars.GCP_IMG_VER }}
+#docker tag docker.io/${{ vars.GIT_USR }}/${{ vars.GCP_IMG_CANNONICAL }}:${{ vars.GCP_IMG_VER }} us-central1-docker.pkg.dev/${{ vars.GCP_PROJECT_LAB }}/${{ vars.GCP_IMG_REPO }}/${{ vars.GCP_IMG_CANNONICAL }}:${{ vars.GCP_IMG_VER }}
+#- name: Autentica en GCP vía IAM
+#id: auth
+#uses: google-github-actions/auth@v2
+#with:
+#credentials_json: '${{secrets.GCP_CREDS}}'
+#- name: Prepara el ambiente de consola en GCP
+#uses: google-github-actions/setup-gcloud@v2
+#- name: Publica la Imagen en el Artifact Registry en GCP
+#run: gcloud auth configure-docker ${{ vars.GCP_ZONE }}-docker.pkg.dev
+#- name: Registra la Imagen al Artifact Registry en GCP desde el Docker-Hub
+#run: docker push ${{ vars.GCP_ZONE }}-docker.pkg.dev/${{ vars.GCP_PROJECT_LAB }}/${{ vars.GCP_IMG_REPO }}/${{ vars.GCP_IMG_CANNONICAL }}:${{ vars.GCP_IMG_VER }}
