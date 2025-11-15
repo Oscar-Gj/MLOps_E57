@@ -1,0 +1,33 @@
+name: Prepara el contenedor del modelo
+
+on:
+  workflow_dispatch:
+
+  push:
+    branches:
+      - main
+jobs:
+  build-container:
+    if: contains(github.event.head_commit.message, 'build-img-model-G57-predict-risk') # succeeded is about 7m-4s
+    runs-on: ubuntu-latest
+    steps:
+      - name: Gestión de la Imagen para el contenedor
+        uses: actions/checkout@v4
+      - name: Crea la imagen
+        run: docker build ./${{ vars.PROJECT_NAME }} -t docker.io/${{ vars.DOCKER_ACCT }}/${{ vars.IMG_CANONICAL }}:${{ vars.IMG_VER }}
+      - name: Registra la Imagen en Docker-Hub
+        run: |
+          docker login -u ${{ vars.DOCKER_ACCT }} -p ${{secrets.DOCKER_KEY}}
+          docker push docker.io/${{ vars.DOCKER_ACCT }}/${{ vars.IMG_CANONICAL }}:${{ vars.IMG_VER }}
+          docker tag docker.io/${{ vars.DOCKER_ACCT }}/${{ vars.IMG_CANONICAL }}:${{ vars.IMG_VER }} ${{ vars.GCP_ZONE }}-docker.pkg.dev/${{ vars.GCP_PROJECT_LAB }}/${{ vars.GCP_IMG_REPO }}/${{ vars.IMG_CANONICAL }}:${{ vars.IMG_VER }}
+      - name: Autentica en GCP vía IAM
+        id: auth
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: '${{secrets.GCP_CREDS}}'
+      - name: Prepara el ambiente de consola en GCP
+        uses: google-github-actions/setup-gcloud@v2
+      - name: Publica la Imagen en el Artifact Registry en GCP
+        run: gcloud auth configure-docker ${{ vars.GCP_ZONE }}-docker.pkg.dev
+      - name: Registra la Imagen al Artifact Registry en GCP desde el Docker-Hub
+        run: docker push ${{ vars.GCP_ZONE }}-docker.pkg.dev/${{ vars.GCP_PROJECT_LAB }}/${{ vars.GCP_IMG_REPO }}/${{ vars.IMG_CANONICAL }}:${{ vars.IMG_VER }}

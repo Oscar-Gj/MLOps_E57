@@ -48,7 +48,7 @@ tabulate>=0.9.0
 # =============================
 # Machine Learning y Modelado
 # =============================
-scikit-learn>=1.5.2
+scikit-learn==1.5.2
 xgboost>=2.1.2
 lightgbm>=4.5.0
 catboost>=1.2.8

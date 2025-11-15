@@ -1,0 +1,37 @@
+name: Despliega la Imagen en un Contenedor en GCP
+
+on:
+  workflow_dispatch:
+
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy-container-gcp:
+    if: contains(github.event.head_commit.message, 'deploy-node-model-G57-predict-risk')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Autenticación en GCP vía IAM
+        id: auth
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: '${{secrets.GCP_CREDS}}'
+      - name: Prepara el ambiente en la consola de GCP
+        uses: google-github-actions/setup-gcloud@v2
+      - name: Configura el Docker-Hub como el elemento para leer desde el Artifact Registry
+        run: gcloud auth configure-docker ${{ vars.GCP_ZONE }}-docker.pkg.dev
+      - name: Despliega la Imagen en un Contenedor en Cloud Run para el Predictor
+        uses: google-github-actions/deploy-cloudrun@v2
+        with:
+          service: ${{ vars.IMG_CANONICAL }}
+          region: ${{ vars.GCP_ZONE }}
+          image: ${{ vars.GCP_ZONE }}-docker.pkg.dev/${{ vars.GCP_PROJECT_LAB }}/${{ vars.GCP_IMG_REPO }}/${{ vars.IMG_CANONICAL }}:${{ vars.IMG_VER }}
+          flags: '--port ${{ vars.GCP_EXP_PORT }} --allow-unauthenticated'
+      - name: Despliega la Imagen en un Contenedor en Cloud Run para Streamlit
+        uses: google-github-actions/deploy-cloudrun@v2
+        with:
+          service: ${{ vars.IMG_CANONICAL }}-streamlit
+          region: ${{ vars.GCP_ZONE }}
+          image: ${{ vars.GCP_ZONE }}-docker.pkg.dev/${{ vars.GCP_PROJECT_LAB }}/${{ vars.GCP_IMG_REPO }}/${{ vars.IMG_CANONICAL }}:${{ vars.IMG_VER }}
+          flags: '--port ${{ vars.GCP_EXP_PORT_STREAMLIT  }} --allow-unauthenticated'
