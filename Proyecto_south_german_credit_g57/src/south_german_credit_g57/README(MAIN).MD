@@ -22,17 +22,17 @@ y su instalación automática solo la primera vez.
 -------------------------------------------------------------
 ARQUITECTURA DEL PIPELINE
 -------------------------------------------------------------
- ┌──────────────────┐
- │  clean_data.py   │  → Limpieza, imputación y validación de datos
- └────────▲─────────┘
-          │
+            ┌──────────────────┐
+            │  clean_data.py   │  → Limpieza, imputación y validación de datos
+            └────────▲─────────┘
+                     │
  metrics.py  ◄── main.py ───► pipeline.py
-          │
- ┌────────▼────────┐
- │ train_model_pip │  → Entrenamiento, validación y registro en MLflow
- └────────▲────────┘
-          │
-      logger.py
+                     │
+            ┌────────▼────────┐
+            │ train_model_pip │  → Entrenamiento, validación y registro en MLflow
+            └────────▲────────┘
+                     │
+                 logger.py
 
 -------------------------------------------------------------
 MODOS DE EJECUCIÓN
